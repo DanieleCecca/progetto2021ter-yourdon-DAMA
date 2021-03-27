@@ -59,7 +59,7 @@ Il nome del gruppo sarà usato per generare su GitHub Classroom il nome del repo
 ### Accettazione assignment e accesso al repository su GitHub
 Sarà necessario aspettare che il docente crei il team e il repository ad esso associato su GitHub.
 Una volta creato il team, riceverete via email un invito a farne parte che dovrete accettare. 
-Questo passo terminerà con successo se tutti i membri del gruppo potranno accedere al repository con URL ``` https://github.com/softeng2021-inf-uniba/<nome del gruppo> ```.
+Questo passo terminerà con successo se tutti i membri del gruppo potranno accedere al repository con URL ``` https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon ```.
 
 
 
@@ -157,7 +157,7 @@ Il colore e lo stato del badge potranno cambiare dopo ogni build, riflettendo lo
 Coveralls è un servizio web che aiuta a monitorare nel tempo la copertura del codice di un progetto ([code coverage](https://en.wikipedia.org/wiki/Code_coverage)) e a verificare che, di volta in volta, tutto il codice che si aggiunge sia adeguatamente coperto da casi di test.
 
 Per configurare Coveralls, collegarsi al [sito web del servizio](https://coveralls.io) ed effettuare il login tramite il proprio account GitHub. Nel menu a comparsa sulla sinistra, selezionare la voce **+ ADD REPOS**. 
-Il repository `SOFTENG2021-INF-UNIBA/<nome repository>` dovrebbe essere immediatamente visibile nella pagina. Qualora non lo fosse, digitare le prime lettere del nome nel campo di testo. Se così facendo ancora non fosse visibile, andare in fondo alla pagina e cliccare sul bottone **REFRESH PRIVATE REPOS**. 
+Il repository `SOFTENG2021-INF-UNIBA/progetto2021ter-yourdon` dovrebbe essere immediatamente visibile nella pagina. Qualora non lo fosse, digitare le prime lettere del nome nel campo di testo. Se così facendo ancora non fosse visibile, andare in fondo alla pagina e cliccare sul bottone **REFRESH PRIVATE REPOS**. 
 Quando la riga relativa al progetto compare, fare click sul tasto OFF per trasformarlo in ON, come mostrato in figura.
 
 ![](res/img/guida-studente/add_repo_coveralls.png)
