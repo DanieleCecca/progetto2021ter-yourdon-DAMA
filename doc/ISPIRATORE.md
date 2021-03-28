@@ -9,5 +9,5 @@ Edward Nash Yourdon (30 aprile 1944 - 20 gennaio 2016) è stato un ingegnere inf
 ## LAVORO
 È stato uno dei principali sviluppatori delle tecniche di analisi strutturata degli anni '70 e un co-sviluppatore del metodo Yourdon / Whitehead per l' analisi / progettazione orientata agli oggetti alla fine degli anni '80 e della metodologia Coad / Yourdon per l'analisi orientata agli oggetti / design negli anni '90. 
 
-## CUORIOSITÀ
+## CURIOSITÀ
 Durante la fine degli anni '90, è stato uno dei principali fautori della teoria che il " bug Y2K " potrebbe portare al collasso della civiltà, o almeno a una depressione economica prolungata e al crollo tecnologico su larga scala.
