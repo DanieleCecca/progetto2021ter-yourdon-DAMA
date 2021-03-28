@@ -1,6 +1,6 @@
 
 # Edward Nash Yourdon 
-![Image of Yourdon](https://upload.wikimedia.org/wikipedia/commons/9/9f/Yourdon%2CEdward%282008%29.jpg)
+![Image of Yourdon](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Yourdon%2C_Edward_%282008%29.jpg/220px-Yourdon%2C_Edward_%282008%29.jpg)
 
 
 ## BIOGRAFIA
