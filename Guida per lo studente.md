@@ -145,7 +145,7 @@ Per aggiungere il badge che riporta l'ultimo esito dell'esecuzione del workflow 
   ![Update_GitHub_badge_3](./res/img/guida-studente/Update_GitHub_badge_3.png)
 - La modifica del file Markdown `README.md`sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
 
-Il titolo del README.md dovrà apparire come nella seguente figura, con *Dama italiana* al posto di *scacchi*:
+Il titolo del README.md dovrà apparire come nella seguente figura:
 
 ![actions-badge](./res/img/guida-studente/actions-badge.png)
 
@@ -186,7 +186,7 @@ I passi per ottenere il badge di Coveralls sono i seguenti:
 - copiare il codice markdown per la richiesta del badge;
   ![CoverallsBadge_2](./res/img/guida-studente/CoverallsBadge_2.png)
 - La modifica del file Markdown `README.md`sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
-- Alla fine, il file `README.md` dovrà mostrare due badge, simili a quelli riportati nella figura sottostante, con *Dama italiana* al posto di *scacchi*:
+- Alla fine, il file `README.md` dovrà mostrare due badge, simili a quelli riportati nella figura sottostante:
 ![actions+coveralls-badges](./res/img/guida-studente/actions+coveralls-badges.png)
 
 #### Troubleshooting
