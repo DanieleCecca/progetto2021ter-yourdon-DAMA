@@ -51,6 +51,19 @@ public final class AppMain {
 			System.out.println("Application started.");
 		}
 
+		help();
 	}
 
+	static void help()
+	{
+		System.out.println("Benvenuto nel gioco di dama, realizzato dal gruppo yourdon.");
+		System.out.println("Ecco la lista dei comandi disponibili:");
+		System.out.println("- help\n" +
+				"- gioca\n" +
+				"- abbandona\n" +
+				"- esci\n" +
+				"- numeri\n" +
+				"- damiera\n" +
+				"- tempo");
+	}
 }
