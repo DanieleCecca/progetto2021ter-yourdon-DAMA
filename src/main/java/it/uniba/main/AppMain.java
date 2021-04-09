@@ -51,12 +51,25 @@ public final class AppMain {
 			System.out.println("Application started.");
 		}
 
-		help();
+
+		/* Questa parte di codice fà in modo che non vengano mostrati due help
+		nel caso l'applicazione venga avviata con i flag --help o -h */
+		int i = 0;
+		boolean flagHelp = false;
+		while (i < args.length && !flagHelp) {
+			if (args[i].equals("--help") || args[i].equals("-h")) {
+				help();
+				flagHelp = true;
+			}
+			i++;
+		}
+		if (!flagHelp)
+			help();
 	}
 
-	static void help()
-	{
-		System.out.println("Benvenuto nel gioco di dama, realizzato dal gruppo yourdon.");
+	//Metodo che mostra una lista dei comandi disponibili
+	static void help() {
+		System.out.println("\nBenvenuto nel gioco di dama, realizzato dal gruppo yourdon.");
 		System.out.println("Ecco la lista dei comandi disponibili:");
 		System.out.println("- help\n" +
 				"- gioca\n" +
