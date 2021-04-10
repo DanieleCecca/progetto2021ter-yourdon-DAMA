@@ -1,11 +1,6 @@
 package it.uniba.main;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.security.GeneralSecurityException;
-
-import it.uniba.sotorrent.GoogleDocsUtils;
+import it.uniba.dama.damiera;
 
 /**
  * The main class for the project. It must be customized to meet the project
@@ -50,7 +45,10 @@ public final class AppMain {
 			System.out.println("Using default language 'en'");
 			System.out.println("Application started.");
 		}
+		damiera tavolo;
+		tavolo = new damiera();
 
+		tavolo.stampaDamieraNumerata();
 
 		/* Questa parte di codice fà in modo che non vengano mostrati due help
 		nel caso l'applicazione venga avviata con i flag --help o -h */
@@ -79,4 +77,5 @@ public final class AppMain {
 				"- damiera\n" +
 				"- tempo");
 	}
+
 }
