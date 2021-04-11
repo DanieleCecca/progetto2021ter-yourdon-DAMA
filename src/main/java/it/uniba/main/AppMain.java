@@ -3,7 +3,12 @@ package it.uniba.main;
 import it.uniba.dama.damiera;
 
 import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.security.GeneralSecurityException;
 
+import it.uniba.sotorrent.GoogleDocsUtils;
 
 /**
  * The main class for the project. It must be customized to meet the project
