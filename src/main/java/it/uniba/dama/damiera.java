@@ -13,6 +13,33 @@ public class damiera {
                 damiera[i][j] = 0;
         }
     }
+
+    public void popolaDamiera() {
+        //inserisce pedine giocatore 1
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < DIM; j++) {
+                if (i % 2 == 0) {
+                    if (j % 2 == 0)
+                        damiera[i][j] = 1;
+                } else if (i % 2 != 0) {
+                    if (j % 2 != 0)
+                        damiera[i][j] = 1;
+                }
+            }
+        }
+        //inserisce pedine giocatore 2
+        for (int i = 5; i < DIM; i++) {
+            for (int j = 0; j < DIM; j++) {
+                if (i % 2 == 0) {
+                    if (j % 2 == 0)
+                        damiera[i][j] = 2;
+                } else if (i % 2 != 0) {
+                    if (j % 2 != 0)
+                        damiera[i][j] = 2;
+                }
+            }
+        }
+    }
     
     public void stampaDamieraNumerata() {
         int numero = 1;
