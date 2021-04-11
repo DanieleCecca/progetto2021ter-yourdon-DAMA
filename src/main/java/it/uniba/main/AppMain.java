@@ -54,9 +54,9 @@ public final class AppMain {
             System.out.println("Application started.");
         }
 
-		//Prova stampa di carattere Unicode
-		char d = '\u26C0';
-		System.out.println("Dama: "+ d);
+        //Prova stampa di carattere Unicode
+        char d = '\u26C0';
+        System.out.println("Dama: " + d);
 
 		/* Questa parte di codice fà in modo che non vengano mostrati due help
 		nel caso l'applicazione venga avviata con i flag --help o -h */
@@ -78,10 +78,11 @@ public final class AppMain {
         boolean esci = false;
         Scanner inputTastiera = new Scanner(System.in);
         while (!esci) {
-			System.out.println("Inserisci comando: ");
+            System.out.println("Inserisci comando: ");
             String comando = inputTastiera.nextLine();
 
             switch (comando) {
+
                 case "numeri":
                     tavolo.stampaDamieraNumerata();
                     break;
@@ -90,9 +91,11 @@ public final class AppMain {
                     System.out.println("Applicazione chiusa.");
                     esci = true;
                     break;
-				case "help":
-					help();
-					break;
+
+                case "help":
+                    help();
+                    break;
+
                 default:
                     System.out.println("Comando inesistente.");
                     break;

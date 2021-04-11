@@ -4,10 +4,16 @@ public class damiera {
 
     static final int DIM = 8;
 
+    private int[][] damiera = new int[DIM][DIM];
+
+
     public damiera() {
+        for (int i = 0; i < DIM; i++) {
+            for (int j = 0; j < DIM; j++)
+                damiera[i][j] = 0;
+        }
     }
-
-
+    
     public void stampaDamieraNumerata() {
         int numero = 1;
         System.out.println("Tavolo da gioco: ");
