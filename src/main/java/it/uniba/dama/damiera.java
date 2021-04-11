@@ -40,7 +40,27 @@ public class damiera {
             }
         }
     }
-    
+
+    public void stampaDamieraGioco() {
+        System.out.println("Tavolo da gioco: ");
+        for (int i = 0; i < DIM; i++) {
+            System.out.println("");
+            System.out.println("-----+----+----+----+----+----+----+-----");
+            for (int j = 0; j < DIM; j++) {
+                System.out.print("|");
+                if (damiera[i][j] == 1)
+                    System.out.print(" " + "\u26C0" + "\u202F ");
+                else if (damiera[i][j] == 2)
+                    System.out.print(" " + "\u26C2" + "\u202F ");
+                else {
+                    System.out.print("    ");
+                }
+            }
+            System.out.print("|");
+        }
+        System.out.print("\n");
+    }
+
     public void stampaDamieraNumerata() {
         int numero = 1;
         System.out.println("Tavolo da gioco: ");
