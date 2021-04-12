@@ -3,6 +3,9 @@ package it.uniba.main;
 import it.uniba.dama.damiera;
 
 import java.util.Scanner;
+
+import it.uniba.dama.partita;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -72,24 +75,32 @@ public final class AppMain {
         if (!flagHelp)
             help();
 
-        damiera tavolo;
-        tavolo = new damiera();
+
         //Questa parte permette l'inserimento di un comando valido da parte dell'utente
         boolean esci = false;
         Scanner inputTastiera = new Scanner(System.in);
+
+        partita incontro = new partita();
+
         while (!esci) {
-            System.out.println("Inserisci comando: ");
+            System.out.print("Inserisci comando: ");
             String comando = inputTastiera.nextLine();
 
             switch (comando) {
+                case "gioca":
+                    System.out.println("La partita è iniziata.");
+                    incontro.gioca();
+                    break;
 
                 case "damiera":
-                    tavolo.popolaDamiera();
-                    tavolo.stampaDamieraGioco();
+                    if (incontro.getinCorso() == true)
+                        incontro.getDamiera().stampaDamieraGioco();
+                    else
+                        System.out.println("La partita non è ancora iniziata. Inserisci il comando 'gioca' per iniziare una nuova partita.");
                     break;
 
                 case "numeri":
-                    tavolo.stampaDamieraNumerata();
+                    incontro.getDamiera().stampaDamieraNumerata();
                     break;
 
                 case "esci":
