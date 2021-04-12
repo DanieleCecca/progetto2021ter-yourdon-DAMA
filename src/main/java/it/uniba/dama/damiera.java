@@ -6,7 +6,6 @@ public class damiera {
 
     private int[][] damiera = new int[DIM][DIM];
 
-
     public damiera() {
         for (int i = 0; i < DIM; i++) {
             for (int j = 0; j < DIM; j++)
