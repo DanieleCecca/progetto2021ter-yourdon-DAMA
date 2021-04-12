@@ -88,6 +88,7 @@ public final class AppMain {
 
             switch (comando) {
                 case "gioca":
+                    System.out.println("La partita è iniziata.");
                     incontro.gioca();
                     break;
 
@@ -95,7 +96,7 @@ public final class AppMain {
                     if (incontro.getinCorso() == true)
                         incontro.getDamiera().stampaDamieraGioco();
                     else
-                        System.out.println("La partita non è ancora iniziata.");
+                        System.out.println("La partita non è ancora iniziata. Inserisci il comando 'gioca' per iniziare una nuova partita.");
                     break;
 
                 case "numeri":
