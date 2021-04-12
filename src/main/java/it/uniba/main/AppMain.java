@@ -82,7 +82,7 @@ public final class AppMain {
             String comando = inputTastiera.nextLine();
 
             switch (comando) {
-                
+
                 case "damiera":
                     tavolo.popolaDamiera();
                     tavolo.stampaDamieraGioco();

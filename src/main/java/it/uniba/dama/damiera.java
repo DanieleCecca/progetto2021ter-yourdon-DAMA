@@ -58,6 +58,8 @@ public class damiera {
             }
             System.out.print("|");
         }
+        System.out.println("");
+        System.out.println("-----+----+----+----+----+----+----+-----");
         System.out.print("\n");
     }
 
