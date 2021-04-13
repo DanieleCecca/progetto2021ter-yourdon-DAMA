@@ -21,6 +21,7 @@ import it.uniba.sotorrent.GoogleDocsUtils;
  */
 public final class AppMain {
 
+    public static boolean esci = false;
     /**
      * Private constructor. Change if needed.
      */
@@ -77,9 +78,7 @@ public final class AppMain {
 
 
         //Questa parte permette l'inserimento di un comando valido da parte dell'utente
-        boolean esci = false;
         Scanner inputTastiera = new Scanner(System.in);
-
         partita incontro = new partita();
 
         while (!esci) {
