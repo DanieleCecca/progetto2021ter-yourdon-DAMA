@@ -1,17 +1,8 @@
 package it.uniba.main;
 
-import it.uniba.dama.damiera;
-
 import java.util.Scanner;
 
 import it.uniba.dama.partita;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.security.GeneralSecurityException;
-
-import it.uniba.sotorrent.GoogleDocsUtils;
 
 /**
  * The main class for the project. It must be customized to meet the project
@@ -58,9 +49,6 @@ public final class AppMain {
             System.out.println("Application started.");
         }
 
-        //Prova stampa di carattere Unicode
-        char d = '\u26C0';
-        System.out.println("Dama: " + d);
 
 		/* Questa parte di codice fà in modo che non vengano mostrati due help
 		nel caso l'applicazione venga avviata con i flag --help o -h */
@@ -103,8 +91,7 @@ public final class AppMain {
                     break;
 
                 case "esci":
-                    System.out.println("Applicazione chiusa.");
-                    esci = true;
+                    esci();
                     break;
 
                 case "help":
@@ -130,6 +117,25 @@ public final class AppMain {
                 "- numeri\n" +
                 "- damiera\n" +
                 "- tempo");
+    }
+
+    public static void esci(){
+        Scanner inputTastiera = new Scanner(System.in);
+        String conferma;
+        do {
+            System.out.print("Sei sicuro di voler uscire dall'applicazione? (si/no) ");
+            conferma = inputTastiera.nextLine();
+            if (!conferma.equals("si") && !conferma.equals("no"))
+                System.out.println("Comando inesistente.");
+        } while (!conferma.equals("si") && !conferma.equals("no"));
+
+        if (conferma.equals("si")) {
+            System.out.println("Applicazione chiusa.");
+            esci = true;
+            System.exit(0);
+        }
+        else
+            esci = false;
     }
 
 }
