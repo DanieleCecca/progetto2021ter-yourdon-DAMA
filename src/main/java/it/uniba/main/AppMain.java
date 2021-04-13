@@ -97,6 +97,11 @@ public final class AppMain {
                     incontro.getDamiera().stampaDamieraNumerata();
                     break;
 
+                case "tempo":
+                    if (incontro.getinCorso() == false)
+                        System.out.println("La partita non è ancora iniziata. Inserisci il comando 'gioca' per iniziare una nuova partita.");
+                    break;
+
                 case "esci":
                     esci();
                     break;
@@ -110,7 +115,6 @@ public final class AppMain {
                     break;
             }
         }
-
     }
 
     //Metodo che mostra una lista dei comandi disponibili
@@ -144,5 +148,4 @@ public final class AppMain {
         else
             esci = false;
     }
-
 }

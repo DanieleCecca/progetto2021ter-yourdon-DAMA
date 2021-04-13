@@ -1,8 +1,8 @@
 package it.uniba.dama;
 
-import it.uniba.dama.giocatore;
-import it.uniba.dama.damiera;
 import it.uniba.main.AppMain;
+import it.uniba.utilita.cronometro;
+
 import java.util.Scanner;
 
 
@@ -12,6 +12,7 @@ public class partita {
     private damiera tavolo;
     private boolean inCorso;
     private String turno;
+    cronometro tempoIniziale;
 
     public partita() {
         tavolo = new damiera();
@@ -32,6 +33,8 @@ public class partita {
         tavolo.popolaDamiera();
         inCorso = true;
         turno = "bianco";
+
+        tempoIniziale = new cronometro();
 
         while (inCorso) {
             Scanner inputTastiera = new Scanner(System.in);
@@ -54,6 +57,10 @@ public class partita {
 
                 case "esci":
                     AppMain.esci();
+                    break;
+
+                case "tempo":
+                    tempo();
                     break;
 
                 default:
@@ -82,4 +89,8 @@ public class partita {
         }
     }
 
+    public void tempo() {
+        cronometro tempoCorrente = new cronometro();
+        cronometro.stampaTempoTrascorso(tempoIniziale.tempo, tempoCorrente.tempo);
+    }
 }
