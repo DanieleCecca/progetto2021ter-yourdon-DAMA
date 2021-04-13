@@ -33,7 +33,36 @@ public class partita {
         inCorso = true;
         turno = "bianco";
 
-        
+        while (inCorso) {
+            Scanner inputTastiera = new Scanner(System.in);
+            System.out.print("Inserisci comando: ");
+            String comando = inputTastiera.nextLine();
+
+            switch (comando) {
+
+                case "damiera":
+                    tavolo.stampaDamieraGioco();
+                    break;
+
+                case "numeri":
+                    tavolo.stampaDamieraNumerata();
+                    break;
+
+                case "abbandona":
+                    abbandona();
+                    break;
+
+                case "esci":
+                    System.out.println("Applicazione chiusa.");
+                    inCorso = false;
+                    AppMain.esci = true;
+                    break;
+
+                default:
+                    System.out.println("Comando inesistente.");
+                    break;
+            }
+        }
     }
 
     public void abbandona() {
