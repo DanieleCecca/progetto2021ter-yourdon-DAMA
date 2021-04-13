@@ -1,8 +1,15 @@
 package it.uniba.main;
 
-import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.security.GeneralSecurityException;
 
+import it.uniba.sotorrent.GoogleDocsUtils;
+
+import java.util.Scanner;
 import it.uniba.dama.partita;
+import it.uniba.dama.damiera;
 
 /**
  * The main class for the project. It must be customized to meet the project
