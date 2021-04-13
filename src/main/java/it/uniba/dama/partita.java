@@ -53,9 +53,7 @@ public class partita {
                     break;
 
                 case "esci":
-                    System.out.println("Applicazione chiusa.");
-                    inCorso = false;
-                    AppMain.esci = true;
+                    AppMain.esci();
                     break;
 
                 default:
