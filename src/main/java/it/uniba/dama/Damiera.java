@@ -1,12 +1,12 @@
 package it.uniba.dama;
 
-public class damiera {
+public class Damiera {
 
     static final int DIM = 8;
 
     private int[][] damiera = new int[DIM][DIM];
 
-    public damiera() {
+    public Damiera() {
         for (int i = 0; i < DIM; i++) {
             for (int j = 0; j < DIM; j++)
                 damiera[i][j] = 0;
