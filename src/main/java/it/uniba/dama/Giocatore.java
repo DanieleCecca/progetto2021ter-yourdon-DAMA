@@ -1,9 +1,9 @@
 package it.uniba.dama;
 
-public class giocatore {
+public class Giocatore {
     private String colore;
 
-    public giocatore(String colore) {
+    public Giocatore(String colore) {
         this.colore = colore;
     }
 
