@@ -1,49 +1,49 @@
 package it.uniba.dama;
 
 import it.uniba.main.AppMain;
-import it.uniba.utilita.cronometro;
+import it.uniba.utilita.Cronometro;
 
 import java.util.Scanner;
 
 
-public class partita {
-    private giocatore bianco;
-    private giocatore nero;
-    private damiera tavolo;
+public class Partita {
+    private Giocatore bianco;
+    private Giocatore nero;
+    private Damiera tavolo;
     private boolean inCorso;
     private String turno;
-    private cronometro tempoIniziale;
+    private Cronometro tempoIniziale;
 
-    public partita() {
-        tavolo = new damiera();
+    public Partita() {
+        tavolo = new Damiera();
         inCorso = false;
     }
 
-    public giocatore getBianco() {
+    public Giocatore getBianco() {
         return bianco;
     }
 
-    public void setBianco(giocatore bianco) {
+    public void setBianco(Giocatore bianco) {
         this.bianco = bianco;
     }
 
-    public giocatore getNero() {
+    public Giocatore getNero() {
         return nero;
     }
 
-    public void setNero(giocatore nero) {
+    public void setNero(Giocatore nero) {
         this.nero = nero;
     }
 
-    public damiera getTavolo() {
+    public Damiera getTavolo() {
         return tavolo;
     }
 
-    public void setTavolo(damiera tavolo) {
+    public void setTavolo(Damiera tavolo) {
         this.tavolo = tavolo;
     }
 
-    public boolean isInCorso() {
+    public boolean getInCorso() {
         return inCorso;
     }
 
@@ -59,22 +59,22 @@ public class partita {
         this.turno = turno;
     }
 
-    public cronometro getTempoIniziale() {
+    public Cronometro getTempoIniziale() {
         return tempoIniziale;
     }
 
-    public void setTempoIniziale(cronometro tempoIniziale) {
+    public void setTempoIniziale(Cronometro tempoIniziale) {
         this.tempoIniziale = tempoIniziale;
     }
 
     public void gioca() {
-        bianco = new giocatore("bianco");
-        nero = new giocatore("nero");
+        bianco = new Giocatore("bianco");
+        nero = new Giocatore("nero");
         tavolo.popolaDamiera();
         inCorso = true;
         turno = "bianco";
 
-        tempoIniziale = new cronometro();
+        tempoIniziale = new Cronometro();
 
         while (inCorso) {
             Scanner inputTastiera = new Scanner(System.in);
@@ -130,7 +130,7 @@ public class partita {
     }
 
     public void tempo() {
-        cronometro tempoCorrente = new cronometro();
-        cronometro.stampaTempoTrascorso(tempoIniziale.getTempo(), tempoCorrente.getTempo());
+        Cronometro tempoCorrente = new Cronometro();
+        Cronometro.stampaTempoTrascorso(tempoIniziale.getTempo(), tempoCorrente.getTempo());
     }
 }
