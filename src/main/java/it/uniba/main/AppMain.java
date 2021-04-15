@@ -8,8 +8,8 @@ import java.security.GeneralSecurityException;
 import it.uniba.sotorrent.GoogleDocsUtils;
 
 import java.util.Scanner;
-import it.uniba.dama.partita;
-import it.uniba.dama.damiera;
+import it.uniba.dama.Partita;
+import it.uniba.dama.Damiera;
 
 /**
  * The main class for the project. It must be customized to meet the project
@@ -74,7 +74,7 @@ public final class AppMain {
 
         //Questa parte permette l'inserimento di un comando valido da parte dell'utente
         Scanner inputTastiera = new Scanner(System.in);
-        partita incontro = new partita();
+        Partita incontro = new Partita();
 
         while (!esci) {
             System.out.print("Inserisci comando: ");
@@ -87,18 +87,18 @@ public final class AppMain {
                     break;
 
                 case "damiera":
-                    if (incontro.getinCorso() == true)
-                        incontro.getDamiera().stampaDamieraGioco();
+                    if (incontro.getInCorso() == true)
+                        incontro.getTavolo().stampaDamieraGioco();
                     else
                         System.out.println("La partita non è ancora iniziata. Inserisci il comando 'gioca' per iniziare una nuova partita.");
                     break;
 
                 case "numeri":
-                    incontro.getDamiera().stampaDamieraNumerata();
+                    incontro.getTavolo().stampaDamieraNumerata();
                     break;
 
                 case "tempo":
-                    if (incontro.getinCorso() == false)
+                    if (incontro.getInCorso() == false)
                         System.out.println("La partita non è ancora iniziata. Inserisci il comando 'gioca' per iniziare una nuova partita.");
                     break;
 
