@@ -6,4 +6,12 @@ public class giocatore {
     public giocatore(String colore) {
         this.colore = colore;
     }
+
+    public String getColore() {
+        return colore;
+    }
+
+    public void setColore(String colore) {
+        this.colore = colore;
+    }
 }
