@@ -12,19 +12,59 @@ public class partita {
     private damiera tavolo;
     private boolean inCorso;
     private String turno;
-    cronometro tempoIniziale;
+    private cronometro tempoIniziale;
 
     public partita() {
         tavolo = new damiera();
         inCorso = false;
     }
 
-    public damiera getDamiera() {
+    public giocatore getBianco() {
+        return bianco;
+    }
+
+    public void setBianco(giocatore bianco) {
+        this.bianco = bianco;
+    }
+
+    public giocatore getNero() {
+        return nero;
+    }
+
+    public void setNero(giocatore nero) {
+        this.nero = nero;
+    }
+
+    public damiera getTavolo() {
         return tavolo;
     }
 
-    public boolean getinCorso() {
+    public void setTavolo(damiera tavolo) {
+        this.tavolo = tavolo;
+    }
+
+    public boolean isInCorso() {
         return inCorso;
+    }
+
+    public void setInCorso(boolean inCorso) {
+        this.inCorso = inCorso;
+    }
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
+    }
+
+    public cronometro getTempoIniziale() {
+        return tempoIniziale;
+    }
+
+    public void setTempoIniziale(cronometro tempoIniziale) {
+        this.tempoIniziale = tempoIniziale;
     }
 
     public void gioca() {
@@ -91,6 +131,6 @@ public class partita {
 
     public void tempo() {
         cronometro tempoCorrente = new cronometro();
-        cronometro.stampaTempoTrascorso(tempoIniziale.tempo, tempoCorrente.tempo);
+        cronometro.stampaTempoTrascorso(tempoIniziale.getTempo(), tempoCorrente.getTempo());
     }
 }

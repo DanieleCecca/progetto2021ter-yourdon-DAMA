@@ -4,12 +4,28 @@ import java.util.Date;
 import java.sql.Timestamp;
 
 public class cronometro {
-    Date date;
-    public Timestamp tempo;
+    private Date date;
+    private Timestamp tempo;
 
     public cronometro() {
         date = new Date();
         tempo = new Timestamp(date.getTime());
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Timestamp getTempo() {
+        return tempo;
+    }
+
+    public void setTempo(Timestamp tempo) {
+        this.tempo = tempo;
     }
 
     public static void stampaTempoTrascorso(Timestamp tempoIniziale, Timestamp tempoAttuale) {
