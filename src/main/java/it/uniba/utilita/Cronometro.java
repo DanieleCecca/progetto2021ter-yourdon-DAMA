@@ -3,11 +3,11 @@ package it.uniba.utilita;
 import java.util.Date;
 import java.sql.Timestamp;
 
-public class cronometro {
+public class Cronometro {
     private Date date;
     private Timestamp tempo;
 
-    public cronometro() {
+    public Cronometro() {
         date = new Date();
         tempo = new Timestamp(date.getTime());
     }
