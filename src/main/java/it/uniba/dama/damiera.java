@@ -13,6 +13,14 @@ public class damiera {
         }
     }
 
+    public int[][] getDamiera() {
+        return damiera;
+    }
+
+    public void setDamiera(int[][] damiera) {
+        this.damiera = damiera;
+    }
+
     public void popolaDamiera() {
         //inserisce pedine giocatore 1
         for (int i = 0; i < 3; i++) {
