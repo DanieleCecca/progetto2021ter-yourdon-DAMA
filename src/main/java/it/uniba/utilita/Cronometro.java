@@ -1,41 +1,47 @@
 package it.uniba.utilita;
 
-import java.util.Date;
-import java.sql.Timestamp;
+public class Cronometro extends Thread {
+    private int secondi = 0;
+    private boolean continua = true;
 
-public class Cronometro {
-    private Date date;
-    private Timestamp tempo;
-
-    public Cronometro() {
-        date = new Date();
-        tempo = new Timestamp(date.getTime());
+    public Cronometro(int tempoPrecedente) {
+        secondi = tempoPrecedente;
     }
 
-    public Date getDate() {
-        return date;
+    public int getSecondi() {
+        return secondi;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setSecondi(int secondi) {
+        this.secondi = secondi;
     }
 
-    public Timestamp getTempo() {
-        return tempo;
+    public boolean getContinua() {
+        return continua;
     }
 
-    public void setTempo(Timestamp tempo) {
-        this.tempo = tempo;
+    public void setContinua(boolean continua) {
+        this.continua = continua;
     }
 
-    public static void stampaTempoTrascorso(Timestamp tempoIniziale, Timestamp tempoAttuale) {
-        long millisecondi = tempoAttuale.getTime() - tempoIniziale.getTime();
-        int secondi = (int) millisecondi / 1000;
+    public void run() {
+        try {
+            while (continua) {
+                Thread.sleep(1000);
+                secondi++;
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
-        int ore = secondi / 3600;
-        int minuti = (secondi % 3600) / 60;
+    public void stampaTempoTrascorso() {
+        int secondi, minuti, ore;
+
+        secondi = this.secondi;
+        ore = secondi / 3600;
+        minuti = (secondi % 3600) / 60;
         secondi = (secondi % 3600) % 60;
-
-        System.out.println("Sono passate " + ore + " h " + minuti + " min " + secondi + " sec ");
+        System.out.println(ore + " h " + minuti + " min " + secondi + " sec ");
     }
 }

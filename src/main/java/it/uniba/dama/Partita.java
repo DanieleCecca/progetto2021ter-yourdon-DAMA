@@ -1,7 +1,10 @@
 package it.uniba.dama;
 
+
 import it.uniba.main.AppMain;
+import it.uniba.utilita.Comandi;
 import it.uniba.utilita.Cronometro;
+import jdk.tools.jlink.internal.plugins.SystemModulesPlugin;
 
 import java.util.Scanner;
 
@@ -74,7 +77,7 @@ public class Partita {
         inCorso = true;
         turno = "bianco";
 
-        tempoIniziale = new Cronometro();
+        bianco.getCronometro().start();
 
         while (inCorso) {
             Scanner inputTastiera = new Scanner(System.in);
@@ -82,6 +85,10 @@ public class Partita {
             String comando = inputTastiera.nextLine();
 
             switch (comando) {
+                case "help":
+                    Comandi.helpPartita();
+                    break;
+
                 case "damiera":
                     tavolo.stampaDamieraGioco();
                     break;
@@ -102,8 +109,9 @@ public class Partita {
                     tempo();
                     break;
 
-                case "spostamento":
-                    String spostamento = acquisizioneSpostamento();
+                case "gioca":
+                    System.out.println("La partita e' gia iniziata.");
+                    break;
 
                 default:
                     System.out.println("Comando inesistente.");
@@ -112,12 +120,6 @@ public class Partita {
         }
     }
 
-    private String acquisizioneSpostamento () {
-        Scanner inputTastiera = new Scanner(System.in);
-        System.out.print("Inserisci comando: ");
-        String spostamento = inputTastiera.nextLine();
-        return spostamento;
-    }
 
     public void abbandona() {
         Scanner inputTastiera = new Scanner(System.in);
@@ -139,7 +141,31 @@ public class Partita {
     }
 
     public void tempo() {
-        Cronometro tempoCorrente = new Cronometro();
-        Cronometro.stampaTempoTrascorso(tempoIniziale.getTempo(), tempoCorrente.getTempo());
+        System.out.println("\nTempo giocatore bianco: ");
+        bianco.getCronometro().stampaTempoTrascorso();
+
+        System.out.println("Tempo giocatore nero: ");
+        nero.getCronometro().stampaTempoTrascorso();
+
     }
+
+    /*if(turno.equals("bianco")){
+        turno = "nero";
+
+        bianco.cronometro.continua = false;
+        bianco.tempoPrecedente = bianco.cronometro.secondi;
+
+        nero.cronometro = new Cronometro(nero.tempoPrecedente);
+        nero.cronometro.start();
+
+    }
+    else {
+        turno = "bianco";
+
+        nero.cronometro.continua = false;
+        nero.tempoPrecedente = nero.cronometro.secondi;
+
+        bianco.cronometro = new Cronometro(bianco.tempoPrecedente);
+        bianco.cronometro.start();
+    }*/
 }
