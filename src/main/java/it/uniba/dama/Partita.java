@@ -82,7 +82,6 @@ public class Partita {
             String comando = inputTastiera.nextLine();
 
             switch (comando) {
-
                 case "damiera":
                     tavolo.stampaDamieraGioco();
                     break;
@@ -103,11 +102,21 @@ public class Partita {
                     tempo();
                     break;
 
+                case "spostamento":
+                    String spostamento = acquisizioneSpostamento();
+
                 default:
                     System.out.println("Comando inesistente.");
                     break;
             }
         }
+    }
+
+    private String acquisizioneSpostamento () {
+        Scanner inputTastiera = new Scanner(System.in);
+        System.out.print("Inserisci comando: ");
+        String spostamento = inputTastiera.nextLine();
+        return spostamento;
     }
 
     public void abbandona() {
