@@ -1,6 +1,7 @@
 package it.uniba.dama;
 
 import it.uniba.utilita.Costanti;
+import it.uniba.dama.Casella;
 
 public class Damiera {
 
@@ -15,6 +16,8 @@ public class Damiera {
                     damiera[i][j].setNumeroCasella(numeroCasella);
                     numeroCasella++;
                 }
+                damiera[i][j].getCordinate().setX(i);
+                damiera[i][j].getCordinate().setY(j);
             }
         }
     }
@@ -34,9 +37,7 @@ public class Damiera {
                 if (i % 2 == 0 && j % 2 == 0) {
                     damiera[i][j].setPedina(Costanti.PEDINA_NERA);
                     damiera[i][j].setOccupato(true);
-                }
-
-                else if (i % 2 != 0 && j % 2 != 0) {
+                } else if (i % 2 != 0 && j % 2 != 0) {
                     damiera[i][j].setPedina(Costanti.PEDINA_NERA);
                     damiera[i][j].setOccupato(true);
                 }
@@ -48,9 +49,7 @@ public class Damiera {
                 if (i % 2 == 0 && j % 2 == 0) {
                     damiera[i][j].setPedina(Costanti.PEDINA_BIANCA);
                     damiera[i][j].setOccupato(true);
-                }
-
-                else if (i % 2 != 0 && j % 2 != 0) {
+                } else if (i % 2 != 0 && j % 2 != 0) {
                     damiera[i][j].setPedina(Costanti.PEDINA_BIANCA);
                     damiera[i][j].setOccupato(true);
                 }
@@ -127,8 +126,48 @@ public class Damiera {
         System.out.println("-----+----+----+----+----+----+----+-----");
     }
 
-    /*public void mossa(Damiera tavolo, Giocatore giocatore, String spostamento) {
+    public Casella ricercaCasella(int posizione) {
+        for (int i = 0; i < Costanti.DIM; i++) {
+            for (int j = 0; j < Costanti.DIM; j++) {
+                if (damiera[i][j].getNumeroCasella() == posizione)
+                    return damiera[i][j];
+            }
+        }
+        return null;
+    }
 
-        return tavolo;
-    }*/
+
+    public boolean spostamentoSemplice(Giocatore giocatore, String spostamento) {
+        boolean spostamentoEseguito= false;
+
+        int primaPosizione = Integer.parseInt(spostamento.substring((0), spostamento.indexOf('-')));
+        int secondaPosizione = Integer.parseInt(spostamento.substring(spostamento.indexOf('-') + 1));
+
+
+        Casella primaCasella = ricercaCasella(primaPosizione);
+        Casella secondaCasella = ricercaCasella(secondaPosizione);
+        if (primaCasella.getOccupato() == true) {
+            if (primaCasella.getPedina().getColore() == giocatore.getColore()) {
+                if (((secondaCasella.getCordinate().getX() == (primaCasella.getCordinate().getX() + 1) && giocatore.getColore().equals("nero")) || (secondaCasella.getCordinate().getX() == (primaCasella.getCordinate().getX() - 1)) && giocatore.getColore().equals("bianco")) && (secondaCasella.getCordinate().getY() == (primaCasella.getCordinate().getY() + 1) || secondaCasella.getCordinate().getY() == (primaCasella.getCordinate().getY() - 1))) {
+                    if (secondaCasella.getOccupato() == false) {
+                        primaCasella.setOccupato(secondaCasella.getOccupato());
+                        secondaCasella.setPedina(primaCasella.getPedina());
+                        secondaCasella.setOccupato(true);
+                        spostamentoEseguito= true;
+
+                    } else {
+                        System.out.println("La casella è già occupata");
+                    }
+                } else {
+                    System.out.println("Mossa non valida");
+                }
+            } else {
+                System.out.println("La pedina appartiene all'altro giocatore");
+            }
+        } else {
+            System.out.println("La casella è vuota");
+        }
+        return spostamentoEseguito;
+    }
+
 }
