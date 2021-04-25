@@ -4,9 +4,10 @@ package it.uniba.dama;
 import it.uniba.main.AppMain;
 import it.uniba.utilita.Comandi;
 import it.uniba.utilita.Cronometro;
-import jdk.tools.jlink.internal.plugins.SystemModulesPlugin;
+
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 
 public class Partita {
@@ -70,6 +71,15 @@ public class Partita {
         this.tempoIniziale = tempoIniziale;
     }
 
+    private void cambiaTurno() {
+        if (turno.equals("bianco")) {
+            setTurno("nero");
+        } else {
+            setTurno("bianco");
+        }
+        System.out.println("Turno del giocatore: " + turno );
+    }
+
     public void gioca() {
         bianco = new Giocatore("bianco");
         nero = new Giocatore("nero");
@@ -84,42 +94,75 @@ public class Partita {
             System.out.print("Inserisci comando: ");
             String comando = inputTastiera.nextLine();
 
-            switch (comando) {
-                case "help":
-                    Comandi.helpPartita();
-                    break;
+            if (controlloSintassiCorretta(comando)) {
+                boolean spostamentoEseguito;
+                if (turno.equals("bianco")) {
+                    spostamentoEseguito=tavolo.spostamentoSemplice(bianco, comando);
+                } else {
+                    spostamentoEseguito=tavolo.spostamentoSemplice(nero, comando);
+                }
+                if(spostamentoEseguito){
+                    cambiaTurno();
+                }
 
-                case "damiera":
-                    tavolo.stampaDamieraGioco();
-                    break;
 
-                case "numeri":
-                    tavolo.stampaDamieraNumerata();
-                    break;
 
-                case "abbandona":
-                    abbandona();
-                    break;
+            } else {
+                switch (comando) {
+                    case "help":
+                        Comandi.helpPartita();
+                        break;
 
-                case "esci":
-                    AppMain.esci();
-                    break;
+                    case "damiera":
+                        tavolo.stampaDamieraGioco();
+                        break;
 
-                case "tempo":
-                    tempo();
-                    break;
+                    case "numeri":
+                        tavolo.stampaDamieraNumerata();
+                        break;
 
-                case "gioca":
-                    System.out.println("La partita e' gia iniziata.");
-                    break;
+                    case "abbandona":
+                        abbandona();
+                        break;
 
-                default:
-                    System.out.println("Comando inesistente.");
-                    break;
+                    case "esci":
+                        AppMain.esci();
+                        break;
+
+                    case "tempo":
+                        tempo();
+                        break;
+
+                    case "gioca":
+                        System.out.println("La partita e' gia iniziata.");
+                        break;
+
+                    default:
+                        System.out.println("Comando inesistente.");
+                        break;
+                }
             }
         }
+
     }
 
+    private boolean controlloSintassiCorretta(String comando) {
+        //comando = comando.trim();
+        boolean corretto = false;
+        comando = comando.replaceAll("\\s", "");
+
+        try {
+            String primaParteComando = comando.substring(0, comando.indexOf('-'));
+            String secondaParteComando = comando.substring(comando.indexOf('-') + 1);
+            Pattern pattern = Pattern.compile("\\b(0?[1-9]|[1-2][0-9]|3[0-2])\\b");
+
+            if (primaParteComando.matches(pattern.pattern()) && secondaParteComando.matches(pattern.pattern())) {
+                corretto = true;
+            }
+        } catch (Exception eccezioneSpostamento) {
+        }
+        return corretto;
+    }
 
     public void abbandona() {
         Scanner inputTastiera = new Scanner(System.in);
