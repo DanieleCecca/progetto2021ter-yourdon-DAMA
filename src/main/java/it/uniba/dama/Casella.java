@@ -6,11 +6,12 @@ public class Casella {
     private int numeroCasella;
     private Coordinate coordinate;
 
-    public Coordinate getCordinate() {
+    public Coordinate getCoordinate() {
         return coordinate;
+
     }
 
-    public void setCordinate(Coordinate coordinate) {
+    public void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
     }
 
@@ -48,7 +49,8 @@ public class Casella {
     }
 }
 
- class Coordinate {
+ class
+ Coordinate {
     private int x;
     private int y;
 
