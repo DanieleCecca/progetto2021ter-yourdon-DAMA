@@ -140,6 +140,8 @@ public class Damiera {
     public boolean spostamentoSemplice(Giocatore giocatore, String spostamento) {
         boolean spostamentoEseguito= false;
 
+        spostamento = spostamento.replaceAll("\\s", "");
+
         int primaPosizione = Integer.parseInt(spostamento.substring((0), spostamento.indexOf('-')));
         int secondaPosizione = Integer.parseInt(spostamento.substring(spostamento.indexOf('-') + 1));
 
