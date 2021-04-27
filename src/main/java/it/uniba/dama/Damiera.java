@@ -138,7 +138,7 @@ public class Damiera {
 
 
     public boolean spostamentoSemplice(Giocatore giocatore, String spostamento) {
-        boolean spostamentoEseguito= false;
+        boolean spostamentoEseguito = false;
 
         spostamento = spostamento.replaceAll("\\s", "");
 
@@ -155,7 +155,7 @@ public class Damiera {
                         primaCasella.setOccupato(secondaCasella.getOccupato());
                         secondaCasella.setPedina(primaCasella.getPedina());
                         secondaCasella.setOccupato(true);
-                        spostamentoEseguito= true;
+                        spostamentoEseguito = true;
 
                     } else {
                         System.out.println("La casella è già occupata");
@@ -172,4 +172,66 @@ public class Damiera {
         return spostamentoEseguito;
     }
 
+    public boolean presaSemplice(Giocatore giocatore, String spostamento) {
+        boolean spostamentoEseguito = false;
+
+        spostamento = spostamento.replaceAll("\\s", "");
+
+        int primaPosizione = Integer.parseInt(spostamento.substring((0), spostamento.indexOf('x')));
+        int terzaPosizione = Integer.parseInt(spostamento.substring(spostamento.indexOf('x') + 1));
+
+        Casella primaCasella = ricercaCasella(primaPosizione);
+        Casella secondaCasella = new Casella();
+        Casella terzaCasella = ricercaCasella(terzaPosizione);
+
+        //Il giocatore nero effettua la presa verso destra o sinistra
+        if(giocatore.getColore().equals("nero")) {
+            if(terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() + 2))
+                secondaCasella = damiera[primaCasella.getCoordinate().getX() + 1][primaCasella.getCoordinate().getY() + 1];
+
+            else if(terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() - 2))
+                secondaCasella = damiera[primaCasella.getCoordinate().getX() + 1][primaCasella.getCoordinate().getY() - 1];
+        }
+        //Il giocatore bianco effettua la presa verso sinistra o destra
+        if (giocatore.getColore().equals("bianco")) {
+            if(terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() - 2))
+                secondaCasella = damiera[primaCasella.getCoordinate().getX() - 1][primaCasella.getCoordinate().getY() - 1];
+
+            else if(terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() + 2))
+                secondaCasella = damiera[primaCasella.getCoordinate().getX() - 1][primaCasella.getCoordinate().getY() + 1];
+        }
+
+
+
+        if (primaCasella.getOccupato() == true) {
+            if (primaCasella.getPedina().getColore() == giocatore.getColore()) {
+                if (((terzaCasella.getCoordinate().getX() == (primaCasella.getCoordinate().getX() + 2) && giocatore.getColore().equals("nero")) || (terzaCasella.getCoordinate().getX() == (primaCasella.getCoordinate().getX() - 2)) && giocatore.getColore().equals("bianco")) && (terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() + 2) || terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() - 2))) {
+                    if (terzaCasella.getOccupato() == false) {
+                        if (secondaCasella.getPedina().getColore() != giocatore.getColore()) {
+                            secondaCasella.setOccupato(false);
+                            //Cancellare anche simbolo e colore?
+                            //Da inserire funzione che aggiorna il numero di pedine prese
+                            primaCasella.setOccupato(false);
+                            terzaCasella.setPedina(primaCasella.getPedina());
+                            terzaCasella.setOccupato(true);
+                            spostamentoEseguito = true;
+                        }
+                        else {
+                            System.out.println("La pedina è tua,non puoi mangiarla!");
+                        }
+                    } else {
+                        System.out.println("La casella è già occupata");
+                    }
+                } else {
+                    System.out.println("Mossa non valida");
+                }
+
+            } else {
+                System.out.println("La pedina appartiene all'altro giocatore");
+            }
+        } else {
+            System.out.println("La casella è vuota");
+        }
+        return spostamentoEseguito;
+    }
 }
