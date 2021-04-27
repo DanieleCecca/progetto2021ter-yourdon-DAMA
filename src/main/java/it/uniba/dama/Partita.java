@@ -90,6 +90,7 @@ public class Partita {
         bianco.getCronometro().start();
 
         while (inCorso) {
+
             Scanner inputTastiera = new Scanner(System.in);
             System.out.print("Inserisci comando: ");
             String comando = inputTastiera.nextLine();
@@ -104,10 +105,19 @@ public class Partita {
                 if(spostamentoEseguito){
                     cambiaTurno();
                 }
-
-
-
-            } else {
+            }
+            else if (controlloSintassiCorretta2(comando)) {
+                boolean spostamentoEseguito;
+                if (turno.equals("bianco")) {
+                    spostamentoEseguito=tavolo.presaSemplice(bianco, comando);
+                } else {
+                    spostamentoEseguito=tavolo.presaSemplice(nero, comando);
+                }
+                if(spostamentoEseguito){
+                    cambiaTurno();
+                }
+            }
+            else {
                 switch (comando) {
                     case "help":
                         Comandi.helpPartita();
@@ -154,6 +164,23 @@ public class Partita {
         try {
             String primaParteComando = comando.substring(0, comando.indexOf('-'));
             String secondaParteComando = comando.substring(comando.indexOf('-') + 1);
+            Pattern pattern = Pattern.compile("\\b(0?[1-9]|[1-2][0-9]|3[0-2])\\b");
+
+            if (primaParteComando.matches(pattern.pattern()) && secondaParteComando.matches(pattern.pattern())) {
+                corretto = true;
+            }
+        } catch (Exception eccezioneSpostamento) {
+        }
+        return corretto;
+    }
+    private boolean controlloSintassiCorretta2(String comando) {
+        //comando = comando.trim();
+        boolean corretto = false;
+        comando = comando.replaceAll("\\s", "");
+
+        try {
+            String primaParteComando = comando.substring(0, comando.indexOf('x'));
+            String secondaParteComando = comando.substring(comando.indexOf('x') + 1);
             Pattern pattern = Pattern.compile("\\b(0?[1-9]|[1-2][0-9]|3[0-2])\\b");
 
             if (primaParteComando.matches(pattern.pattern()) && secondaParteComando.matches(pattern.pattern())) {
