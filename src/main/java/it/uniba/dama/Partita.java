@@ -4,7 +4,7 @@ package it.uniba.dama;
 import it.uniba.main.AppMain;
 import it.uniba.utilita.Comandi;
 import it.uniba.utilita.Cronometro;
-
+import it.uniba.utilita.Costanti;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -95,7 +95,7 @@ public class Partita {
             System.out.print("Inserisci comando: ");
             String comando = inputTastiera.nextLine();
 
-            if (controlloSintassiCorretta(comando)) {
+            if (controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO)) {
                 boolean spostamentoEseguito;
                 if (turno.equals("bianco")) {
                     spostamentoEseguito=tavolo.spostamentoSemplice(bianco, comando);
@@ -106,7 +106,7 @@ public class Partita {
                     cambiaTurno();
                 }
             }
-            else if (controlloSintassiCorretta2(comando)) {
+            else if (controlloSintassi(comando, Costanti.PATTERN_PRESA)) {
                 boolean spostamentoEseguito;
                 if (turno.equals("bianco")) {
                     spostamentoEseguito=tavolo.presaSemplice(bianco, comando);
@@ -156,40 +156,22 @@ public class Partita {
 
     }
 
-    private boolean controlloSintassiCorretta(String comando) {
+    private boolean controlloSintassi(String comando,final String stringa) {
         //comando = comando.trim();
         boolean corretto = false;
         comando = comando.replaceAll("\\s", "");
 
         try {
-            String primaParteComando = comando.substring(0, comando.indexOf('-'));
-            String secondaParteComando = comando.substring(comando.indexOf('-') + 1);
-            Pattern pattern = Pattern.compile("\\b(0?[1-9]|[1-2][0-9]|3[0-2])\\b");
+            Pattern pattern = Pattern.compile(stringa);
 
-            if (primaParteComando.matches(pattern.pattern()) && secondaParteComando.matches(pattern.pattern())) {
+            if (comando.matches(pattern.pattern())) {
                 corretto = true;
             }
         } catch (Exception eccezioneSpostamento) {
         }
         return corretto;
     }
-    private boolean controlloSintassiCorretta2(String comando) {
-        //comando = comando.trim();
-        boolean corretto = false;
-        comando = comando.replaceAll("\\s", "");
 
-        try {
-            String primaParteComando = comando.substring(0, comando.indexOf('x'));
-            String secondaParteComando = comando.substring(comando.indexOf('x') + 1);
-            Pattern pattern = Pattern.compile("\\b(0?[1-9]|[1-2][0-9]|3[0-2])\\b");
-
-            if (primaParteComando.matches(pattern.pattern()) && secondaParteComando.matches(pattern.pattern())) {
-                corretto = true;
-            }
-        } catch (Exception eccezioneSpostamento) {
-        }
-        return corretto;
-    }
 
     public void abbandona() {
         Scanner inputTastiera = new Scanner(System.in);
