@@ -14,8 +14,9 @@ public class Costanti {
     public static final String UNICODE_PEDINA_NERA = "\u26C0";
     public static final String UNICODE_DAMA_BIANCA = "\u26C1";
     public static final String UNICODE_DAMA_NERA = "\u26C3";
-
     public static final String SPAZIO_CORTO = "\u202F";
 
+    public static final String PATTERN_SPOSTAMENTO = "(0?[1-9]|[1-2][0-9]|3[0-2])(-)(0?[1-9]|[1-2][0-9]|3[0-2])";
+    public static final String PATTERN_PRESA = "(0?[1-9]|[1-2][0-9]|3[0-2])((x)(0?[1-9]|[1-2][0-9]|3[0-2]))*";
     public static final int DIM = 8;
 }
