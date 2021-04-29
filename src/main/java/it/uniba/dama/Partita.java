@@ -83,6 +83,7 @@ public class Partita {
     public void gioca() {
         bianco = new Giocatore("bianco");
         nero = new Giocatore("nero");
+        tavolo = new Damiera();
         tavolo.popolaDamiera();
         inCorso = true;
         turno = "bianco";
@@ -113,7 +114,18 @@ public class Partita {
                 } else {
                     spostamentoEseguito=tavolo.presaSemplice(nero, comando);
                 }
-                if(spostamentoEseguito){
+                if(spostamentoEseguito) {
+                    cambiaTurno();
+                }
+            }
+            else if (controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA)) {
+                boolean spostamentoEseguito;
+                if (turno.equals("bianco")) {
+                    spostamentoEseguito=tavolo.presaMultipla(bianco, comando);
+                } else {
+                    spostamentoEseguito=tavolo.presaMultipla(nero, comando);
+                }
+                if(spostamentoEseguito) {
                     cambiaTurno();
                 }
             }
