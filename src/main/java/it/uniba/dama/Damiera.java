@@ -251,6 +251,53 @@ public class Damiera {
         return spostamentoEseguito;
     }
 
+    public boolean presaMultipla(Giocatore giocatore, String spostamento) {
+        Damiera provaDamiera = new Damiera(this);
 
+        boolean esito = true;
+        int occonrenze = 0;
+        int posizioneCorrente = 0;
+        int posizioneSuccessiva = spostamento.indexOf("x");
+        String sottoComando = "";
+
+        for (int i = 0; i < spostamento.length(); i++) {
+            if (spostamento.charAt(i) == 'x') {
+                occonrenze++;
+            }
+        }
+
+        for (int i = 0; i < occonrenze; i++) {
+            if (i < occonrenze - 1) {
+                posizioneSuccessiva = spostamento.indexOf("x", posizioneSuccessiva + 1);
+                sottoComando = spostamento.substring(posizioneCorrente, posizioneSuccessiva);
+                posizioneCorrente = spostamento.indexOf("x", posizioneCorrente + 1) + 1;
+            } else {
+                sottoComando = spostamento.substring(posizioneCorrente);
+            }
+
+            if (provaDamiera.presaSemplice(giocatore, sottoComando) == false) {
+                esito = false;
+                break;
+            }
+        }
+
+        if (esito) {
+            posizioneCorrente = 0;
+            posizioneSuccessiva = spostamento.indexOf("x");
+            for (int i = 0; i < occonrenze; i++) {
+                if (i < occonrenze - 1) {
+                    posizioneSuccessiva = spostamento.indexOf("x", posizioneSuccessiva + 1);
+                    sottoComando = spostamento.substring(posizioneCorrente, posizioneSuccessiva);
+                    posizioneCorrente = spostamento.indexOf("x", posizioneCorrente + 1) + 1;
+                } else {
+                    sottoComando = spostamento.substring(posizioneCorrente);
+                }
+
+                presaSemplice(giocatore, sottoComando);
+            }
+        }
+
+        return esito;
+    }
 
 }
