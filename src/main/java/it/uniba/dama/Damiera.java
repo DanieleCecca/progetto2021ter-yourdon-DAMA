@@ -30,6 +30,21 @@ public class Damiera {
         this.damiera = damiera;
     }
 
+    public Damiera (Damiera copia){
+        int numeroCasella = 1;
+        for (int i = 0; i < Costanti.DIM; i++) {
+            for (int j = 0; j < Costanti.DIM; j++) {
+                damiera[i][j] = new Casella();
+                damiera[i][j].setNumeroCasella(copia.getDamiera()[i][j].getNumeroCasella());
+                damiera[i][j].setPedina(copia.getDamiera()[i][j].getPedina());
+                damiera[i][j].setOccupato(copia.getDamiera()[i][j].getOccupato());
+
+                damiera[i][j].getCoordinate().setX(i);
+                damiera[i][j].getCoordinate().setY(j);
+            }
+        }
+    }
+
     public void popolaDamiera() {
         //inserisce pedine giocatore 1
         for (int i = 0; i < 3; i++) {
@@ -185,39 +200,40 @@ public class Damiera {
         Casella terzaCasella = ricercaCasella(terzaPosizione);
 
         //Il giocatore nero effettua la presa verso destra o sinistra
-        if(giocatore.getColore().equals("nero")) {
-            if(terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() + 2))
+        if (giocatore.getColore().equals("nero")) {
+            if (terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() + 2))
                 secondaCasella = damiera[primaCasella.getCoordinate().getX() + 1][primaCasella.getCoordinate().getY() + 1];
 
-            else if(terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() - 2))
+            else if (terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() - 2))
                 secondaCasella = damiera[primaCasella.getCoordinate().getX() + 1][primaCasella.getCoordinate().getY() - 1];
         }
         //Il giocatore bianco effettua la presa verso sinistra o destra
         if (giocatore.getColore().equals("bianco")) {
-            if(terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() - 2))
+            if (terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() - 2))
                 secondaCasella = damiera[primaCasella.getCoordinate().getX() - 1][primaCasella.getCoordinate().getY() - 1];
 
-            else if(terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() + 2))
+            else if (terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() + 2))
                 secondaCasella = damiera[primaCasella.getCoordinate().getX() - 1][primaCasella.getCoordinate().getY() + 1];
         }
-
-
 
         if (primaCasella.getOccupato() == true) {
             if (primaCasella.getPedina().getColore() == giocatore.getColore()) {
                 if (((terzaCasella.getCoordinate().getX() == (primaCasella.getCoordinate().getX() + 2) && giocatore.getColore().equals("nero")) || (terzaCasella.getCoordinate().getX() == (primaCasella.getCoordinate().getX() - 2)) && giocatore.getColore().equals("bianco")) && (terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() + 2) || terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() - 2))) {
                     if (terzaCasella.getOccupato() == false) {
-                        if (secondaCasella.getPedina().getColore() != giocatore.getColore()) {
-                            secondaCasella.setOccupato(false);
-                            //Cancellare anche simbolo e colore?
-                            //Da inserire funzione che aggiorna il numero di pedine prese
-                            primaCasella.setOccupato(false);
-                            terzaCasella.setPedina(primaCasella.getPedina());
-                            terzaCasella.setOccupato(true);
-                            spostamentoEseguito = true;
-                        }
-                        else {
-                            System.out.println("La pedina è tua,non puoi mangiarla!");
+                        if (secondaCasella.getOccupato() == true) {
+                            if (secondaCasella.getPedina().getColore() != giocatore.getColore()) {
+                                secondaCasella.setOccupato(false);
+                                //Cancellare anche simbolo e colore?
+                                //Da inserire funzione che aggiorna il numero di pedine prese
+                                primaCasella.setOccupato(false);
+                                terzaCasella.setPedina(primaCasella.getPedina());
+                                terzaCasella.setOccupato(true);
+                                spostamentoEseguito = true;
+                            } else {
+                                System.out.println("La pedina è tua,non puoi mangiarla!");
+                            }
+                        } else {
+                            System.out.println("Mossa non valida!");
                         }
                     } else {
                         System.out.println("La casella è già occupata");
@@ -234,4 +250,7 @@ public class Damiera {
         }
         return spostamentoEseguito;
     }
+
+
+
 }
