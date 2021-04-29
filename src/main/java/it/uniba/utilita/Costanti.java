@@ -17,6 +17,7 @@ public class Costanti {
     public static final String SPAZIO_CORTO = "\u202F";
 
     public static final String PATTERN_SPOSTAMENTO = "(0?[1-9]|[1-2][0-9]|3[0-2])(-)(0?[1-9]|[1-2][0-9]|3[0-2])";
-    public static final String PATTERN_PRESA = "(0?[1-9]|[1-2][0-9]|3[0-2])((x)(0?[1-9]|[1-2][0-9]|3[0-2]))*";
+    public static final String PATTERN_PRESA = "(0?[1-9]|[1-2][0-9]|3[0-2])((x)(0?[1-9]|[1-2][0-9]|3[0-2]))";
+    public static final String PATTERN_PRESA_MULTIPLA = "(0?[1-9]|[1-2][0-9]|3[0-2])((x)(0?[1-9]|[1-2][0-9]|3[0-2]))+";
     public static final int DIM = 8;
 }
