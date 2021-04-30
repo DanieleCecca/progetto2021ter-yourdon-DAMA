@@ -207,7 +207,6 @@ public class Partita {
                 System.out.println("Partita abbandonata: il bianco ha vinto.");
         }
     }
-
     public void tempo() {
         System.out.println("\nTempo giocatore bianco: ");
         bianco.getCronometro().stampaTempoTrascorso();
