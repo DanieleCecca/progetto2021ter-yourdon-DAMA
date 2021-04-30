@@ -14,7 +14,8 @@ public class Comandi {
                 "- numeri\n" +
                 "- damiera\n" +
                 "- tempo\n" +
-                "- prese");
+                "- prese\n" +
+                "- mosse");
     }
 
 
