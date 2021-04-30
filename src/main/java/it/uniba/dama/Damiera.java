@@ -230,6 +230,7 @@ public class Damiera {
                                 terzaCasella.setPedina(primaCasella.getPedina());
                                 terzaCasella.setOccupato(true);
                                 spostamentoEseguito = true;
+                                controlloDamatura(giocatore, terzaCasella);
                                 giocatore.setPedinePrese(secondaCasella.getPedina());
                             } else {
                                 System.out.println("La pedina è tua,non puoi mangiarla!");
@@ -257,19 +258,19 @@ public class Damiera {
         Damiera provaDamiera = new Damiera(this);
         Giocatore provaGiocatore = new Giocatore(giocatore.getColore());
         boolean esito = true;
-        int occonrenze = 0;
+        int occorrenze = 0;
         int posizioneCorrente = 0;
         int posizioneSuccessiva = spostamento.indexOf("x");
         String sottoComando = "";
 
         for (int i = 0; i < spostamento.length(); i++) {
             if (spostamento.charAt(i) == 'x') {
-                occonrenze++;
+                occorrenze++;
             }
         }
 
-        for (int i = 0; i < occonrenze; i++) {
-            if (i < occonrenze - 1) {
+        for (int i = 0; i < occorrenze; i++) {
+            if (i < occorrenze - 1) {
                 posizioneSuccessiva = spostamento.indexOf("x", posizioneSuccessiva + 1);
                 sottoComando = spostamento.substring(posizioneCorrente, posizioneSuccessiva);
                 posizioneCorrente = spostamento.indexOf("x", posizioneCorrente + 1) + 1;
@@ -277,7 +278,7 @@ public class Damiera {
                 sottoComando = spostamento.substring(posizioneCorrente);
             }
 
-            if (provaDamiera.presaSemplice(provaGiocatore, sottoComando) == false) {
+            if (!provaDamiera.presaSemplice(provaGiocatore, sottoComando)) {
                 esito = false;
                 break;
             }
@@ -286,8 +287,8 @@ public class Damiera {
         if (esito) {
             posizioneCorrente = 0;
             posizioneSuccessiva = spostamento.indexOf("x");
-            for (int i = 0; i < occonrenze; i++) {
-                if (i < occonrenze - 1) {
+            for (int i = 0; i < occorrenze; i++) {
+                if (i < occorrenze - 1) {
                     posizioneSuccessiva = spostamento.indexOf("x", posizioneSuccessiva + 1);
                     sottoComando = spostamento.substring(posizioneCorrente, posizioneSuccessiva);
                     posizioneCorrente = spostamento.indexOf("x", posizioneCorrente + 1) + 1;
