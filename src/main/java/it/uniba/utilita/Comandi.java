@@ -13,7 +13,8 @@ public class Comandi {
                 "- esci\n" +
                 "- numeri\n" +
                 "- damiera\n" +
-                "- tempo");
+                "- tempo\n" +
+                "- prese");
     }
 
 
