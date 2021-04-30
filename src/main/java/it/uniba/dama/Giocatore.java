@@ -1,11 +1,21 @@
 package it.uniba.dama;
 
 import it.uniba.utilita.Cronometro;
+import java.util.ArrayList;
 
 public class Giocatore {
     private String colore;
     private  Cronometro cronometro;
     private int tempoPrecedente;
+    private ArrayList<Pedina> pedinePrese = new ArrayList<Pedina>();
+
+    public ArrayList<Pedina> getPedinePrese() {
+        return pedinePrese;
+    }
+
+    public void setPedinePrese(Pedina pedinaPresa) {
+        this.pedinePrese.add(pedinaPresa);
+    }
 
     public Giocatore(String colore) {
         this.colore = colore;

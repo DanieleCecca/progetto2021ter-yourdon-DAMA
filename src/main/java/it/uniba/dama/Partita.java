@@ -159,6 +159,10 @@ public class Partita {
                         System.out.println("La partita e' gia iniziata.");
                         break;
 
+                    case "prese":
+                        prese();
+                        break;
+
                     default:
                         System.out.println("Comando inesistente.");
                         break;
@@ -212,7 +216,26 @@ public class Partita {
         nero.getCronometro().stampaTempoTrascorso();
 
     }
+    public void prese() {
+        System.out.print("Bianco: ");
+        for (int i=0;i<bianco.getPedinePrese().size();i++){
+            System.out.print(bianco.getPedinePrese().get(i).getSimbolo());
+        }
 
+        System.out.print("\n" +"Nero: ");
+        for (int i=0;i<nero.getPedinePrese().size();i++){
+            System.out.print(nero.getPedinePrese().get(i).getSimbolo());
+        }
+        System.out.print("\n");
+
+
+
+
+
+
+
+
+    }
     /*if(turno.equals("bianco")){
         turno = "nero";
 

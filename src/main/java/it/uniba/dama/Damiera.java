@@ -2,6 +2,7 @@ package it.uniba.dama;
 
 import it.uniba.utilita.Costanti;
 import it.uniba.dama.Casella;
+import it.uniba.dama.Giocatore;
 
 public class Damiera {
 
@@ -229,7 +230,7 @@ public class Damiera {
                                 terzaCasella.setPedina(primaCasella.getPedina());
                                 terzaCasella.setOccupato(true);
                                 spostamentoEseguito = true;
-                                controlloDamatura(giocatore, terzaCasella);
+                                giocatore.setPedinePrese(secondaCasella.getPedina());
                             } else {
                                 System.out.println("La pedina è tua,non puoi mangiarla!");
                             }
@@ -254,7 +255,7 @@ public class Damiera {
 
     public boolean presaMultipla(Giocatore giocatore, String spostamento) {
         Damiera provaDamiera = new Damiera(this);
-
+        Giocatore provaGiocatore = new Giocatore(giocatore.getColore());
         boolean esito = true;
         int occonrenze = 0;
         int posizioneCorrente = 0;
@@ -276,7 +277,7 @@ public class Damiera {
                 sottoComando = spostamento.substring(posizioneCorrente);
             }
 
-            if (provaDamiera.presaSemplice(giocatore, sottoComando) == false) {
+            if (provaDamiera.presaSemplice(provaGiocatore, sottoComando) == false) {
                 esito = false;
                 break;
             }
