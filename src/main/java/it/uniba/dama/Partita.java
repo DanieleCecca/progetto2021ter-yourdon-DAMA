@@ -71,15 +71,6 @@ public class Partita {
         this.tempoIniziale = tempoIniziale;
     }
 
-    private void cambiaTurno() {
-        if (turno.equals("bianco")) {
-            setTurno("nero");
-        } else {
-            setTurno("bianco");
-        }
-        System.out.println("Turno del giocatore: " + turno );
-    }
-
     public void gioca() {
         bianco = new Giocatore("bianco");
         nero = new Giocatore("nero");
@@ -173,7 +164,6 @@ public class Partita {
     }
 
     private boolean controlloSintassi(String comando,final String stringa) {
-        //comando = comando.trim();
         boolean corretto = false;
         comando = comando.replaceAll("\\s", "");
 
@@ -214,8 +204,27 @@ public class Partita {
 
         System.out.println("Tempo giocatore nero: ");
         nero.getCronometro().stampaTempoTrascorso();
-
     }
+
+    private void cambiaTurno() {
+        if (turno.equals("bianco")) {
+            setTurno("nero");
+            bianco.getCronometro().setContinua(false);
+            bianco.setTempoPrecedente(bianco.getCronometro().getSecondi());
+
+            nero.resettaCronometro();
+            nero.getCronometro().start();
+        } else {
+            setTurno("bianco");
+            nero.getCronometro().setContinua(false);
+            nero.setTempoPrecedente(nero.getCronometro().getSecondi());
+
+            bianco.resettaCronometro();
+            bianco.getCronometro().start();
+        }
+        System.out.println("Turno del giocatore: " + turno );
+    }
+
     public void prese() {
         System.out.print("Bianco: ");
         for (int i=0;i<bianco.getPedinePrese().size();i++){
@@ -227,32 +236,5 @@ public class Partita {
             System.out.print(nero.getPedinePrese().get(i).getSimbolo());
         }
         System.out.print("\n");
-
-
-
-
-
-
-
-
     }
-    /*if(turno.equals("bianco")){
-        turno = "nero";
-
-        bianco.cronometro.continua = false;
-        bianco.tempoPrecedente = bianco.cronometro.secondi;
-
-        nero.cronometro = new Cronometro(nero.tempoPrecedente);
-        nero.cronometro.start();
-
-    }
-    else {
-        turno = "bianco";
-
-        nero.cronometro.continua = false;
-        nero.tempoPrecedente = nero.cronometro.secondi;
-
-        bianco.cronometro = new Cronometro(bianco.tempoPrecedente);
-        bianco.cronometro.start();
-    }*/
 }
