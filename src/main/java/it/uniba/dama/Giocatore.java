@@ -23,6 +23,10 @@ public class Giocatore {
         tempoPrecedente = 0;
     }
 
+    public void resettaCronometro()  {
+        this.cronometro = new Cronometro(tempoPrecedente);
+    }
+
     public Cronometro getCronometro() {
         return cronometro;
     }
