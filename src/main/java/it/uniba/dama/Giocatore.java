@@ -8,6 +8,7 @@ public class Giocatore {
     private  Cronometro cronometro;
     private int tempoPrecedente;
     private ArrayList<Pedina> pedinePrese = new ArrayList<Pedina>();
+    private static ArrayList<String> cronologiaMosse = new ArrayList<>();
 
     public ArrayList<Pedina> getPedinePrese() {
         return pedinePrese;
@@ -50,4 +51,7 @@ public class Giocatore {
     public void setColore(String colore) {
         this.colore = colore;
     }
+
+    public ArrayList<String> getCronologiaMosse(){return cronologiaMosse;}
+
 }
