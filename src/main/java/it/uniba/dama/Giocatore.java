@@ -52,6 +52,14 @@ public class Giocatore {
         this.colore = colore;
     }
 
+    public void aggiungiMossa(String comando){
+        if (this.colore == "bianco"){
+            cronologiaMosse.add("B: " + comando);
+        }
+        else {
+            cronologiaMosse.add("N: " + comando);
+        }
+    }
     public ArrayList<String> getCronologiaMosse(){return cronologiaMosse;}
 
 }
