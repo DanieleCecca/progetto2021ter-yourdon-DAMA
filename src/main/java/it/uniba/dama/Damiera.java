@@ -173,6 +173,7 @@ public class Damiera {
                         secondaCasella.setOccupato(true);
                         spostamentoEseguito = true;
                         controlloDamatura(giocatore, secondaCasella);
+                        giocatore.aggiungiMossa(spostamento);
                     } else {
                         System.out.println("La casella è già occupata");
                     }
@@ -232,6 +233,7 @@ public class Damiera {
                                 spostamentoEseguito = true;
                                 controlloDamatura(giocatore, terzaCasella);
                                 giocatore.setPedinePrese(secondaCasella.getPedina());
+                                giocatore.aggiungiMossa(spostamento);
                             } else {
                                 System.out.println("La pedina è tua,non puoi mangiarla!");
                             }
