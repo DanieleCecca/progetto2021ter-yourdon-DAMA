@@ -154,6 +154,10 @@ public class Partita {
                         prese();
                         break;
 
+                    case "mosse":
+                        mosse();
+                        break;
+
                     default:
                         System.out.println("Comando inesistente.");
                         break;
@@ -236,5 +240,12 @@ public class Partita {
             System.out.print(nero.getPedinePrese().get(i).getSimbolo());
         }
         System.out.print("\n");
+    }
+
+    public void mosse(){
+        System.out.print("Mosse giocate:\n");
+        for (int i=0;i<bianco.getCronologiaMosse().size();i++){
+            System.out.println(bianco.getCronologiaMosse().get(i));
+        }
     }
 }
