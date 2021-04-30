@@ -172,7 +172,7 @@ public class Damiera {
                         secondaCasella.setPedina(primaCasella.getPedina());
                         secondaCasella.setOccupato(true);
                         spostamentoEseguito = true;
-
+                        controlloDamatura(giocatore, secondaCasella);
                     } else {
                         System.out.println("La casella è già occupata");
                     }
@@ -298,8 +298,18 @@ public class Damiera {
                 presaSemplice(giocatore, sottoComando);
             }
         }
-
         return esito;
     }
 
+    private void controlloDamatura(Giocatore giocatore, Casella casella) {
+        if (giocatore.getColore().equals("bianco")) {
+            if (casella.getNumeroCasella() >= 1 && casella.getNumeroCasella() <= 4 && !(casella.getPedina() instanceof Dama)) {
+                casella.setPedina(Costanti.DAMA_BIANCA);
+            }
+        } else {
+            if (casella.getNumeroCasella() >= 29 && casella.getNumeroCasella() <= 32 && !(casella.getPedina() instanceof Dama)) {
+                casella.setPedina(Costanti.DAMA_NERA);
+            }
+        }
+    }
 }
