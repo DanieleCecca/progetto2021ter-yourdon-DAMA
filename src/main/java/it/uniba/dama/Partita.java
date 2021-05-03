@@ -79,6 +79,7 @@ public class Partita {
         nero = new Giocatore("nero");
         tavolo = new Damiera();
         tavolo.popolaDamiera();
+        cronologiaMosse = new ArrayList<>();
         inCorso = true;
         turno = "bianco";
 
