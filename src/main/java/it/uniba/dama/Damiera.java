@@ -295,7 +295,6 @@ public class Damiera {
                 } else {
                     sottoComando = spostamento.substring(posizioneCorrente);
                 }
-
                 presaSemplice(giocatore, sottoComando);
             }
         }

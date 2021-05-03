@@ -6,6 +6,7 @@ import it.uniba.utilita.Comandi;
 import it.uniba.utilita.Cronometro;
 import it.uniba.utilita.Costanti;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -17,10 +18,12 @@ public class Partita {
     private boolean inCorso;
     private String turno;
     private Cronometro tempoIniziale;
+    private ArrayList<String> cronologiaMosse;
 
     public Partita() {
         tavolo = new Damiera();
         inCorso = false;
+        cronologiaMosse = new ArrayList<>();
     }
 
     public Giocatore getBianco() {
@@ -76,6 +79,7 @@ public class Partita {
         nero = new Giocatore("nero");
         tavolo = new Damiera();
         tavolo.popolaDamiera();
+        cronologiaMosse = new ArrayList<>();
         inCorso = true;
         turno = "bianco";
 
@@ -95,6 +99,7 @@ public class Partita {
                     spostamentoEseguito=tavolo.spostamentoSemplice(nero, comando);
                 }
                 if(spostamentoEseguito){
+                    aggiungiMossa(comando);
                     cambiaTurno();
                 }
             }
@@ -106,6 +111,7 @@ public class Partita {
                     spostamentoEseguito=tavolo.presaSemplice(nero, comando);
                 }
                 if(spostamentoEseguito) {
+                    aggiungiMossa(comando);
                     cambiaTurno();
                 }
             }
@@ -117,6 +123,7 @@ public class Partita {
                     spostamentoEseguito=tavolo.presaMultipla(nero, comando);
                 }
                 if(spostamentoEseguito) {
+                    aggiungiMossa(comando);
                     cambiaTurno();
                 }
             }
@@ -152,6 +159,10 @@ public class Partita {
 
                     case "prese":
                         prese();
+                        break;
+
+                    case "mosse":
+                        mosse();
                         break;
 
                     default:
@@ -197,7 +208,6 @@ public class Partita {
                 System.out.println("Partita abbandonata: il bianco ha vinto.");
         }
     }
-
     public void tempo() {
         System.out.println("\nTempo giocatore bianco: ");
         bianco.getCronometro().stampaTempoTrascorso();
@@ -236,5 +246,21 @@ public class Partita {
             System.out.print(nero.getPedinePrese().get(i).getSimbolo());
         }
         System.out.print("\n");
+    }
+
+    public void mosse(){
+        System.out.print("Mosse giocate:\n");
+        for (int i=0;i<cronologiaMosse.size();i++){
+            System.out.println(cronologiaMosse.get(i));
+        }
+    }
+
+    public void aggiungiMossa(String comando){
+        if (this.turno == "bianco"){
+            cronologiaMosse.add("B: " + comando);
+        }
+        else {
+            cronologiaMosse.add("N: " + comando);
+        }
     }
 }

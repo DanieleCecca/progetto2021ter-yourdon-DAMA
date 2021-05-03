@@ -50,4 +50,5 @@ public class Giocatore {
     public void setColore(String colore) {
         this.colore = colore;
     }
+
 }
