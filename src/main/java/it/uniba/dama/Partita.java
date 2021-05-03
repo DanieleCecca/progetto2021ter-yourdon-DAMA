@@ -1,13 +1,10 @@
 package it.uniba.dama;
 
-
-import it.uniba.main.AppMain;
-import it.uniba.utilita.Comandi;
 import it.uniba.utilita.Cronometro;
 import it.uniba.utilita.Costanti;
+import it.uniba.utilita.Interfaccia;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 
@@ -87,9 +84,8 @@ public class Partita {
 
         while (inCorso) {
 
-            Scanner inputTastiera = new Scanner(System.in);
-            System.out.print("Inserisci comando: ");
-            String comando = inputTastiera.nextLine();
+            Interfaccia.stampaMessaggio(Costanti.INSERIRE_COMANDO);
+            String comando = Interfaccia.acquisireComando();
 
             if (controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO)) {
                 boolean spostamentoEseguito;
@@ -130,7 +126,7 @@ public class Partita {
             else {
                 switch (comando) {
                     case "help":
-                        Comandi.helpPartita();
+                        Interfaccia.helpPartita();
                         break;
 
                     case "damiera":
@@ -146,7 +142,7 @@ public class Partita {
                         break;
 
                     case "esci":
-                        AppMain.esci();
+                        Interfaccia.esci();
                         break;
 
                     case "tempo":
@@ -154,7 +150,7 @@ public class Partita {
                         break;
 
                     case "gioca":
-                        System.out.println("La partita e' gia iniziata.");
+                        Interfaccia.stampaMessaggio(Costanti.ERR_PARTITA_GIA_INIZIATA);
                         break;
 
                     case "prese":
@@ -166,7 +162,7 @@ public class Partita {
                         break;
 
                     default:
-                        System.out.println("Comando inesistente.");
+                        Interfaccia.stampaMessaggio(Costanti.ERR_COMANDO_INESISTENTE);
                         break;
                 }
             }
@@ -191,28 +187,29 @@ public class Partita {
 
 
     public void abbandona() {
-        Scanner inputTastiera = new Scanner(System.in);
         String conferma;
         do {
-            System.out.print("Sei sicuro di voler abbandonare? (si/no) ");
-            conferma = inputTastiera.nextLine();
+            Interfaccia.stampaMessaggio(Costanti.RICHIESTA_ABBANDONA_PARTITA);
+            conferma = Interfaccia.acquisireComando();
             if (!conferma.equals("si") && !conferma.equals("no"))
-                System.out.println("Comando inesistente.");
+                Interfaccia.stampaMessaggio(Costanti.ERR_RISPOSTA_NON_VALIDA);
         } while (!conferma.equals("si") && !conferma.equals("no"));
 
         if (conferma.equals("si")) {
             inCorso = false;
             if (turno.equals("bianco"))
-                System.out.println("Partita abbandonata: il nero ha vinto.");
+                Interfaccia.stampaMessaggio(Costanti.GIOCATORE_NERO_VINCE);
             else
-                System.out.println("Partita abbandonata: il bianco ha vinto.");
+                Interfaccia.stampaMessaggio(Costanti.GIOCATORE_BIANCO_VINCE);
         }
     }
     public void tempo() {
-        System.out.println("\nTempo giocatore bianco: ");
+        Interfaccia.stampaMessaggio("\n");
+
+        Interfaccia.stampaMessaggio(Costanti.TEMPO_GIOCATORE_BIANCO);
         bianco.getCronometro().stampaTempoTrascorso();
 
-        System.out.println("Tempo giocatore nero: ");
+        Interfaccia.stampaMessaggio(Costanti.TEMPO_GIOCATORE_NERO);
         nero.getCronometro().stampaTempoTrascorso();
     }
 
@@ -232,26 +229,28 @@ public class Partita {
             bianco.resettaCronometro();
             bianco.getCronometro().start();
         }
-        System.out.println("Turno del giocatore: " + turno );
+        Interfaccia.stampaMessaggio("Turno del giocatore: " + turno + "\n");
     }
 
     public void prese() {
-        System.out.print("Bianco: ");
+        Interfaccia.stampaMessaggio(Costanti.BIANCO);
         for (int i=0;i<bianco.getPedinePrese().size();i++){
-            System.out.print(bianco.getPedinePrese().get(i).getSimbolo());
+            Interfaccia.stampaMessaggio(bianco.getPedinePrese().get(i).getSimbolo());
         }
 
-        System.out.print("\n" +"Nero: ");
+        Interfaccia.stampaMessaggio("\n");
+        Interfaccia.stampaMessaggio(Costanti.NERO);
         for (int i=0;i<nero.getPedinePrese().size();i++){
-            System.out.print(nero.getPedinePrese().get(i).getSimbolo());
+            Interfaccia.stampaMessaggio(nero.getPedinePrese().get(i).getSimbolo());
         }
-        System.out.print("\n");
+        Interfaccia.stampaMessaggio("\n");
     }
 
     public void mosse(){
-        System.out.print("Mosse giocate:\n");
+        Interfaccia.stampaMessaggio(Costanti.MOSSE_GIOCATE);
         for (int i=0;i<cronologiaMosse.size();i++){
-            System.out.println(cronologiaMosse.get(i));
+            Interfaccia.stampaMessaggio(cronologiaMosse.get(i));
+            Interfaccia.stampaMessaggio("\n");
         }
     }
 
