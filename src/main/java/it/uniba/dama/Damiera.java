@@ -3,6 +3,7 @@ package it.uniba.dama;
 import it.uniba.utilita.Costanti;
 import it.uniba.dama.Casella;
 import it.uniba.dama.Giocatore;
+import it.uniba.utilita.Interfaccia;
 
 public class Damiera {
 
@@ -74,72 +75,68 @@ public class Damiera {
     }
 
     public void stampaDamieraGioco() {
-        System.out.println("Tavolo da gioco: ");
+        Interfaccia.stampaMessaggio(Costanti.TAVOLO_GIOCO);
         for (int i = 0; i < Costanti.DIM; i++) {
-            System.out.println("");
-            System.out.println("-----+----+----+----+----+----+----+-----");
+            Interfaccia.stampaMessaggio("\n-----+----+----+----+----+----+----+-----\n");
             for (int j = 0; j < Costanti.DIM; j++) {
-                System.out.print("|");
+                Interfaccia.stampaMessaggio("|");
                 if (!damiera[i][j].getOccupato())
-                    System.out.print("    ");
+                    Interfaccia.stampaMessaggio("    ");
                 else {
                     if (damiera[i][j].getPedina().getSimbolo().equals(Costanti.UNICODE_PEDINA_NERA))
-                        System.out.print(" " + Costanti.UNICODE_PEDINA_NERA + Costanti.SPAZIO_CORTO + " ");
+                        Interfaccia.stampaMessaggio(" " + Costanti.UNICODE_PEDINA_NERA + Costanti.SPAZIO_CORTO + " ");
 
                     else if (damiera[i][j].getPedina().getSimbolo().equals(Costanti.UNICODE_PEDINA_BIANCA))
-                        System.out.print(" " + Costanti.UNICODE_PEDINA_BIANCA + Costanti.SPAZIO_CORTO + " ");
+                        Interfaccia.stampaMessaggio(" " + Costanti.UNICODE_PEDINA_BIANCA + Costanti.SPAZIO_CORTO + " ");
 
                     else if (damiera[i][j].getPedina().getSimbolo().equals(Costanti.UNICODE_DAMA_NERA))
-                        System.out.print(" " + Costanti.UNICODE_DAMA_NERA + Costanti.SPAZIO_CORTO + " ");
+                        Interfaccia.stampaMessaggio(" " + Costanti.UNICODE_DAMA_NERA + Costanti.SPAZIO_CORTO + " ");
 
                     else if (damiera[i][j].getPedina().getSimbolo().equals(Costanti.UNICODE_DAMA_BIANCA))
-                        System.out.print(" " + Costanti.UNICODE_DAMA_BIANCA + Costanti.SPAZIO_CORTO + " ");
+                        Interfaccia.stampaMessaggio(" " + Costanti.UNICODE_DAMA_BIANCA + Costanti.SPAZIO_CORTO + " ");
                 }
             }
-            System.out.print("|");
+            Interfaccia.stampaMessaggio("|");
         }
-        System.out.println("");
-        System.out.println("-----+----+----+----+----+----+----+-----");
-        System.out.print("\n");
+        Interfaccia.stampaMessaggio("\n-----+----+----+----+----+----+----+-----\n");
+        Interfaccia.stampaMessaggio("\n");
     }
 
     public void stampaDamieraNumerata() {
         int numero = 1;
-        System.out.println("Tavolo da gioco: ");
+        Interfaccia.stampaMessaggio(Costanti.TAVOLO_GIOCO);
         for (int i = 0; i < Costanti.DIM; i++) {
-            System.out.println("");
-            System.out.println("-----+----+----+----+----+----+----+-----");
+            Interfaccia.stampaMessaggio("\n-----+----+----+----+----+----+----+-----\n");
             for (int j = 0; j < Costanti.DIM; j++) {
-                System.out.print("|");
+                Interfaccia.stampaMessaggio("|");
                 //Se la riga è pari allora il primo pezzo è posto sulla prima colonna con numero pari
                 if (i % 2 == 0) {
                     if (j % 2 == 0) {
                         if (numero < 10)
-                            System.out.print("  " + numero + " ");
+                            Interfaccia.stampaMessaggio("  " + numero + " ");
                         else
-                            System.out.print(" " + numero + " ");
-
+                            Interfaccia.stampaMessaggio(" " + numero + " ");
                         numero++;
                     } else
-                        System.out.print("    ");
+                        Interfaccia.stampaMessaggio("    ");
                 }
                 //Se la riga è dispari allora il primo pezzo è posto sulla prima posizione con numero dispari
                 else if (i % 2 != 0) {
                     if (j % 2 != 0) {
                         if (numero < 10)
-                            System.out.print("  " + numero + " ");
+                            Interfaccia.stampaMessaggio("  " + numero + " ");
                         else
-                            System.out.print(" " + numero + " ");
+                            Interfaccia.stampaMessaggio(" " + numero + " ");
 
                         numero++;
                     } else
-                        System.out.print("    ");
+                        Interfaccia.stampaMessaggio("    ");
                 }
             }
-            System.out.print("|");
+            Interfaccia.stampaMessaggio("|");
         }
-        System.out.println("");
-        System.out.println("-----+----+----+----+----+----+----+-----");
+        Interfaccia.stampaMessaggio("\n-----+----+----+----+----+----+----+-----\n");
+        Interfaccia.stampaMessaggio("\n");
     }
 
     public Casella ricercaCasella(int posizione) {
@@ -174,16 +171,16 @@ public class Damiera {
                         spostamentoEseguito = true;
                         controlloDamatura(giocatore, secondaCasella);
                     } else {
-                        System.out.println("La casella è già occupata");
+                        Interfaccia.stampaMessaggio(Costanti.ERR_CASELLA_OCCUPATA);
                     }
                 } else {
-                    System.out.println("Mossa non valida");
+                    Interfaccia.stampaMessaggio(Costanti.ERR_MOSSA_NON_VALIDA);
                 }
             } else {
-                System.out.println("La pedina appartiene all'altro giocatore");
+                Interfaccia.stampaMessaggio(Costanti.ERR_APPERTENENZA_PEDINA);
             }
         } else {
-            System.out.println("La casella è vuota");
+            Interfaccia.stampaMessaggio(Costanti.ERR_CASELLA_VUOTA);
         }
         return spostamentoEseguito;
     }
@@ -201,7 +198,7 @@ public class Damiera {
         Casella terzaCasella = ricercaCasella(terzaPosizione);
 
         //Il giocatore nero effettua la presa verso destra o sinistra
-        if (giocatore.getColore().equals("nero")) {
+        if (giocatore.getColore().equals("nero") && primaCasella.getPedina().getColore() == giocatore.getColore()) {
             if (terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() + 2))
                 secondaCasella = damiera[primaCasella.getCoordinate().getX() + 1][primaCasella.getCoordinate().getY() + 1];
 
@@ -209,7 +206,7 @@ public class Damiera {
                 secondaCasella = damiera[primaCasella.getCoordinate().getX() + 1][primaCasella.getCoordinate().getY() - 1];
         }
         //Il giocatore bianco effettua la presa verso sinistra o destra
-        if (giocatore.getColore().equals("bianco")) {
+        if (giocatore.getColore().equals("bianco") && primaCasella.getPedina().getColore() == giocatore.getColore()) {
             if (terzaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() - 2))
                 secondaCasella = damiera[primaCasella.getCoordinate().getX() - 1][primaCasella.getCoordinate().getY() - 1];
 
@@ -233,23 +230,23 @@ public class Damiera {
                                 controlloDamatura(giocatore, terzaCasella);
                                 giocatore.setPedinePrese(secondaCasella.getPedina());
                             } else {
-                                System.out.println("La pedina è tua,non puoi mangiarla!");
+                                Interfaccia.stampaMessaggio(Costanti.ERR_MOSSA_NON_VALIDA);
                             }
                         } else {
-                            System.out.println("Mossa non valida!");
+                            Interfaccia.stampaMessaggio(Costanti.ERR_MOSSA_NON_VALIDA);
                         }
                     } else {
-                        System.out.println("La casella è già occupata");
+                        Interfaccia.stampaMessaggio(Costanti.ERR_CASELLA_OCCUPATA);
                     }
                 } else {
-                    System.out.println("Mossa non valida");
+                    Interfaccia.stampaMessaggio(Costanti.ERR_MOSSA_NON_VALIDA);
                 }
 
             } else {
-                System.out.println("La pedina appartiene all'altro giocatore");
+                Interfaccia.stampaMessaggio(Costanti.ERR_APPERTENENZA_PEDINA);
             }
         } else {
-            System.out.println("La casella è vuota");
+            Interfaccia.stampaMessaggio(Costanti.ERR_CASELLA_VUOTA);
         }
         return spostamentoEseguito;
     }
