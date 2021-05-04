@@ -56,6 +56,6 @@ public class Cronometro extends Thread {
         ore = secondi / 3600;
         minuti = (secondi % 3600) / 60;
         secondi = (secondi % 3600) % 60;
-        System.out.println(ore + " h " + minuti + " min " + secondi + " sec ");
+        Interfaccia.stampaMessaggio(ore + " h " + minuti + " min " + secondi + " sec ");
     }
 }

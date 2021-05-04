@@ -77,7 +77,7 @@ public class Interfaccia {
         }
     }
 
-    public static void controlloFlagHelp(String[] args) {
+    public static void controlloFlagHelp(String [] args) {
         int i = 0;
         boolean flagHelp = false;
         while (i < args.length && !flagHelp) {
@@ -91,7 +91,7 @@ public class Interfaccia {
             Interfaccia.help();
     }
 
-    public static void esci() {
+    public static void esci(){
         String conferma;
         do {
             stampaMessaggio(Costanti.RICHIESTA_USCITA_APP);
@@ -104,43 +104,56 @@ public class Interfaccia {
             stampaMessaggio(Costanti.APPLICAZIONE_CHIUSA);
             esci = true;
             System.exit(0);
-        } else
+        }
+        else
             esci = false;
     }
 
     public static void helpPartita() {
-        System.out.println("Le mosse sono descritte in notazione algebrica\n"
+        System.out.println("\nLe mosse sono descritte in notazione algebrica\n"
                 + "Esempio: \n"
                 + "1-5\n"
                 + "1x10");
-        System.out.println("Ecco la lista dei comandi disponibili:");
-        System.out.println("- help\n"
-                + "- abbandona\n"
-                + "- esci\n"
-                + "- numeri\n"
-                + "- damiera\n"
-                + "- tempo\n"
-                + "- prese\n"
-                + "- mosse");
+        System.out.println(
+                "+---+----------------------------------+\n" +
+                        "|   |              COMANDI             | \n" +
+                        "+---+----------------------------------+\n" +
+                        "| - | abbandona                        |\n" +
+                        "| - | esci                             |\n" +
+                        "| - | numeri                           |\n" +
+                        "| - | damiera                          |\n" +
+                        "| - | tempo                            |\n" +
+                        "| - | prese                            |\n" +
+                        "| - | mosse                            |\n" +
+                        "+---+----------------------------------+\n");
+
     }
 
     public static void help() {
-        System.out.println("\nBenvenuto nel gioco di dama, realizzato dal gruppo yourdon.");
-        System.out.println("Ecco la lista dei comandi disponibili:");
-        System.out.println("- help\n"
-                + "- gioca\n"
-                + "- abbandona\n"
-                + "- esci\n"
-                + "- numeri\n"
-                + "- damiera\n"
-                + "- tempo");
+        System.out.println("\n       Benvenuto nel gioco della\n\n" +
+                "         ___   _   __  __   _   \n" +
+                "        |   \\ /_\\ |  \\/  | /_\\  \n" +
+                "        | |) / _ \\| |\\/| |/ _ \\ \n" +
+                "        |___/_/ \\_\\_|  |_/_/ \\_\\\n" +
+                "                               \n      realizzato dal gruppo YOURDON®\n");
+        System.out.println("\n" +
+                "+---+----------------------------------+\n" +
+                "|   |              COMANDI             |\n" +
+                "+---+----------------------------------+\n" +
+                "| - | gioca                            |\n" +
+                "| - | abbandona                        |\n" +
+                "| - | esci                             |\n" +
+                "| - | numeri                           |\n" +
+                "| - | damiera                          |\n" +
+                "| - | tempo                            |\n" +
+                "+---+----------------------------------+\n");
     }
 
-    public static void stampaMessaggio(String messaggio) {
+    public static void stampaMessaggio(String messaggio){
         System.out.print(messaggio);
     }
 
-    public static String acquisireComando() {
+    public static String acquisireComando(){
         Scanner inputTastiera = new Scanner(System.in);
         String comando = inputTastiera.nextLine();
         return comando;

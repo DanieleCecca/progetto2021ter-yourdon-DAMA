@@ -233,13 +233,21 @@ public class Partita {
         }
     }
     public void tempo() {
-        Interfaccia.stampaMessaggio("\n");
-
-        Interfaccia.stampaMessaggio(Costanti.TEMPO_GIOCATORE_BIANCO);
+        Interfaccia.stampaMessaggio("+----------------------------+\n" +
+                "|   "+ Costanti.TEMPO_GIOCATORE_BIANCO +"   |\n" +
+                "+----------------------------+\n" +
+                "|     ");
         bianco.getCronometro().stampaTempoTrascorso();
+        Interfaccia.stampaMessaggio("       |\n" +
+                "+----------------------------+\n");
 
-        Interfaccia.stampaMessaggio(Costanti.TEMPO_GIOCATORE_NERO);
+        Interfaccia.stampaMessaggio("+----------------------------+\n" +
+                "|   "+ Costanti.TEMPO_GIOCATORE_NERO +"     |\n" +
+                "+----------------------------+\n" +
+                "|     ");
         nero.getCronometro().stampaTempoTrascorso();
+        Interfaccia.stampaMessaggio("       |\n" +
+                "+----------------------------+\n\n");
     }
 
     private void cambiaTurno() {
@@ -258,37 +266,45 @@ public class Partita {
             bianco.resettaCronometro();
             bianco.getCronometro().start();
         }
-        Interfaccia.stampaMessaggio("Turno del giocatore: " + turno + "\n");
+        Interfaccia.stampaMessaggio("\nTurno del giocatore: " + turno + "\n");
     }
 
     public void prese() {
-        Interfaccia.stampaMessaggio(Costanti.BIANCO);
+        Interfaccia.stampaMessaggio("+-------------------------------\n" +
+                "|   "+ Costanti.BIANCO +" ");
         for (int i=0;i<bianco.getPedinePrese().size();i++){
             Interfaccia.stampaMessaggio(bianco.getPedinePrese().get(i).getSimbolo());
         }
 
-        Interfaccia.stampaMessaggio("\n");
-        Interfaccia.stampaMessaggio(Costanti.NERO);
+        Interfaccia.stampaMessaggio("\n+-------------------------------\n" +
+                "|   "+ Costanti.NERO +"   ");
         for (int i=0;i<nero.getPedinePrese().size();i++){
             Interfaccia.stampaMessaggio(nero.getPedinePrese().get(i).getSimbolo());
         }
-        Interfaccia.stampaMessaggio("\n");
+        Interfaccia.stampaMessaggio("\n+-------------------------------\n\n");
     }
 
+
+
     public void mosse(){
-        Interfaccia.stampaMessaggio(Costanti.MOSSE_GIOCATE);
+
+        Interfaccia.stampaMessaggio("+--------------------------+\n" +
+                "|   |     "+ Costanti.MOSSE_GIOCATE +"    \n" +
+                "+--------------------------+");
         for (int i=0;i<cronologiaMosse.size();i++){
-            Interfaccia.stampaMessaggio(cronologiaMosse.get(i));
-            Interfaccia.stampaMessaggio("\n");
+            Interfaccia.stampaMessaggio("\n" +
+                    "| "+cronologiaMosse.get(i)+"                 ");
         }
+        Interfaccia.stampaMessaggio("\n+--------------------------+\n\n");
     }
 
     public void aggiungiMossa(String comando){
         if (this.turno == "bianco"){
-            cronologiaMosse.add("B: " + comando);
+            cronologiaMosse.add("B | " + comando);
         }
         else {
-            cronologiaMosse.add("N: " + comando);
+            cronologiaMosse.add("N | " + comando);
         }
     }
+
 }
