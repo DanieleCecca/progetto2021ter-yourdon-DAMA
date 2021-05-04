@@ -3,6 +3,24 @@ package it.uniba.dama;
 import it.uniba.utilita.Cronometro;
 import java.util.ArrayList;
 
+/**
+ * CLasse che rappresenta il Giocatore <br>
+ * Tipo di classe: <b>Entity</b><br>
+ * Responsabilità:
+ * 		<ul>Knows:
+ * 		    <li>Il colore relativo al giocatore</li>
+ * 		    <li>Il tempo di gioco totale del giocatore</li>
+ * 		    <li>Il tempo di gioco del giocatore del turno precedente al turno corrente</li>
+ * 		    <li>Una lista di pedine prese dal giocatore</li>
+ * 		</ul>
+ * 		<ul>Does:
+ * 		    <li>Istanzia il colore del giocatore e il tempo iniziale</li>
+ * 		    <li>Ottiene il tempo di gioco del giocatore</li>
+ * 		    <li>Ottiene il colore del giocatore</li>
+ * 		    <li>Setta il tempo di gioco del turno precedente al turno corrente</li>
+ * 		</ul>
+ */
+
 public class Giocatore {
     private String colore;
     private  Cronometro cronometro;
