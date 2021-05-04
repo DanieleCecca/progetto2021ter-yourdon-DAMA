@@ -96,11 +96,11 @@ public class Interfaccia {
         do {
             stampaMessaggio(Costanti.RICHIESTA_USCITA_APP);
             conferma = acquisireComando();
-            if (!conferma.equals("si") && !conferma.equals("no"))
+            if (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no"))
                 stampaMessaggio(Costanti.ERR_RISPOSTA_NON_VALIDA);
-        } while (!conferma.equals("si") && !conferma.equals("no"));
+        } while (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no"));
 
-        if (conferma.equals("si")) {
+        if (conferma.equalsIgnoreCase("si")) {
             stampaMessaggio(Costanti.APPLICAZIONE_CHIUSA);
             esci = true;
             System.exit(0);
