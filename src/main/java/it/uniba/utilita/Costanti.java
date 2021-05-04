@@ -3,6 +3,15 @@ package it.uniba.utilita;
 import it.uniba.dama.Pedina;
 import it.uniba.dama.Dama;
 
+/**
+ *  Classe che contiene le costante usate in questa applicazione
+ *  Tipo di classe: <b>noECB</b><br>;
+ *  Responsabilità:
+ * 		<ul>Knows:
+ * 		     <li>I valori delle variabili costanti usate in questa applicazione</li>
+ * 		</ul>
+ */
+
 public class Costanti {
     public static final Pedina PEDINA_BIANCA = new Pedina("bianco", "\u26C2");
     public static final Pedina PEDINA_NERA = new Pedina("nero", "\u26C0");
