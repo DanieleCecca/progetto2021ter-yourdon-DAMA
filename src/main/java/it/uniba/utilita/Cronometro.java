@@ -1,5 +1,19 @@
 package it.uniba.utilita;
 
+/**
+ *  Classe che permette di calcolare il tempo in run-time <br>
+ *  Tipo di classe: <b>Entity</b><br>
+ *  Responsabilità:
+ * 		<ul>Knows:
+ * 		     <li>Il tempo calcolato in secondi</li>
+ * 		     <li>Un valore che permette di fermare il tempo</li></ul>
+ * 		<ul>Does:
+ * 		    <li>Istanzia il tempo in secondi</li>
+ * 		    <li>Ottiene i secondi</li>
+ * 		    <li>Setta il valore che permette di fermare il tempo</li>
+ * 		    <li>Calcola il tempo in run-time</li>
+ * 		    <li>Stampa il tempo trascorso</li></ul>
+ */
 public class Cronometro extends Thread {
     private int secondi = 0;
     private boolean continua = true;
