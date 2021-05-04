@@ -40,12 +40,12 @@ public class Costanti {
     public static final String TAVOLO_GIOCO = "Tavolo da gioco:\n";
     public static final String GIOCATORE_BIANCO_VINCE = "Partita abbandonata: il nero ha vinto.\n";
     public static final String GIOCATORE_NERO_VINCE = "Partita abbandonata: il bianco ha vinto.\n";
-    public static final String TEMPO_GIOCATORE_BIANCO = "Tempo giocatore bianco:\n";
-    public static final String TEMPO_GIOCATORE_NERO = "Tempo giocatore nero:\n";
+    public static final String TEMPO_GIOCATORE_BIANCO = "Tempo giocatore bianco";
+    public static final String TEMPO_GIOCATORE_NERO = "Tempo giocatore nero";
     public static final String CAMBIO_TURNO = "La partita è iniziata.\n";
     public static final String BIANCO = "Bianco: ";
     public static final String NERO = "Nero: ";
-    public static final String MOSSE_GIOCATE = "Mosse giocate:\n";
+    public static final String MOSSE_GIOCATE = "MOSSE GIOCATE";
 
     //messaggi di errore
     public static final String ERR_PARTITA_NON_INIZIATA = "La partita non è ancora iniziata. Inserisci il comando 'gioca' per iniziare una nuova partita.\n";
