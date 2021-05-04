@@ -7,6 +7,35 @@ import it.uniba.utilita.Interfaccia;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+/**
+ * Classe che rappresenta la partita corrente <br>
+ * Tipo di classe: <b>Control</b> <br>
+ * Responsabilità:
+ * 		<ul>Knows:
+ * 		     <li>Giocatore nero</li>
+ * 		     <li>Giocatore bianco</li>
+ * 		     <li>La damiera di gioco</li>
+ * 		     <li>Valore che indica se la partita è in corso</li>
+ * 		     <li>Valore che indica il turno di appartenenza(bianco o nero)</li>
+ * 		     <li>Il tempo di gioco iniziale</li>
+ * 		     <li>Una lista di mosse giocate in ordine cronologico</li></ul>
+ * 		<ul>Does:
+ * 		     <li>Istanzia la damiera da gioco, il valore della partita in corso a falso e la lista di mosse giocate</li>
+ * 		     <li>Ottiene e setta il giocatore bianco</li>
+ * 		     <li>Ottiene e setta il giocatore nero</li>
+ * 		     <li>Ottiene e setta la damiera da gioco</li>
+ * 		     <li>Ottiene e setta il valore della partita in corso</li>
+ * 		     <li>Ottiene e setta il turno di appartenenza</li>
+ * 		     <li>Ottiene e setta il tempo di gioco iniziale</li>
+ * 		     <li>Permette di avviare la partita (settando come giocatore iniziale il bianco) e di ricevere i comandi relativi alle mosse di gioco</li>
+ * 		     <li>Verifica che la sintassi del comando inserito, quando viene effettuata una mossa, sia valido</li>
+ * 		     <li>Permette di abbandonare la partita e dichiarare come vincitore il giocatore avversario</li>
+ * 		     <li>Permette di visualizzare il tempo trascorso per entrambi i giocatori</li>
+ * 		     <li>Permette di cambiare il turno del giocatore</li>
+ * 		     <li>Permette di visualizzare le prese effettuate durante la partita</li>
+ * 		     <li>Permette di visualizzare le mosse effettuate durante la partita</li>
+ * 		     <li>Aggiunge una mossa nella lista di mosse giocate</li></ul>
+ */
 
 public class Partita {
     private Giocatore bianco;

@@ -8,6 +8,19 @@ import it.uniba.utilita.Interfaccia;
  *
  * <b>DO NOT RENAME</b>
  */
+
+/**
+ * Classe principale del progetto<br>
+ * Tipo di classe: <b>Boundary</b> <br>
+ * Responsabilità:
+ * 		<ul>Knows:
+ * 	    </ul>
+ * 		<ul>Does:
+ * 		    <li>Richiama il metodo dell'Interfaccia Iniziale</li>
+ * 		    <li>Effettua il controllo del comando passato in input come flag -h o --help</li>
+ * 		</ul>
+ */
+
 public final class AppMain {
 
     /**
