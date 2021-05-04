@@ -5,6 +5,25 @@ import it.uniba.dama.Casella;
 import it.uniba.dama.Giocatore;
 import it.uniba.utilita.Interfaccia;
 
+/**
+ * Classe che rappresenta la Damiera di gioco come una matrice di Caselle <br>
+ * Tipo di classe: <b>Entity</b><br>
+ * Responsabilità:
+ *        <ul>Knows:
+ *              <li>Matrice di Caselle</li></ul>
+ *         <ul>Does:
+ *              <li>Istanzia la matrice di caselle con le coppie di coordinate inserendo il relativo numero di casella</li>
+ *              <li> Ottiene e setta la matrice di caselle</li>
+ *              <li>Istanzia la matrice di caselle utilizzando una damiera passata come parametro(costruttore di copia)</li>
+ *              <li>Inserisce nella damiera le pedine del giocatore 1 e del giocatore 2</li>
+ *              <li>Stampa la damiera con le pedine di ogni giocatore</li>
+ *              <li>Stampa la damiera con i numeri delle caselle</li>
+ *              <li>Ricerca la casella all'interno della damiera tramite una posizione passata come parametro</li>
+ *              <li>Permette di effettuare lo spostamento semplice di una pedina all'interno della damiera, modificandone lo stato</li>
+ *              <li>Permette di effettuare una presa semplice di una pedina all'interno della damiera, modificandone lo stato</li>
+ *              <li>Permette di effettuare una presa multipla di più pedine all'interno della damiera, modificandone lo stato</li>
+ *              <li>Trasforma la pedina in Dama se arriva nella base avversaria</li></ul>
+ */
 public class Damiera {
 
     private Casella[][] damiera = new Casella[Costanti.DIM][Costanti.DIM];
