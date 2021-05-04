@@ -1,8 +1,25 @@
 package it.uniba.utilita;
 
 //import it.uniba.dama.Partita;
+
 import it.uniba.dama.Partita;
+
 import java.util.Scanner;
+
+/**
+ * Classe che rappresenta l'Interfaccia Utente<br>
+ * Tipo di classe: <b>Boundary</b><br>
+ * Responsabilità:
+ * <ul>Knows:
+ *     <li>Un valore che indica se l'utente vuole uscire dall'applicazione</li></ul>
+ * <ul>Does:
+ *     <li>Stampa l'interfaccia iniziale l'applicazione si predispone a ricevere i comandi iniziali</li>
+ *     <li>Stampa i comandi validi all'avvio dell'applicazione se viene passato un flag -h o --help</li>
+ *     <li>Stampa i comandi validi durante il corso della partita</li>
+ *     <li>Stampa un messaggio qualsiasi passato come parametro</li>
+ *     <li>Acquisisce da tastiera un comando</li>
+ *     <li>Permette di uscire dall'applicazione</li></ul>
+ */
 
 public class Interfaccia {
     public static boolean esci = false;
@@ -48,6 +65,11 @@ public class Interfaccia {
                     Interfaccia.help();
                     break;
 
+                case "abbandona":
+                    if (!incontro.getInCorso())
+                        stampaMessaggio(Costanti.ERR_PARTITA_NON_INIZIATA);
+                    break;
+
                 default:
                     stampaMessaggio(Costanti.ERR_COMANDO_INESISTENTE);
                     break;
@@ -55,7 +77,7 @@ public class Interfaccia {
         }
     }
 
-    public static void controlloFlagHelp(String [] args) {
+    public static void controlloFlagHelp(String[] args) {
         int i = 0;
         boolean flagHelp = false;
         while (i < args.length && !flagHelp) {
@@ -69,7 +91,7 @@ public class Interfaccia {
             Interfaccia.help();
     }
 
-    public static void esci(){
+    public static void esci() {
         String conferma;
         do {
             stampaMessaggio(Costanti.RICHIESTA_USCITA_APP);
@@ -82,8 +104,7 @@ public class Interfaccia {
             stampaMessaggio(Costanti.APPLICAZIONE_CHIUSA);
             esci = true;
             System.exit(0);
-        }
-        else
+        } else
             esci = false;
     }
 
@@ -115,11 +136,11 @@ public class Interfaccia {
                 + "- tempo");
     }
 
-    public static void stampaMessaggio(String messaggio){
+    public static void stampaMessaggio(String messaggio) {
         System.out.print(messaggio);
     }
 
-    public static String acquisireComando(){
+    public static String acquisireComando() {
         Scanner inputTastiera = new Scanner(System.in);
         String comando = inputTastiera.nextLine();
         return comando;
