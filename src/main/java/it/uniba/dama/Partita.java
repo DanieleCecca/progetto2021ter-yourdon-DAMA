@@ -220,11 +220,11 @@ public class Partita {
         do {
             Interfaccia.stampaMessaggio(Costanti.RICHIESTA_ABBANDONA_PARTITA);
             conferma = Interfaccia.acquisireComando();
-            if (!conferma.equals("si") && !conferma.equals("no"))
+            if (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no"))
                 Interfaccia.stampaMessaggio(Costanti.ERR_RISPOSTA_NON_VALIDA);
-        } while (!conferma.equals("si") && !conferma.equals("no"));
+        } while (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no"));
 
-        if (conferma.equals("si")) {
+        if (conferma.equalsIgnoreCase("si")) {
             inCorso = false;
             if (turno.equals("bianco"))
                 Interfaccia.stampaMessaggio(Costanti.GIOCATORE_NERO_VINCE);
