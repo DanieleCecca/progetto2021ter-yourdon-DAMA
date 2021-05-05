@@ -109,6 +109,15 @@ public class Interfaccia {
             esci = false;
     }
 
+    public static void stampaBenvenuto(){
+        System.out.println("\n       Benvenuto nel gioco della\n\n" +
+                "         ___   _   __  __   _   \n" +
+                "        |   \\ /_\\ |  \\/  | /_\\  \n" +
+                "        | |) / _ \\| |\\/| |/ _ \\ \n" +
+                "        |___/_/ \\_\\_|  |_/_/ \\_\\\n" +
+                "                               \n      realizzato dal gruppo YOURDON®\n");
+    }
+
     public static void helpPartita() {
         System.out.println("\nLe mosse sono descritte in notazione algebrica\n"
                 + "Esempio: \n"
@@ -130,12 +139,6 @@ public class Interfaccia {
     }
 
     public static void help() {
-        System.out.println("\n       Benvenuto nel gioco della\n\n" +
-                "         ___   _   __  __   _   \n" +
-                "        |   \\ /_\\ |  \\/  | /_\\  \n" +
-                "        | |) / _ \\| |\\/| |/ _ \\ \n" +
-                "        |___/_/ \\_\\_|  |_/_/ \\_\\\n" +
-                "                               \n      realizzato dal gruppo YOURDON®\n");
         System.out.println("\n" +
                 "+---+----------------------------------+\n" +
                 "|   |              COMANDI             |\n" +
