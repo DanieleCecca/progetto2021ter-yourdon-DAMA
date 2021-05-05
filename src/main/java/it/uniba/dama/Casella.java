@@ -1,7 +1,6 @@
 package it.uniba.dama;
 
 /**
- * Casella: Entity<br>
  * Classe che rappresenta una Casella della damiera<br>
  * Tipo di classe: <b>Entity</b><br>
  * Responsabilità:
@@ -65,7 +64,6 @@ public class Casella {
 }
 
 /**
- * Coordinate: Entity<br>
  * Classe che rappresenta una coppia di coordinate<br>
  * Tipo di classe: <b>Entity</b><br>
  * Responsabilità:
