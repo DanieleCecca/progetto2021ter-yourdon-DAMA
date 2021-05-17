@@ -26,16 +26,16 @@ public final class Cronometro extends Thread {
         return secondi;
     }
 
-    public void setSecondi(final int sec) {
-        this.secondi = sec;
+    public void setSecondi(final int nuoviSecondi) {
+        this.secondi = nuoviSecondi;
     }
 
     public boolean getContinua() {
         return continua;
     }
 
-    public void setContinua(final boolean cont) {
-        this.continua = cont;
+    public void setContinua(final boolean nuovoStato) {
+        this.continua = nuovoStato;
     }
 
     public void run() {

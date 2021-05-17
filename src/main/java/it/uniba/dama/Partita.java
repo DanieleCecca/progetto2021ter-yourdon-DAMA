@@ -11,33 +11,36 @@ import java.util.regex.Pattern;
  * Classe che rappresenta la partita corrente <br>
  * Tipo di classe: <b>Control</b> <br>
  * Responsabilità:
- * 		<ul>Knows:
- * 		     <li>Giocatore nero</li>
- * 		     <li>Giocatore bianco</li>
- * 		     <li>La damiera di gioco</li>
- * 		     <li>Valore che indica se la partita è in corso</li>
- * 		     <li>Valore che indica il turno di appartenenza(bianco o nero)</li>
- * 		     <li>Il tempo di gioco iniziale</li>
- * 		     <li>Una lista di mosse giocate in ordine cronologico</li></ul>
- * 		<ul>Does:
- * 		     <li>Istanzia la damiera da gioco, il valore della partita in corso a falso e la lista di mosse giocate</li>
- * 		     <li>Ottiene e setta il giocatore bianco</li>
- * 		     <li>Ottiene e setta il giocatore nero</li>
- * 		     <li>Ottiene e setta la damiera da gioco</li>
- * 		     <li>Ottiene e setta il valore della partita in corso</li>
- * 		     <li>Ottiene e setta il turno di appartenenza</li>
- * 		     <li>Ottiene e setta il tempo di gioco iniziale</li>
- * 		     <li>Permette di avviare la partita (settando come giocatore iniziale il bianco) e di ricevere i comandi relativi alle mosse di gioco</li>
- * 		     <li>Verifica che la sintassi del comando inserito, quando viene effettuata una mossa, sia valido</li>
- * 		     <li>Permette di abbandonare la partita e dichiarare come vincitore il giocatore avversario</li>
- * 		     <li>Permette di visualizzare il tempo trascorso per entrambi i giocatori</li>
- * 		     <li>Permette di cambiare il turno del giocatore</li>
- * 		     <li>Permette di visualizzare le prese effettuate durante la partita</li>
- * 		     <li>Permette di visualizzare le mosse effettuate durante la partita</li>
- * 		     <li>Aggiunge una mossa nella lista di mosse giocate</li></ul>
+ * <ul>Knows:
+ *      <li>Giocatore nero</li>
+ *      <li>Giocatore bianco</li>
+ *      <li>La damiera di gioco</li>
+ *      <li>Valore che indica se la partita è in corso</li>
+ *      <li>Valore che indica il turno di appartenenza(bianco o nero)</li>
+ *      <li>Il tempo di gioco iniziale</li>
+ *      <li>Una lista di mosse giocate in ordine cronologico</li></ul>
+ * <ul>Does:
+ *      <li>Istanzia la damiera da gioco, il valore della partita in corso
+ *      a falso e la lista di mosse giocate</li>
+ *      <li>Ottiene e setta il giocatore bianco</li>
+ *      <li>Ottiene e setta il giocatore nero</li>
+ *      <li>Ottiene e setta la damiera da gioco</li>
+ *      <li>Ottiene e setta il valore della partita in corso</li>
+ *      <li>Ottiene e setta il turno di appartenenza</li>
+ *      <li>Ottiene e setta il tempo di gioco iniziale</li>
+ *      <li>Permette di avviare la partita (settando come giocatore iniziale il bianco)
+ *      e di ricevere i comandi relativi alle mosse di gioco</li>
+ *      <li>Verifica che la sintassi del comando inserito, quando
+ *      viene effettuata una mossa, sia valido</li>
+ *      <li>Permette di abbandonare la partita e dichiarare come vincitore il giocatore avversario</li>
+ *      <li>Permette di visualizzare il tempo trascorso per entrambi i giocatori</li>
+ *      <li>Permette di cambiare il turno del giocatore</li>
+ *      <li>Permette di visualizzare le prese effettuate durante la partita</li>
+ *      <li>Permette di visualizzare le mosse effettuate durante la partita</li>
+ *      <li>Aggiunge una mossa nella lista di mosse giocate</li></ul>
  */
 
-public class Partita {
+public final class Partita {
     private Giocatore bianco;
     private Giocatore nero;
     private Damiera tavolo;
@@ -56,48 +59,48 @@ public class Partita {
         return bianco;
     }
 
-    public void setBianco(Giocatore bianco) {
-        this.bianco = bianco;
+    public void setBianco(final Giocatore coloreBianco) {
+        this.bianco = coloreBianco;
     }
 
     public Giocatore getNero() {
         return nero;
     }
 
-    public void setNero(Giocatore nero) {
-        this.nero = nero;
+    public void setNero(final Giocatore coloreNero) {
+        this.nero = coloreNero;
     }
 
     public Damiera getTavolo() {
         return tavolo;
     }
 
-    public void setTavolo(Damiera tavolo) {
-        this.tavolo = tavolo;
+    public void setTavolo(final Damiera nuovoTavolo) {
+        this.tavolo = nuovoTavolo;
     }
 
     public boolean getInCorso() {
         return inCorso;
     }
 
-    public void setInCorso(boolean inCorso) {
-        this.inCorso = inCorso;
+    public void setInCorso(final boolean nuovoStato) {
+        this.inCorso = nuovoStato;
     }
 
     public String getTurno() {
         return turno;
     }
 
-    public void setTurno(String turno) {
-        this.turno = turno;
+    public void setTurno(final String nuovoTurno) {
+        this.turno = nuovoTurno;
     }
 
     public Cronometro getTempoIniziale() {
         return tempoIniziale;
     }
 
-    public void setTempoIniziale(Cronometro tempoIniziale) {
-        this.tempoIniziale = tempoIniziale;
+    public void setTempoIniziale(final Cronometro nuovoTempoIniziale) {
+        this.tempoIniziale = nuovoTempoIniziale;
     }
 
     public void gioca() {
@@ -119,40 +122,37 @@ public class Partita {
             if (controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO)) {
                 boolean spostamentoEseguito;
                 if (turno.equals("bianco")) {
-                    spostamentoEseguito=tavolo.spostamentoSemplice(bianco, comando);
+                    spostamentoEseguito = tavolo.spostamentoSemplice(bianco, comando);
                 } else {
-                    spostamentoEseguito=tavolo.spostamentoSemplice(nero, comando);
+                    spostamentoEseguito = tavolo.spostamentoSemplice(nero, comando);
                 }
-                if(spostamentoEseguito){
+                if (spostamentoEseguito) {
                     aggiungiMossa(comando);
                     cambiaTurno();
                 }
-            }
-            else if (controlloSintassi(comando, Costanti.PATTERN_PRESA)) {
+            } else if (controlloSintassi(comando, Costanti.PATTERN_PRESA)) {
                 boolean spostamentoEseguito;
                 if (turno.equals("bianco")) {
-                    spostamentoEseguito=tavolo.presaSemplice(bianco, comando);
+                    spostamentoEseguito = tavolo.presaSemplice(bianco, comando);
                 } else {
-                    spostamentoEseguito=tavolo.presaSemplice(nero, comando);
+                    spostamentoEseguito = tavolo.presaSemplice(nero, comando);
                 }
-                if(spostamentoEseguito) {
+                if (spostamentoEseguito) {
                     aggiungiMossa(comando);
                     cambiaTurno();
                 }
-            }
-            else if (controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA)) {
+            } else if (controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA)) {
                 boolean spostamentoEseguito;
                 if (turno.equals("bianco")) {
-                    spostamentoEseguito=tavolo.presaMultipla(bianco, comando);
+                    spostamentoEseguito = tavolo.presaMultipla(bianco, comando);
                 } else {
-                    spostamentoEseguito=tavolo.presaMultipla(nero, comando);
+                    spostamentoEseguito = tavolo.presaMultipla(nero, comando);
                 }
-                if(spostamentoEseguito) {
+                if (spostamentoEseguito) {
                     aggiungiMossa(comando);
                     cambiaTurno();
                 }
-            }
-            else {
+            } else {
                 switch (comando) {
                     case "help":
                         Interfaccia.helpPartita();
@@ -199,14 +199,14 @@ public class Partita {
 
     }
 
-    private boolean controlloSintassi(String comando,final String stringa) {
+    private boolean controlloSintassi(final String comando, final String stringa) {
         boolean corretto = false;
-        comando = comando.replaceAll("\\s", "");
+        String comandoTrim = comando.replaceAll("\\s", "");
 
         try {
             Pattern pattern = Pattern.compile(stringa);
 
-            if (comando.matches(pattern.pattern())) {
+            if (comandoTrim.matches(pattern.pattern())) {
                 corretto = true;
             }
         } catch (Exception eccezioneSpostamento) {
@@ -220,34 +220,37 @@ public class Partita {
         do {
             Interfaccia.stampaMessaggio(Costanti.RICHIESTA_ABBANDONA_PARTITA);
             conferma = Interfaccia.acquisireComando();
-            if (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no"))
+            if (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no")) {
                 Interfaccia.stampaMessaggio(Costanti.ERR_RISPOSTA_NON_VALIDA);
+            }
         } while (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no"));
 
         if (conferma.equalsIgnoreCase("si")) {
             inCorso = false;
-            if (turno.equals("bianco"))
+            if (turno.equals("bianco")) {
                 Interfaccia.stampaMessaggio(Costanti.GIOCATORE_NERO_VINCE);
-            else
+            } else {
                 Interfaccia.stampaMessaggio(Costanti.GIOCATORE_BIANCO_VINCE);
+            }
         }
     }
-    public void tempo() {
-        Interfaccia.stampaMessaggio("+----------------------------+\n" +
-                "|   "+ Costanti.TEMPO_GIOCATORE_BIANCO +"   |\n" +
-                "+----------------------------+\n" +
-                "|     ");
-        bianco.getCronometro().stampaTempoTrascorso();
-        Interfaccia.stampaMessaggio("       |\n" +
-                "+----------------------------+\n");
 
-        Interfaccia.stampaMessaggio("+----------------------------+\n" +
-                "|   "+ Costanti.TEMPO_GIOCATORE_NERO +"     |\n" +
-                "+----------------------------+\n" +
-                "|     ");
-        nero.getCronometro().stampaTempoTrascorso();
-        Interfaccia.stampaMessaggio("       |\n" +
-                "+----------------------------+\n\n");
+    public void tempo() {
+        Interfaccia.stampaMessaggio("+----------------------------+\n"
+                + "|   " + Costanti.TEMPO_GIOCATORE_BIANCO + "   |\n"
+                + "+----------------------------+\n"
+                + "|     ");
+        Interfaccia.stampaMessaggio(bianco.getCronometro().tempoTrascorso());
+        Interfaccia.stampaMessaggio("       |\n"
+                + "+----------------------------+\n");
+
+        Interfaccia.stampaMessaggio("+----------------------------+\n"
+                + "|   " + Costanti.TEMPO_GIOCATORE_NERO + "     |\n"
+                + "+----------------------------+\n"
+                + "|     ");
+        Interfaccia.stampaMessaggio(nero.getCronometro().tempoTrascorso());
+        Interfaccia.stampaMessaggio("       |\n"
+                + "+----------------------------+\n\n");
     }
 
     private void cambiaTurno() {
@@ -270,39 +273,37 @@ public class Partita {
     }
 
     public void prese() {
-        Interfaccia.stampaMessaggio("+-------------------------------\n" +
-                "|   "+ Costanti.BIANCO +" ");
-        for (int i=0;i<bianco.getPedinePrese().size();i++){
+        Interfaccia.stampaMessaggio("+-------------------------------\n"
+                + "|   " + Costanti.BIANCO + " ");
+        for (int i = 0; i < bianco.getPedinePrese().size(); i++) {
             Interfaccia.stampaMessaggio(bianco.getPedinePrese().get(i).getSimbolo());
         }
 
-        Interfaccia.stampaMessaggio("\n+-------------------------------\n" +
-                "|   "+ Costanti.NERO +"   ");
-        for (int i=0;i<nero.getPedinePrese().size();i++){
+        Interfaccia.stampaMessaggio("\n+-------------------------------\n"
+                + "|   " + Costanti.NERO + "   ");
+        for (int i = 0; i < nero.getPedinePrese().size(); i++) {
             Interfaccia.stampaMessaggio(nero.getPedinePrese().get(i).getSimbolo());
         }
         Interfaccia.stampaMessaggio("\n+-------------------------------\n\n");
     }
 
 
+    public void mosse() {
 
-    public void mosse(){
-
-        Interfaccia.stampaMessaggio("+--------------------------+\n" +
-                "|   |     "+ Costanti.MOSSE_GIOCATE +"    \n" +
-                "+--------------------------+");
-        for (int i=0;i<cronologiaMosse.size();i++){
-            Interfaccia.stampaMessaggio("\n" +
-                    "| "+cronologiaMosse.get(i)+"                 ");
+        Interfaccia.stampaMessaggio("+--------------------------+\n"
+                + "|   |     " + Costanti.MOSSE_GIOCATE + "    \n"
+                + "+--------------------------+");
+        for (int i = 0; i < cronologiaMosse.size(); i++) {
+            Interfaccia.stampaMessaggio("\n"
+                    + "| " + cronologiaMosse.get(i) + "                 ");
         }
         Interfaccia.stampaMessaggio("\n+--------------------------+\n\n");
     }
 
-    public void aggiungiMossa(String comando){
-        if (this.turno == "bianco"){
+    public void aggiungiMossa(final String comando) {
+        if (this.turno.equals("bianco")) {
             cronologiaMosse.add("B | " + comando);
-        }
-        else {
+        } else {
             cronologiaMosse.add("N | " + comando);
         }
     }
