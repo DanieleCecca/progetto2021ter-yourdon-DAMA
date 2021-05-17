@@ -1,7 +1,5 @@
 package it.uniba.utilita;
 
-//import it.uniba.dama.Partita;
-
 import it.uniba.dama.Partita;
 
 import java.util.Scanner;
@@ -21,10 +19,10 @@ import java.util.Scanner;
  *     <li>Permette di uscire dall'applicazione</li></ul>
  */
 
-public class Interfaccia {
-    public static boolean esci = false;
+public final class Interfaccia {
+    private static boolean esci = false;
 
-    public Interfaccia() {
+    private Interfaccia() {
     }
 
     public static void interfacciaIniziale() {
@@ -42,10 +40,11 @@ public class Interfaccia {
                     break;
 
                 case "damiera":
-                    if (incontro.getInCorso())
+                    if (incontro.getInCorso()) {
                         incontro.getTavolo().stampaDamieraGioco();
-                    else
+                    } else {
                         stampaMessaggio(Costanti.ERR_PARTITA_NON_INIZIATA);
+                    }
                     break;
 
                 case "numeri":
@@ -53,8 +52,9 @@ public class Interfaccia {
                     break;
 
                 case "tempo":
-                    if (!incontro.getInCorso())
+                    if (!incontro.getInCorso()) {
                         stampaMessaggio(Costanti.ERR_PARTITA_NON_INIZIATA);
+                    }
                     break;
 
                 case "esci":
@@ -66,8 +66,9 @@ public class Interfaccia {
                     break;
 
                 case "abbandona":
-                    if (!incontro.getInCorso())
+                    if (!incontro.getInCorso()) {
                         stampaMessaggio(Costanti.ERR_PARTITA_NON_INIZIATA);
+                    }
                     break;
 
                 default:
@@ -77,7 +78,7 @@ public class Interfaccia {
         }
     }
 
-    public static void controlloFlagHelp(String [] args) {
+    public static void controlloFlagHelp(final String[] args) {
         int i = 0;
         boolean flagHelp = false;
         while (i < args.length && !flagHelp) {
@@ -87,35 +88,37 @@ public class Interfaccia {
             }
             i++;
         }
-        if (!flagHelp)
+        if (!flagHelp) {
             Interfaccia.help();
+        }
     }
 
-    public static void esci(){
+    public static void esci() {
         String conferma;
         do {
             stampaMessaggio(Costanti.RICHIESTA_USCITA_APP);
             conferma = acquisireComando();
-            if (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no"))
+            if (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no")) {
                 stampaMessaggio(Costanti.ERR_RISPOSTA_NON_VALIDA);
+            }
         } while (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no"));
 
         if (conferma.equalsIgnoreCase("si")) {
             stampaMessaggio(Costanti.APPLICAZIONE_CHIUSA);
             esci = true;
             System.exit(0);
-        }
-        else
+        } else {
             esci = false;
+        }
     }
 
-    public static void stampaBenvenuto(){
-        System.out.println("\n       Benvenuto nel gioco della\n\n" +
-                "         ___   _   __  __   _   \n" +
-                "        |   \\ /_\\ |  \\/  | /_\\  \n" +
-                "        | |) / _ \\| |\\/| |/ _ \\ \n" +
-                "        |___/_/ \\_\\_|  |_/_/ \\_\\\n" +
-                "                               \n      realizzato dal gruppo YOURDON®\n");
+    public static void stampaBenvenuto() {
+        System.out.println("\n       Benvenuto nel gioco della\n\n"
+                + "         ___   _   __  __   _   \n"
+                + "        |   \\ /_\\ |  \\/  | /_\\  \n"
+                + "        | |) / _ \\| |\\/| |/ _ \\ \n"
+                + "        |___/_/ \\_\\_|  |_/_/ \\_\\\n"
+                + "                               \n      realizzato dal gruppo YOURDON®\n");
     }
 
     public static void helpPartita() {
@@ -124,41 +127,42 @@ public class Interfaccia {
                 + "1-5\n"
                 + "1x10");
         System.out.println(
-                "+---+----------------------------------+\n" +
-                        "|   |              COMANDI             | \n" +
-                        "+---+----------------------------------+\n" +
-                        "| - | abbandona                        |\n" +
-                        "| - | esci                             |\n" +
-                        "| - | numeri                           |\n" +
-                        "| - | damiera                          |\n" +
-                        "| - | tempo                            |\n" +
-                        "| - | prese                            |\n" +
-                        "| - | mosse                            |\n" +
-                        "+---+----------------------------------+\n");
+                "+---+----------------------------------+\n"
+                        + "|   |              COMANDI             | \n"
+                        + "+---+----------------------------------+\n"
+                        + "| - | abbandona                        |\n"
+                        + "| - | esci                             |\n"
+                        + "| - | numeri                           |\n"
+                        + "| - | damiera                          |\n"
+                        + "| - | tempo                            |\n"
+                        + "| - | prese                            |\n"
+                        + "| - | mosse                            |\n"
+                        + "+---+----------------------------------+\n");
 
     }
 
     public static void help() {
-        System.out.println("\n" +
-                "+---+----------------------------------+\n" +
-                "|   |              COMANDI             |\n" +
-                "+---+----------------------------------+\n" +
-                "| - | gioca                            |\n" +
-                "| - | abbandona                        |\n" +
-                "| - | esci                             |\n" +
-                "| - | numeri                           |\n" +
-                "| - | damiera                          |\n" +
-                "| - | tempo                            |\n" +
-                "+---+----------------------------------+\n");
+        System.out.println("\n"
+                + "+---+----------------------------------+\n"
+                + "|   |              COMANDI             |\n"
+                + "+---+----------------------------------+\n"
+                + "| - | gioca                            |\n"
+                + "| - | abbandona                        |\n"
+                + "| - | esci                             |\n"
+                + "| - | numeri                           |\n"
+                + "| - | damiera                          |\n"
+                + "| - | tempo                            |\n"
+                + "+---+----------------------------------+\n");
     }
 
-    public static void stampaMessaggio(String messaggio){
+    public static void stampaMessaggio(final String messaggio) {
         System.out.print(messaggio);
     }
 
-    public static String acquisireComando(){
+    public static String acquisireComando() {
         Scanner inputTastiera = new Scanner(System.in);
         String comando = inputTastiera.nextLine();
         return comando;
     }
+
 }
