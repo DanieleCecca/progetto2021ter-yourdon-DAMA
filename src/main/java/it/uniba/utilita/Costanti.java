@@ -30,6 +30,9 @@ public class Costanti {
     public static final String PATTERN_PRESA_MULTIPLA = "(0?[1-9]|[1-2][0-9]|3[0-2])((x)(0?[1-9]|[1-2][0-9]|3[0-2]))+";
 
     public static final int DIM = 8;
+    public static final int ORA_IN_SECONDI = 3600;
+    public static final int MINUTO_IN_SECONDI= 60;
+    public static final int SECONDO = 1000;
 
     //messaggi
     public static final String INSERIRE_COMANDO = "Inserisci un comando: ";
