@@ -34,6 +34,15 @@ public class Costanti {
     public static final int MINUTO_IN_SECONDI= 60;
     public static final int SECONDO = 1000;
 
+    public static final int ULTIMA_RIGA_INIZIALE_BIANCO = 3;
+    public static final int ULTIMA_RIGA_INIZIALE_NERO = 5;
+    public static final int NUM_PARI = 2;
+    public static final int NUM_10 = 10;
+
+    public static final int NUM_4 = 4;
+    public static final int NUM_29 = 29;
+    public static final int NUM_32 = 32;
+
     //messaggi
     public static final String INSERIRE_COMANDO = "Inserisci un comando: ";
     public static final String PARTITA_INIZIATA = "La partita è iniziata.\n";
