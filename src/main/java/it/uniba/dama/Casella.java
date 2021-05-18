@@ -4,45 +4,45 @@ package it.uniba.dama;
  * Classe che rappresenta una Casella della damiera<br>
  * Tipo di classe: <b>Entity</b><br>
  * Responsabilità:
- * 		<ul>Knows:
- * 		     <li>La pedina, se presente, posizionata all'interno della casella corrente</li>
- * 		     <li>Un valore che indica se la Casella è occupata o meno</li>
- * 		     <li>Il numero della casella</li>
- * 		     <li>Delle coordinate (x,y) che indicano la posizione della Casella nella Damiera</li></ul>
- * 		<ul>Does:
- * 		     <li>Istanzia la casella con al suo interno una coppia di coordinate (x,y) e una pedina vuota</li>
- * 		     <li>Ottiene e setta il numero della casella</li>
- * 		     <li>Ottiene e setta il valore occupato della Casella</li></ul>
+ * <ul>Knows:
+ *      <li>La pedina, se presente, posizionata all'interno della casella corrente</li>
+ *      <li>Un valore che indica se la Casella è occupata o meno</li>
+ *      <li>Il numero della casella</li>
+ *      <li>Delle coordinate (x,y) che indicano la posizione della Casella nella Damiera</li></ul>
+ * <ul>Does:
+ *      <li>Istanzia la casella con al suo interno una coppia di coordinate (x,y) e una pedina vuota</li>
+ *      <li>Ottiene e setta il numero della casella</li>
+ *      <li>Ottiene e setta il valore occupato della Casella</li></ul>
  */
-public class Casella {
+public final class Casella {
     private Pedina pedina;
     private boolean occupato;
     private int numeroCasella;
-    private Coordinate coordinate;
+    private Coordinata coordinata;
 
-    public Coordinate getCoordinate() {
-        return coordinate;
+    public Coordinata getCoordinata() {
+        return coordinata;
 
     }
 
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
+    public void setCoordinata(final Coordinata nuovaCoordinata) {
+        this.coordinata = nuovaCoordinata;
     }
 
-    public Casella (){
+    public Casella() {
         pedina = new Pedina("", "");
-        coordinate = new Coordinate();
+        coordinata = new Coordinata();
     }
 
     public int getNumeroCasella() {
         return numeroCasella;
     }
 
-    public void setNumeroCasella(int numeroCasella) {
-        this.numeroCasella = numeroCasella;
+    public void setNumeroCasella(final int nuovoNumeroCasella) {
+        this.numeroCasella = nuovoNumeroCasella;
     }
 
-    public Casella (Pedina pedinaDaPosizionare){
+    public Casella(final Pedina pedinaDaPosizionare) {
         pedina = pedinaDaPosizionare;
     }
 
@@ -50,16 +50,16 @@ public class Casella {
         return pedina;
     }
 
-    public void setPedina(Pedina pedina) {
-        this.pedina = pedina;
+    public void setPedina(final Pedina nuovaPedina) {
+        this.pedina = nuovaPedina;
     }
 
     public boolean getOccupato() {
         return occupato;
     }
 
-    public void setOccupato(boolean occupato) {
-        this.occupato = occupato;
+    public void setOccupato(final boolean nuovoStato) {
+        this.occupato = nuovoStato;
     }
 }
 
@@ -67,33 +67,32 @@ public class Casella {
  * Classe che rappresenta una coppia di coordinate<br>
  * Tipo di classe: <b>Entity</b><br>
  * Responsabilità:
- * 		<ul>Knows:
- * 		     <li>Valori (x,y) che indicano le coordinate di una matrice</li></ul>
- * 		<ul>Does:
- * 		     <li>Ottiene e setta la coordinata X</li>
- * 		     <li>Ottiene e setta la coordinata Y</li></ul>
+ * <ul>Knows:
+ *      <li>Valori (x,y) che indicano le coordinate di una matrice</li></ul>
+ * <ul>Does:
+ *      <li>Ottiene e setta la coordinata X</li>
+ *      <li>Ottiene e setta la coordinata Y</li></ul>
  */
- class
- Coordinate {
+class Coordinata {
     private int x;
     private int y;
 
-    Coordinate(){
+    Coordinata() {
     }
 
     public int getX() {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setX(final int ascissa) {
+        this.x = ascissa;
     }
 
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setY(final int ordinata) {
+        this.y = ordinata;
     }
 }

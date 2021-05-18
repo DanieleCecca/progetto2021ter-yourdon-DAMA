@@ -41,8 +41,8 @@ public final class Damiera {
                     damiera[i][j].setNumeroCasella(numeroCasella);
                     numeroCasella++;
                 }
-                damiera[i][j].getCoordinate().setX(i);
-                damiera[i][j].getCoordinate().setY(j);
+                damiera[i][j].getCoordinata().setX(i);
+                damiera[i][j].getCoordinata().setY(j);
             }
         }
     }
@@ -63,8 +63,8 @@ public final class Damiera {
                 damiera[i][j].setPedina(copia.getDamiera()[i][j].getPedina());
                 damiera[i][j].setOccupato(copia.getDamiera()[i][j].getOccupato());
 
-                damiera[i][j].getCoordinate().setX(i);
-                damiera[i][j].getCoordinate().setY(j);
+                damiera[i][j].getCoordinata().setX(i);
+                damiera[i][j].getCoordinata().setY(j);
             }
         }
     }
@@ -186,12 +186,12 @@ public final class Damiera {
         Casella secondaCasella = ricercaCasella(secondaPosizione);
         if (primaCasella.getOccupato()) {
             if (primaCasella.getPedina().getColore() == giocatore.getColore()) {
-                if (((secondaCasella.getCoordinate().getX() == (primaCasella.getCoordinate().getX() + 1)
+                if (((secondaCasella.getCoordinata().getX() == (primaCasella.getCoordinata().getX() + 1)
                         && giocatore.getColore().equals("nero"))
-                        || (secondaCasella.getCoordinate().getX() == (primaCasella.getCoordinate().getX() - 1))
+                        || (secondaCasella.getCoordinata().getX() == (primaCasella.getCoordinata().getX() - 1))
                         && giocatore.getColore().equals("bianco"))
-                        && (secondaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() + 1)
-                        || secondaCasella.getCoordinate().getY() == (primaCasella.getCoordinate().getY() - 1))) {
+                        && (secondaCasella.getCoordinata().getY() == (primaCasella.getCoordinata().getY() + 1)
+                        || secondaCasella.getCoordinata().getY() == (primaCasella.getCoordinata().getY() - 1))) {
                     if (!secondaCasella.getOccupato()) {
                         primaCasella.setOccupato(secondaCasella.getOccupato());
                         secondaCasella.setPedina(primaCasella.getPedina());
@@ -228,30 +228,30 @@ public final class Damiera {
         //Il giocatore nero effettua la presa verso destra o sinistra
         if (giocatore.getColore().equals("nero")
                 && casellaUno.getPedina().getColore().equals(giocatore.getColore())) {
-            if (casellaTre.getCoordinate().getY() == (casellaUno.getCoordinate().getY() + 2)) {
-                casellaDue = damiera[casellaUno.getCoordinate().getX() + 1][casellaUno.getCoordinate().getY() + 1];
-            } else if (casellaTre.getCoordinate().getY() == (casellaUno.getCoordinate().getY() - 2)) {
-                casellaDue = damiera[casellaUno.getCoordinate().getX() + 1][casellaUno.getCoordinate().getY() - 1];
+            if (casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() + 2)) {
+                casellaDue = damiera[casellaUno.getCoordinata().getX() + 1][casellaUno.getCoordinata().getY() + 1];
+            } else if (casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() - 2)) {
+                casellaDue = damiera[casellaUno.getCoordinata().getX() + 1][casellaUno.getCoordinata().getY() - 1];
             }
         }
         //Il giocatore bianco effettua la presa verso sinistra o destra
         if (giocatore.getColore().equals("bianco")
                 && casellaUno.getPedina().getColore().equals(giocatore.getColore())) {
-            if (casellaTre.getCoordinate().getY() == (casellaUno.getCoordinate().getY() - 2)) {
-                casellaDue = damiera[casellaUno.getCoordinate().getX() - 1][casellaUno.getCoordinate().getY() - 1];
-            } else if (casellaTre.getCoordinate().getY() == (casellaUno.getCoordinate().getY() + 2)) {
-                casellaDue = damiera[casellaUno.getCoordinate().getX() - 1][casellaUno.getCoordinate().getY() + 1];
+            if (casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() - 2)) {
+                casellaDue = damiera[casellaUno.getCoordinata().getX() - 1][casellaUno.getCoordinata().getY() - 1];
+            } else if (casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() + 2)) {
+                casellaDue = damiera[casellaUno.getCoordinata().getX() - 1][casellaUno.getCoordinata().getY() + 1];
             }
         }
 
         if (casellaUno.getOccupato()) {
             if (casellaUno.getPedina().getColore() == giocatore.getColore()) {
-                if (((casellaTre.getCoordinate().getX() == (casellaUno.getCoordinate().getX() + 2)
+                if (((casellaTre.getCoordinata().getX() == (casellaUno.getCoordinata().getX() + 2)
                         && giocatore.getColore().equals("nero"))
-                        || (casellaTre.getCoordinate().getX() == (casellaUno.getCoordinate().getX() - 2))
+                        || (casellaTre.getCoordinata().getX() == (casellaUno.getCoordinata().getX() - 2))
                         && giocatore.getColore().equals("bianco"))
-                        && (casellaTre.getCoordinate().getY() == (casellaUno.getCoordinate().getY() + 2)
-                        || casellaTre.getCoordinate().getY() == (casellaUno.getCoordinate().getY() - 2))) {
+                        && (casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() + 2)
+                        || casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() - 2))) {
                     if (!casellaTre.getOccupato()) {
                         if (casellaDue.getOccupato()) {
                             if (casellaDue.getPedina().getColore() != giocatore.getColore()) {
