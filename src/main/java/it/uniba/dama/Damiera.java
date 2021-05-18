@@ -47,11 +47,11 @@ public final class Damiera {
         }
     }
 
-    public Casella[][] getDamiera() {
+    private Casella[][] getDamiera() {
         return damiera;
     }
 
-    public void setDamiera(final Casella[][] nuovaDamiera) {
+    private void setDamiera(final Casella[][] nuovaDamiera) {
         this.damiera = nuovaDamiera;
     }
 
@@ -245,7 +245,7 @@ public final class Damiera {
         }
 
         if (casellaUno.getOccupato()) {
-            if (casellaUno.getPedina().getColore() == giocatore.getColore()) {
+            if (casellaUno.getPedina().getColore().equals(giocatore.getColore())) {
                 if (((casellaTre.getCoordinata().getX() == (casellaUno.getCoordinata().getX() + 2)
                         && giocatore.getColore().equals("nero"))
                         || (casellaTre.getCoordinata().getX() == (casellaUno.getCoordinata().getX() - 2))
@@ -254,7 +254,7 @@ public final class Damiera {
                         || casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() - 2))) {
                     if (!casellaTre.getOccupato()) {
                         if (casellaDue.getOccupato()) {
-                            if (casellaDue.getPedina().getColore() != giocatore.getColore()) {
+                            if (!casellaDue.getPedina().getColore().equals(giocatore.getColore())) {
                                 casellaDue.setOccupato(false);
                                 //Cancellare anche simbolo e colore?
                                 //Da inserire funzione che aggiorna il numero di pedine prese
