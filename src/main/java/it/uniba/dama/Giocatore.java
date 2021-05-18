@@ -23,8 +23,8 @@ import java.util.ArrayList;
 
 public class Giocatore {
     private String colore;
-    private  Cronometro cronometro;
-    private int tempoPrecedente;
+    private Cronometro cronometro;
+    private int tempoPrecedente = 0;
     private ArrayList<Pedina> pedinePrese = new ArrayList<Pedina>();
 
     public ArrayList<Pedina> getPedinePrese() {
