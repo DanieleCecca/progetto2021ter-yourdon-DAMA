@@ -160,7 +160,7 @@ public final class Interfaccia {
     }
 
     public static String acquisireComando() {
-        Scanner inputTastiera = new Scanner(System.in);
+        Scanner inputTastiera = new Scanner(System.in, "UTF-8");
         String comando = inputTastiera.nextLine();
         return comando;
     }
