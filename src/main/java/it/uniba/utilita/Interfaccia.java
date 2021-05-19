@@ -21,11 +21,19 @@ import java.util.Scanner;
 
 public final class Interfaccia {
     private static boolean esci = false;
+    private static Interfaccia singleton = null;
 
     private Interfaccia() {
     }
 
-    public static void interfacciaIniziale() {
+    public static Interfaccia getSingleton() {
+        if (singleton == null) {
+            singleton = new Interfaccia();
+        }
+        return singleton;
+    }
+
+    public void interfacciaIniziale() {
         //Questa parte permette l'inserimento di un comando valido da parte dell'utente
         Partita incontro = new Partita();
 
@@ -62,7 +70,7 @@ public final class Interfaccia {
                     break;
 
                 case "help":
-                    Interfaccia.help();
+                    help();
                     break;
 
                 case "abbandona":
@@ -78,18 +86,18 @@ public final class Interfaccia {
         }
     }
 
-    public static void controlloFlagHelp(final String[] args) {
+    public void controlloFlagHelp(final String[] args) {
         int i = 0;
         boolean flagHelp = false;
         while (i < args.length && !flagHelp) {
             if (args[i].equals("--help") || args[i].equals("-h")) {
-                Interfaccia.help();
+                help();
                 flagHelp = true;
             }
             i++;
         }
         if (!flagHelp) {
-            Interfaccia.help();
+            help();
         }
     }
 
@@ -112,7 +120,7 @@ public final class Interfaccia {
         }
     }
 
-    public static void stampaBenvenuto() {
+    public void stampaBenvenuto() {
         System.out.println("\n       Benvenuto nel gioco della\n\n"
                 + "         ___   _   __  __   _   \n"
                 + "        |   \\ /_\\ |  \\/  | /_\\  \n"
@@ -121,7 +129,7 @@ public final class Interfaccia {
                 + "                               \n      realizzato dal gruppo YOURDON®\n");
     }
 
-    public static void helpPartita() {
+    public void helpPartita() {
         System.out.println("\nLe mosse sono descritte in notazione algebrica\n"
                 + "Esempio: \n"
                 + "1-5\n"
@@ -141,7 +149,7 @@ public final class Interfaccia {
 
     }
 
-    public static void help() {
+    public void help() {
         System.out.println("\n"
                 + "+---+----------------------------------+\n"
                 + "|   |              COMANDI             |\n"
@@ -165,4 +173,15 @@ public final class Interfaccia {
         return comando;
     }
 
+    public void stampaMessaggioInterfaccia(final String messaggio) {
+        System.out.print(messaggio);
+    }
+
+    public String acquisireComandoInterfaccia() {
+        Scanner inputTastiera = new Scanner(System.in, "UTF-8");
+        String comando = inputTastiera.nextLine();
+        return comando;
+    }
+    //per risolvere il fatto che si accede ad un metodo statico da una istanza bisogna ricopiare
+    //stampamessaggio e acquisirecomando e renderli non statici
 }
