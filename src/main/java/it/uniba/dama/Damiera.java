@@ -1,7 +1,7 @@
 package it.uniba.dama;
 
 import it.uniba.utilita.Costanti;
-import it.uniba.utilita.Interfaccia;
+import it.uniba.main.AppMain;
 
 /**
  * Classe che rappresenta la Damiera di gioco come una matrice di Caselle <br>
@@ -97,68 +97,72 @@ public final class Damiera {
     }
 
     public void stampaDamieraGioco() {
-        Interfaccia.stampaMessaggio(Costanti.TAVOLO_GIOCO);
+        AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.TAVOLO_GIOCO);
         for (int i = 0; i < Costanti.DIM; i++) {
-            Interfaccia.stampaMessaggio("\n-----+----+----+----+----+----+----+-----\n");
+            AppMain.SINGLETON.stampaMessaggioInterfaccia("\n-----+----+----+----+----+----+----+-----\n");
             for (int j = 0; j < Costanti.DIM; j++) {
-                Interfaccia.stampaMessaggio("|");
+                AppMain.SINGLETON.stampaMessaggioInterfaccia("|");
                 if (!damiera[i][j].getOccupato()) {
-                    Interfaccia.stampaMessaggio("    ");
+                    AppMain.SINGLETON.stampaMessaggioInterfaccia("    ");
                 } else {
                     if (damiera[i][j].getPedina().getSimbolo().equals(Costanti.UNICODE_PEDINA_NERA)) {
-                        Interfaccia.stampaMessaggio(" " + Costanti.UNICODE_PEDINA_NERA + Costanti.SPAZIO_CORTO + " ");
+                        AppMain.SINGLETON.stampaMessaggioInterfaccia(
+                                " " + Costanti.UNICODE_PEDINA_NERA + Costanti.SPAZIO_CORTO + " ");
                     } else if (damiera[i][j].getPedina().getSimbolo().equals(Costanti.UNICODE_PEDINA_BIANCA)) {
-                        Interfaccia.stampaMessaggio(" " + Costanti.UNICODE_PEDINA_BIANCA + Costanti.SPAZIO_CORTO + " ");
+                        AppMain.SINGLETON.stampaMessaggioInterfaccia(
+                                " " + Costanti.UNICODE_PEDINA_BIANCA + Costanti.SPAZIO_CORTO + " ");
                     } else if (damiera[i][j].getPedina().getSimbolo().equals(Costanti.UNICODE_DAMA_NERA)) {
-                        Interfaccia.stampaMessaggio(" " + Costanti.UNICODE_DAMA_NERA + Costanti.SPAZIO_CORTO + " ");
+                        AppMain.SINGLETON.stampaMessaggioInterfaccia(
+                                " " + Costanti.UNICODE_DAMA_NERA + Costanti.SPAZIO_CORTO + " ");
                     } else if (damiera[i][j].getPedina().getSimbolo().equals(Costanti.UNICODE_DAMA_BIANCA)) {
-                        Interfaccia.stampaMessaggio(" " + Costanti.UNICODE_DAMA_BIANCA + Costanti.SPAZIO_CORTO + " ");
+                        AppMain.SINGLETON.stampaMessaggioInterfaccia(
+                                " " + Costanti.UNICODE_DAMA_BIANCA + Costanti.SPAZIO_CORTO + " ");
                     }
                 }
             }
-            Interfaccia.stampaMessaggio("|");
+            AppMain.SINGLETON.stampaMessaggioInterfaccia("|");
         }
-        Interfaccia.stampaMessaggio("\n-----+----+----+----+----+----+----+-----\n");
-        Interfaccia.stampaMessaggio("\n");
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("\n-----+----+----+----+----+----+----+-----\n");
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("\n");
     }
 
     public void stampaDamieraNumerata() {
         int numero = 1;
-        Interfaccia.stampaMessaggio(Costanti.TAVOLO_GIOCO);
+        AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.TAVOLO_GIOCO);
         for (int i = 0; i < Costanti.DIM; i++) {
-            Interfaccia.stampaMessaggio("\n-----+----+----+----+----+----+----+-----\n");
+            AppMain.SINGLETON.stampaMessaggioInterfaccia("\n-----+----+----+----+----+----+----+-----\n");
             for (int j = 0; j < Costanti.DIM; j++) {
-                Interfaccia.stampaMessaggio("|");
+                AppMain.SINGLETON.stampaMessaggioInterfaccia("|");
                 //Se la riga è pari allora il primo pezzo è posto sulla prima colonna con numero pari
                 if (i % Costanti.NUM_PARI == 0) {
                     if (j % Costanti.NUM_PARI == 0) {
                         if (numero < Costanti.NUM_10) {
-                            Interfaccia.stampaMessaggio("  " + numero + " ");
+                            AppMain.SINGLETON.stampaMessaggioInterfaccia("  " + numero + " ");
                         } else {
-                            Interfaccia.stampaMessaggio(" " + numero + " ");
+                            AppMain.SINGLETON.stampaMessaggioInterfaccia(" " + numero + " ");
                         }
                         numero++;
                     } else {
-                        Interfaccia.stampaMessaggio("    ");
+                        AppMain.SINGLETON.stampaMessaggioInterfaccia("    ");
                     }
                     //Se la riga è dispari allora il primo pezzo è posto sulla prima posizione con numero dispari
                 } else if (i % Costanti.NUM_PARI != 0) {
                     if (j % Costanti.NUM_PARI != 0) {
                         if (numero < Costanti.NUM_10) {
-                            Interfaccia.stampaMessaggio("  " + numero + " ");
+                            AppMain.SINGLETON.stampaMessaggioInterfaccia("  " + numero + " ");
                         } else {
-                            Interfaccia.stampaMessaggio(" " + numero + " ");
+                            AppMain.SINGLETON.stampaMessaggioInterfaccia(" " + numero + " ");
                         }
                         numero++;
                     } else {
-                        Interfaccia.stampaMessaggio("    ");
+                        AppMain.SINGLETON.stampaMessaggioInterfaccia("    ");
                     }
                 }
             }
-            Interfaccia.stampaMessaggio("|");
+            AppMain.SINGLETON.stampaMessaggioInterfaccia("|");
         }
-        Interfaccia.stampaMessaggio("\n-----+----+----+----+----+----+----+-----\n");
-        Interfaccia.stampaMessaggio("\n");
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("\n-----+----+----+----+----+----+----+-----\n");
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("\n");
     }
 
     public Casella ricercaCasella(final int posizione) {
@@ -199,16 +203,16 @@ public final class Damiera {
                         spostamentoEseguito = true;
                         controlloDamatura(giocatore, secondaCasella);
                     } else {
-                        Interfaccia.stampaMessaggio(Costanti.ERR_CASELLA_OCCUPATA);
+                        AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_CASELLA_OCCUPATA);
                     }
                 } else {
-                    Interfaccia.stampaMessaggio(Costanti.ERR_MOSSA_NON_VALIDA);
+                    AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_MOSSA_NON_VALIDA);
                 }
             } else {
-                Interfaccia.stampaMessaggio(Costanti.ERR_APPERTENENZA_PEDINA);
+                AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_APPERTENENZA_PEDINA);
             }
         } else {
-            Interfaccia.stampaMessaggio(Costanti.ERR_CASELLA_VUOTA);
+            AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_CASELLA_VUOTA);
         }
         return spostamentoEseguito;
     }
@@ -265,23 +269,23 @@ public final class Damiera {
                                 controlloDamatura(giocatore, casellaTre);
                                 giocatore.setPedinePrese(casellaDue.getPedina());
                             } else {
-                                Interfaccia.stampaMessaggio(Costanti.ERR_MOSSA_NON_VALIDA);
+                                AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_MOSSA_NON_VALIDA);
                             }
                         } else {
-                            Interfaccia.stampaMessaggio(Costanti.ERR_MOSSA_NON_VALIDA);
+                            AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_MOSSA_NON_VALIDA);
                         }
                     } else {
-                        Interfaccia.stampaMessaggio(Costanti.ERR_CASELLA_OCCUPATA);
+                        AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_CASELLA_OCCUPATA);
                     }
                 } else {
-                    Interfaccia.stampaMessaggio(Costanti.ERR_MOSSA_NON_VALIDA);
+                    AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_MOSSA_NON_VALIDA);
                 }
 
             } else {
-                Interfaccia.stampaMessaggio(Costanti.ERR_APPERTENENZA_PEDINA);
+                AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_APPERTENENZA_PEDINA);
             }
         } else {
-            Interfaccia.stampaMessaggio(Costanti.ERR_CASELLA_VUOTA);
+            AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_CASELLA_VUOTA);
         }
         return spostamentoEseguito;
     }
