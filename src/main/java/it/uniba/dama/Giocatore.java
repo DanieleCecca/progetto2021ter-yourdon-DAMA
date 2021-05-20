@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * 		</ul>
  */
 
-public class Giocatore {
+public final class Giocatore {
     private String colore;
     private Cronometro cronometro;
     private int tempoPrecedente = 0;
@@ -31,12 +31,12 @@ public class Giocatore {
         return pedinePrese;
     }
 
-    public void setPedinePrese(Pedina pedinaPresa) {
+    public void setPedinePrese(final Pedina pedinaPresa) {
         this.pedinePrese.add(pedinaPresa);
     }
 
-    public Giocatore(String colore) {
-        this.colore = colore;
+    public Giocatore(final String nuovoColore) {
+        this.colore = nuovoColore;
         this.cronometro = new Cronometro(tempoPrecedente);
         tempoPrecedente = 0;
     }
@@ -49,24 +49,24 @@ public class Giocatore {
         return cronometro;
     }
 
-    public void setCronometro(Cronometro cronometro) {
-        this.cronometro = cronometro;
+    public void setCronometro(final Cronometro nuovoCronometro) {
+        this.cronometro = nuovoCronometro;
     }
 
     public int getTempoPrecedente() {
         return tempoPrecedente;
     }
 
-    public void setTempoPrecedente(int tempoPrecedente) {
-        this.tempoPrecedente = tempoPrecedente;
+    public void setTempoPrecedente(final int nuovoTempoPrecedente) {
+        this.tempoPrecedente = nuovoTempoPrecedente;
     }
 
     public String getColore() {
         return colore;
     }
 
-    public void setColore(String colore) {
-        this.colore = colore;
+    public void setColore(final String nuovoColore) {
+        this.colore = nuovoColore;
     }
 
 }
