@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import it.uniba.dama.Pedina;
 import it.uniba.utilita.Costanti;
+import it.uniba.utilita.Cronometro;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -92,8 +93,8 @@ public class GiocatoreTest {
     @DisplayName("10: Test assertEquals setTempoPrecedente")
     public void GiocatoreTest_10(){
         Giocatore giocatore = new Giocatore("bianco");
-        giocatore.setTempoPrecedente(10);
-        assertEquals(10, giocatore.getTempoPrecedente());
+        giocatore.setTempoPrecedente(Integer.MAX_VALUE);
+        assertEquals(Integer.MAX_VALUE, giocatore.getTempoPrecedente());
     }
 
     @Test
@@ -157,4 +158,22 @@ public class GiocatoreTest {
         pedine.add(Costanti.PEDINA_BIANCA);
         assertEquals(pedine, giocatore.getPedinePrese());
     }
+
+    //Test sul campo cronometro
+    @Test
+    @DisplayName("18: Test assertNotNull getCronometro")
+    public void GiocatoreTest_18(){
+        Giocatore giocatore = new Giocatore("bianco");
+        assertNotNull(giocatore.getCronometro());
+    }
+
+    @Test
+    @DisplayName("19: Test assertNotNull setCronometro")
+    public void GiocatoreTest_19(){
+        Giocatore giocatore = new Giocatore("bianco");
+        Cronometro cronometro = new Cronometro(0);
+        giocatore.setCronometro(cronometro);
+        assertNotNull(giocatore.getCronometro());
+    }
+
 }
