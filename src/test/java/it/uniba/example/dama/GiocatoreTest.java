@@ -176,4 +176,12 @@ public class GiocatoreTest {
         assertNotNull(giocatore.getCronometro());
     }
 
+    @Test
+    @DisplayName("20: Test assertNotNull resettaCronometro")
+    public void GiocatoreTest_20(){
+        Giocatore giocatore = new Giocatore("bianco");
+        giocatore.resettaCronometro();
+        assertNotNull(giocatore.getCronometro());
+    }
+
 }
