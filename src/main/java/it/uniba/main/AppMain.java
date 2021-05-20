@@ -23,6 +23,8 @@ import it.uniba.utilita.Interfaccia;
 
 public final class AppMain {
 
+    public static final Interfaccia SINGLETON = Interfaccia.getSingleton();
+
     /**
      * Private constructor. Change if needed.
      */
@@ -58,8 +60,13 @@ public final class AppMain {
             System.out.println("Using default language 'en'");
             System.out.println("Application started.");
         }
+
+        SINGLETON.stampaBenvenuto();
+        SINGLETON.controlloFlagHelp(args);
+        SINGLETON.interfacciaIniziale();
+        /*
         Interfaccia.stampaBenvenuto();
         Interfaccia.controlloFlagHelp(args);
-        Interfaccia.interfacciaIniziale();
+        Interfaccia.interfacciaIniziale();*/
     }
 }

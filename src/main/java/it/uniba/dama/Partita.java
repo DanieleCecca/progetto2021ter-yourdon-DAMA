@@ -2,6 +2,7 @@ package it.uniba.dama;
 
 import it.uniba.utilita.Cronometro;
 import it.uniba.utilita.Costanti;
+import it.uniba.main.AppMain;
 import it.uniba.utilita.Interfaccia;
 
 import java.util.ArrayList;
@@ -116,8 +117,8 @@ public final class Partita {
 
         while (inCorso) {
 
-            Interfaccia.stampaMessaggio(Costanti.INSERIRE_COMANDO);
-            String comando = Interfaccia.acquisireComando();
+            AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.INSERIRE_COMANDO);
+            String comando = AppMain.SINGLETON.acquisireComandoInterfaccia();
 
             if (controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO)) {
                 boolean spostamentoEseguito;
@@ -155,7 +156,7 @@ public final class Partita {
             } else {
                 switch (comando) {
                     case "help":
-                        Interfaccia.helpPartita();
+                        AppMain.SINGLETON.helpPartita();
                         break;
 
                     case "damiera":
@@ -179,7 +180,7 @@ public final class Partita {
                         break;
 
                     case "gioca":
-                        Interfaccia.stampaMessaggio(Costanti.ERR_PARTITA_GIA_INIZIATA);
+                        AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_PARTITA_GIA_INIZIATA);
                         break;
 
                     case "prese":
@@ -191,7 +192,7 @@ public final class Partita {
                         break;
 
                     default:
-                        Interfaccia.stampaMessaggio(Costanti.ERR_COMANDO_INESISTENTE);
+                        AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_COMANDO_INESISTENTE);
                         break;
                 }
             }
@@ -218,38 +219,38 @@ public final class Partita {
     public void abbandona() {
         String conferma;
         do {
-            Interfaccia.stampaMessaggio(Costanti.RICHIESTA_ABBANDONA_PARTITA);
-            conferma = Interfaccia.acquisireComando();
+            AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.RICHIESTA_ABBANDONA_PARTITA);
+            conferma = AppMain.SINGLETON.acquisireComandoInterfaccia();
             if (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no")) {
-                Interfaccia.stampaMessaggio(Costanti.ERR_RISPOSTA_NON_VALIDA);
+                AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_RISPOSTA_NON_VALIDA);
             }
         } while (!conferma.equalsIgnoreCase("si") && !conferma.equalsIgnoreCase("no"));
 
         if (conferma.equalsIgnoreCase("si")) {
             inCorso = false;
             if (turno.equals("bianco")) {
-                Interfaccia.stampaMessaggio(Costanti.GIOCATORE_NERO_VINCE);
+                AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.GIOCATORE_NERO_VINCE);
             } else {
-                Interfaccia.stampaMessaggio(Costanti.GIOCATORE_BIANCO_VINCE);
+                AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.GIOCATORE_BIANCO_VINCE);
             }
         }
     }
 
     public void tempo() {
-        Interfaccia.stampaMessaggio("+----------------------------+\n"
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("+----------------------------+\n"
                 + "|   " + Costanti.TEMPO_GIOCATORE_BIANCO + "   |\n"
                 + "+----------------------------+\n"
                 + "|     ");
-        Interfaccia.stampaMessaggio(bianco.getCronometro().tempoTrascorso());
-        Interfaccia.stampaMessaggio("       |\n"
+        AppMain.SINGLETON.stampaMessaggioInterfaccia(bianco.getCronometro().tempoTrascorso());
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("       |\n"
                 + "+----------------------------+\n");
 
-        Interfaccia.stampaMessaggio("+----------------------------+\n"
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("+----------------------------+\n"
                 + "|   " + Costanti.TEMPO_GIOCATORE_NERO + "     |\n"
                 + "+----------------------------+\n"
                 + "|     ");
-        Interfaccia.stampaMessaggio(nero.getCronometro().tempoTrascorso());
-        Interfaccia.stampaMessaggio("       |\n"
+        AppMain.SINGLETON.stampaMessaggioInterfaccia(nero.getCronometro().tempoTrascorso());
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("       |\n"
                 + "+----------------------------+\n\n");
     }
 
@@ -269,35 +270,35 @@ public final class Partita {
             bianco.resettaCronometro();
             bianco.getCronometro().start();
         }
-        Interfaccia.stampaMessaggio("\nTurno del giocatore: " + turno + "\n");
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("\nTurno del giocatore: " + turno + "\n");
     }
 
     public void prese() {
-        Interfaccia.stampaMessaggio("+-------------------------------\n"
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("+-------------------------------\n"
                 + "|   " + Costanti.BIANCO + " ");
         for (int i = 0; i < bianco.getPedinePrese().size(); i++) {
-            Interfaccia.stampaMessaggio(bianco.getPedinePrese().get(i).getSimbolo());
+            AppMain.SINGLETON.stampaMessaggioInterfaccia(bianco.getPedinePrese().get(i).getSimbolo());
         }
 
-        Interfaccia.stampaMessaggio("\n+-------------------------------\n"
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("\n+-------------------------------\n"
                 + "|   " + Costanti.NERO + "   ");
         for (int i = 0; i < nero.getPedinePrese().size(); i++) {
-            Interfaccia.stampaMessaggio(nero.getPedinePrese().get(i).getSimbolo());
+            AppMain.SINGLETON.stampaMessaggioInterfaccia(nero.getPedinePrese().get(i).getSimbolo());
         }
-        Interfaccia.stampaMessaggio("\n+-------------------------------\n\n");
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("\n+-------------------------------\n\n");
     }
 
 
     public void mosse() {
 
-        Interfaccia.stampaMessaggio("+--------------------------+\n"
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("+--------------------------+\n"
                 + "|   |     " + Costanti.MOSSE_GIOCATE + "    \n"
                 + "+--------------------------+");
         for (int i = 0; i < cronologiaMosse.size(); i++) {
-            Interfaccia.stampaMessaggio("\n"
+            AppMain.SINGLETON.stampaMessaggioInterfaccia("\n"
                     + "| " + cronologiaMosse.get(i) + "                 ");
         }
-        Interfaccia.stampaMessaggio("\n+--------------------------+\n\n");
+        AppMain.SINGLETON.stampaMessaggioInterfaccia("\n+--------------------------+\n\n");
     }
 
     public void aggiungiMossa(final String comando) {
