@@ -4,15 +4,18 @@ import it.uniba.dama.Pedina;
 import it.uniba.dama.Dama;
 
 /**
- *  Classe che contiene le costante usate in questa applicazione
- *  Tipo di classe: <b>noECB</b><br>;
- *  Responsabilità:
- * 		<ul>Knows:
- * 		     <li>I valori delle variabili costanti usate in questa applicazione</li>
- * 		</ul>
+ * Classe che contiene le costante usate in questa applicazione
+ * Tipo di classe: <b>noECB</b><br>;
+ * Responsabilità:
+ * <ul>Knows:
+ *      <li>I valori delle variabili costanti usate in questa applicazione</li>
+ * </ul>
  */
 
-public class Costanti {
+public final class Costanti {
+    private Costanti() {
+    }
+
     public static final Pedina PEDINA_BIANCA = new Pedina("bianco", "\u26C2");
     public static final Pedina PEDINA_NERA = new Pedina("nero", "\u26C0");
 
@@ -31,7 +34,7 @@ public class Costanti {
 
     public static final int DIM = 8;
     public static final int ORA_IN_SECONDI = 3600;
-    public static final int MINUTO_IN_SECONDI= 60;
+    public static final int MINUTO_IN_SECONDI = 60;
     public static final int SECONDO = 1000;
 
     public static final int ULTIMA_RIGA_INIZIALE_BIANCO = 3;
@@ -60,7 +63,8 @@ public class Costanti {
     public static final String MOSSE_GIOCATE = "MOSSE GIOCATE";
 
     //messaggi di errore
-    public static final String ERR_PARTITA_NON_INIZIATA = "La partita non è ancora iniziata. Inserisci il comando 'gioca' per iniziare una nuova partita.\n";
+    public static final String ERR_PARTITA_NON_INIZIATA = "La partita non è ancora iniziata. Inserisci il comando"
+            + " 'gioca' per iniziare una nuova partita.\n";
     public static final String ERR_PARTITA_GIA_INIZIATA = "La partita e' gia iniziata.\n";
     public static final String ERR_COMANDO_INESISTENTE = "Comando inesistente.\n";
     public static final String ERR_RISPOSTA_NON_VALIDA = "Risposta non valida.\n";
