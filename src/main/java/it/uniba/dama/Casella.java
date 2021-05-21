@@ -42,10 +42,6 @@ public final class Casella {
         this.numeroCasella = nuovoNumeroCasella;
     }
 
-    public Casella(final Pedina pedinaDaPosizionare) {
-        pedina = pedinaDaPosizionare;
-    }
-
     public Pedina getPedina() {
         return pedina;
     }
