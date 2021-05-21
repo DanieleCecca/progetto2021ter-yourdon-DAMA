@@ -113,14 +113,15 @@ public class CronometroTest {
     @Test
     @DisplayName("11: Test tempoTrascorso")
     public void Cronometro_Test11(){
-        Cronometro cronometro = new Cronometro(2);
-        int sec = 2;
-        int min = (sec % Costanti.ORA_IN_SECONDI) / Costanti.MINUTO_IN_SECONDI;
-        int h = sec / Costanti.ORA_IN_SECONDI;
+        Cronometro cronometro = new Cronometro(20);
+        int sec = 20;
+        int min = 0;
+        int h = 0;
         sec = (sec % Costanti.ORA_IN_SECONDI) % Costanti.MINUTO_IN_SECONDI;
         String tot = h + " h " + min + " min " + sec + " sec ";
         assertEquals(tot,cronometro.tempoTrascorso());
     }
+
     @Test
     @DisplayName("12: Test assertTrue setSecondi")
     public void Cronometro_Test12(){
