@@ -177,7 +177,7 @@ public final class Damiera {
     }
 
 
-    public boolean spostamentoSemplice(final Giocatore giocatore, final String spostamento) {
+    public boolean spostamentoSemplice(final Giocatore giocatore, final String spostamento) throws DamieraException {
         boolean spostamentoEseguito = false;
 
         String spostamentoTrim = spostamento.replaceAll("\\s", "");
@@ -203,21 +203,21 @@ public final class Damiera {
                         spostamentoEseguito = true;
                         controlloDamatura(giocatore, secondaCasella);
                     } else {
-                        AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_CASELLA_OCCUPATA);
+                        throw new DamieraException(Costanti.ERR_CASELLA_OCCUPATA);
                     }
                 } else {
-                    AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_MOSSA_NON_VALIDA);
+                    throw new DamieraException(Costanti.ERR_MOSSA_NON_VALIDA);
                 }
             } else {
-                AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_APPERTENENZA_PEDINA);
+                throw new DamieraException(Costanti.ERR_APPERTENENZA_PEDINA);
             }
         } else {
-            AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_CASELLA_VUOTA);
+            throw new DamieraException(Costanti.ERR_CASELLA_VUOTA);
         }
         return spostamentoEseguito;
     }
 
-    public boolean presaSemplice(final Giocatore giocatore, final String spostamento) {
+    public boolean presaSemplice(final Giocatore giocatore, final String spostamento) throws DamieraException {
         boolean spostamentoEseguito = false;
 
         String spostamentoTrim = spostamento.replaceAll("\\s", "");
@@ -249,7 +249,7 @@ public final class Damiera {
         }
 
         if (casellaUno.getOccupato()) {
-            if (casellaUno.getPedina().getColore().equals(giocatore.getColore())) {
+            if (casellaUno.getPedina().getColore() == giocatore.getColore()) {
                 if (((casellaTre.getCoordinata().getX() == (casellaUno.getCoordinata().getX() + 2)
                         && giocatore.getColore().equals("nero"))
                         || (casellaTre.getCoordinata().getX() == (casellaUno.getCoordinata().getX() - 2))
@@ -258,7 +258,7 @@ public final class Damiera {
                         || casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() - 2))) {
                     if (!casellaTre.getOccupato()) {
                         if (casellaDue.getOccupato()) {
-                            if (!casellaDue.getPedina().getColore().equals(giocatore.getColore())) {
+                            if (casellaDue.getPedina().getColore() != giocatore.getColore()) {
                                 casellaDue.setOccupato(false);
                                 //Cancellare anche simbolo e colore?
                                 //Da inserire funzione che aggiorna il numero di pedine prese
@@ -269,28 +269,29 @@ public final class Damiera {
                                 controlloDamatura(giocatore, casellaTre);
                                 giocatore.setPedinePrese(casellaDue.getPedina());
                             } else {
-                                AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_MOSSA_NON_VALIDA);
+                                throw new DamieraException(Costanti.ERR_MOSSA_NON_VALIDA);
+
                             }
                         } else {
-                            AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_MOSSA_NON_VALIDA);
+                            throw new DamieraException(Costanti.ERR_MOSSA_NON_VALIDA);
                         }
                     } else {
-                        AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_CASELLA_OCCUPATA);
+                        throw new DamieraException(Costanti.ERR_CASELLA_OCCUPATA);
                     }
                 } else {
-                    AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_MOSSA_NON_VALIDA);
+                    throw new DamieraException(Costanti.ERR_MOSSA_NON_VALIDA);
                 }
 
             } else {
-                AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_APPERTENENZA_PEDINA);
+                throw new DamieraException(Costanti.ERR_APPERTENENZA_PEDINA);
             }
         } else {
-            AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_CASELLA_VUOTA);
+            throw new DamieraException(Costanti.ERR_CASELLA_VUOTA);
         }
         return spostamentoEseguito;
     }
 
-    public boolean presaMultipla(final Giocatore giocatore, final String spostamento) {
+    public boolean presaMultipla(final Giocatore giocatore, final String spostamento) throws DamieraException {
         Damiera provaDamiera = new Damiera(this);
         Giocatore provaGiocatore = new Giocatore(giocatore.getColore());
         boolean esito = true;
