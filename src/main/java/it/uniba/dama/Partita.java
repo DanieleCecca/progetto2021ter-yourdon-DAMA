@@ -121,37 +121,49 @@ public final class Partita {
             String comando = AppMain.SINGLETON.acquisireComandoInterfaccia();
 
             if (controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO)) {
-                boolean spostamentoEseguito;
-                if (turno.equals("bianco")) {
-                    spostamentoEseguito = tavolo.spostamentoSemplice(bianco, comando);
-                } else {
-                    spostamentoEseguito = tavolo.spostamentoSemplice(nero, comando);
-                }
-                if (spostamentoEseguito) {
-                    aggiungiMossa(comando);
-                    cambiaTurno();
+                try {
+                    boolean spostamentoEseguito;
+                    if (turno.equals("bianco")) {
+                        spostamentoEseguito = tavolo.spostamentoSemplice(bianco, comando);
+                    } else {
+                        spostamentoEseguito = tavolo.spostamentoSemplice(nero, comando);
+                    }
+                    if (spostamentoEseguito) {
+                        aggiungiMossa(comando);
+                        cambiaTurno();
+                    }
+                } catch (DamieraException e) {
+                    System.out.print(e.getMessage());
                 }
             } else if (controlloSintassi(comando, Costanti.PATTERN_PRESA)) {
-                boolean spostamentoEseguito;
-                if (turno.equals("bianco")) {
-                    spostamentoEseguito = tavolo.presaSemplice(bianco, comando);
-                } else {
-                    spostamentoEseguito = tavolo.presaSemplice(nero, comando);
-                }
-                if (spostamentoEseguito) {
-                    aggiungiMossa(comando);
-                    cambiaTurno();
+                try {
+                    boolean spostamentoEseguito;
+                    if (turno.equals("bianco")) {
+                        spostamentoEseguito = tavolo.presaSemplice(bianco, comando);
+                    } else {
+                        spostamentoEseguito = tavolo.presaSemplice(nero, comando);
+                    }
+                    if (spostamentoEseguito) {
+                        aggiungiMossa(comando);
+                        cambiaTurno();
+                    }
+                } catch (DamieraException e) {
+                    System.out.print(e.getMessage());
                 }
             } else if (controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA)) {
-                boolean spostamentoEseguito;
-                if (turno.equals("bianco")) {
-                    spostamentoEseguito = tavolo.presaMultipla(bianco, comando);
-                } else {
-                    spostamentoEseguito = tavolo.presaMultipla(nero, comando);
-                }
-                if (spostamentoEseguito) {
-                    aggiungiMossa(comando);
-                    cambiaTurno();
+                try {
+                    boolean spostamentoEseguito;
+                    if (turno.equals("bianco")) {
+                        spostamentoEseguito = tavolo.presaMultipla(bianco, comando);
+                    } else {
+                        spostamentoEseguito = tavolo.presaMultipla(nero, comando);
+                    }
+                    if (spostamentoEseguito) {
+                        aggiungiMossa(comando);
+                        cambiaTurno();
+                    }
+                } catch (DamieraException e) {
+                    System.out.print(e.getMessage());
                 }
             } else {
                 switch (comando) {
