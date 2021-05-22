@@ -104,6 +104,14 @@ public final class Partita {
         this.tempoIniziale = nuovoTempoIniziale;
     }
 
+    public ArrayList<String> getCronologiaMosse() {
+        return cronologiaMosse;
+    }
+
+    public void setCronologiaMosse(final ArrayList<String> nuovaCronologiaMosse) {
+        this.cronologiaMosse = nuovaCronologiaMosse;
+    }
+
     public void gioca() {
         bianco = new Giocatore("bianco");
         nero = new Giocatore("nero");
@@ -299,7 +307,6 @@ public final class Partita {
         }
         AppMain.SINGLETON.stampaMessaggioInterfaccia("\n+-------------------------------\n\n");
     }
-
 
     public void mosse() {
 
