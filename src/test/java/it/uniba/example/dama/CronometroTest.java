@@ -85,7 +85,6 @@ public class CronometroTest {
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         cronometro.setContinua(true);
         cronometro.start();
-        //cronometro.run();
         try {
             Thread.sleep(Costanti.SECONDO);
         } catch (InterruptedException e) {
@@ -106,7 +105,6 @@ public class CronometroTest {
         try {
             Thread.sleep(Costanti.SECONDO);
         } catch (InterruptedException e) {
-            //cronometro.interrupt();
         }
         Thread.yield();
         cronometro.interrupt();
