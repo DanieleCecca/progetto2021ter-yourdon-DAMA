@@ -89,12 +89,13 @@ public class CronometroTest {
         try {
             Thread.sleep(Costanti.SECONDO);
         } catch (InterruptedException e) {
-            cronometro.interrupt();
         }
         cronometro.setContinua(false);
-        assertTrue(cronometro.getSecondi()>0);
+        assertTrue(cronometro.getSecondi()>=0);
+        cronometro.setContinua(false);
 
     }
+
     @Test
     @DisplayName("10: Test assertEquals run")
     public void Cronometro_Test10() {
@@ -105,10 +106,13 @@ public class CronometroTest {
         try {
             Thread.sleep(Costanti.SECONDO);
         } catch (InterruptedException e) {
-            cronometro.interrupt();
+            //cronometro.interrupt();
         }
-        cronometro.setContinua(false);
+        Thread.yield();
+        cronometro.interrupt();
         assertEquals(3,cronometro.getSecondi());
+        cronometro.setContinua(false);
+
     }
 
     @Test
