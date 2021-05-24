@@ -677,4 +677,170 @@ public class PartitaTest {
         assertEquals(outputAspettato, outContent.toString());
     }
 
+    @Test
+    @DisplayName("41: Test assertEquals setCronologiaMosse")
+    public void PartitaTest_41(){
+        Partita partita = new Partita();
+
+        ArrayList<String> cronologia = new ArrayList<String>();
+        cronologia.add("mossa");
+
+        partita.setCronologiaMosse(cronologia);
+        assertEquals(cronologia, partita.getCronologiaMosse());
+    }
+
+    @Test
+    @DisplayName("42: Test assertNotNull gioca")
+    public void PartitaTest_42(){
+        Partita partita = new Partita();
+        partita.setTurno("bianco");
+
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+        partita.gioca("21-18");
+        assertNotNull(partita.getTavolo());
+    }
+
+    @Test
+    @DisplayName("43: Test assertNotNull gioca")
+    public void PartitaTest_43(){
+        Partita partita = new Partita();
+        partita.setTurno("nero");
+
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+        partita.getTavolo().popolaDamiera();
+
+        partita.gioca("11-14");
+
+        assertNotNull(partita.getTavolo());
+    }
+
+    @Test
+    @DisplayName("44: Test assertNotNull gioca")
+    public void PartitaTest_44(){
+        Partita partita = new Partita();
+        partita.setTurno("bianco");
+
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+        partita.getTavolo().popolaDamiera();
+
+        String[] mosse = new String[]{
+                "21-18",
+                "11-14",
+                "18x11"
+        };
+        for(int i = 0; i < 3; i++){
+            partita.gioca(mosse[i]);
+        }
+
+        assertNotNull(partita.getTavolo());
+    }
+
+    @Test
+    @DisplayName("45: Test assertNotNull gioca")
+    public void PartitaTest_45(){
+        Partita partita = new Partita();
+        partita.setTurno("nero");
+
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+        partita.getTavolo().popolaDamiera();
+
+        String[] mosse = new String[]{
+                "11-14",
+                "21-18",
+                "14x21"
+        };
+
+        for(int i = 0; i < 3; i++){
+            System.out.println(mosse[i]);
+            partita.gioca(mosse[i]);
+        }
+
+        assertNotNull(partita.getTavolo());
+    }
+
+    @Test
+    @DisplayName("46: Test assertNotNull gioca")
+    public void PartitaTest_46(){
+        Partita partita = new Partita();
+        partita.setTurno("bianco");
+
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+        partita.getTavolo().popolaDamiera();
+
+        String[] mosse = new String[]{
+                "21-18",
+                "11-14",
+                "23-20",
+                "12-16",
+                "27-23",
+                "7-12",
+                "30-27",
+                "14x21x30"
+        };
+        for(int i = 0; i < 8; i++){
+            partita.gioca(mosse[i]);
+        }
+
+        partita.getTavolo().stampaDamieraGioco();
+        assertNotNull(partita.getTavolo());
+    }
+
+    @Test
+    @DisplayName("47: Test assertNotNull gioca")
+    public void PartitaTest_47(){
+        Partita partita = new Partita();
+        partita.setTurno("bianco");
+
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+        partita.getTavolo().popolaDamiera();
+
+        String[] mosse = new String[]{
+                "21-18",
+                "11-14",
+                "23-20",
+                "12-16",
+                "27-23",
+                "7-12",
+                "30-27",
+                "14x21x30",
+                "23-19",
+                "12-15",
+                "25-21",
+                "3-7",
+                "19x12x3"
+        };
+        for(int i = 0; i < 13; i++){
+            partita.gioca(mosse[i]);
+        }
+
+        assertNotNull(partita.getTavolo());
+    }
+
+
+
+
 }
