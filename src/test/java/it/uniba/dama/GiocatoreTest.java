@@ -1,4 +1,4 @@
-package it.uniba.example.dama;
+package it.uniba.dama;
 
 import it.uniba.dama.Giocatore;
 import static org.junit.Assume.assumeNotNull;
