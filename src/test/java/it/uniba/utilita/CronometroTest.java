@@ -1,4 +1,4 @@
-package it.uniba.example.dama;
+package it.uniba.utilita;
 
 import static org.junit.Assume.assumeNotNull;
 import static org.junit.jupiter.api.Assertions.*;
