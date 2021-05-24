@@ -47,14 +47,6 @@ public final class Damiera {
         }
     }
 
-    private Casella[][] getDamiera() {
-        return damiera;
-    }
-
-    private void setDamiera(final Casella[][] nuovaDamiera) {
-        this.damiera = nuovaDamiera;
-    }
-
     public Damiera(final Damiera copia) {
         for (int i = 0; i < Costanti.DIM; i++) {
             for (int j = 0; j < Costanti.DIM; j++) {
@@ -67,6 +59,10 @@ public final class Damiera {
                 damiera[i][j].getCoordinata().setY(j);
             }
         }
+    }
+
+    public Casella[][] getDamiera() {
+        return damiera;
     }
 
     public void popolaDamiera() {
@@ -258,7 +254,7 @@ public final class Damiera {
                         || casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() - 2))) {
                     if (!casellaTre.getOccupato()) {
                         if (casellaDue.getOccupato()) {
-                            if (casellaDue.getPedina().getColore() != giocatore.getColore()) {
+                            if (casellaDue.getPedina().getColore().equals(giocatore.getColore())) {
                                 casellaDue.setOccupato(false);
                                 //Cancellare anche simbolo e colore?
                                 //Da inserire funzione che aggiorna il numero di pedine prese
