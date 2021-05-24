@@ -98,8 +98,8 @@ public class CronometroTest {
     }
 
     @Test
-    @DisplayName("11: Test assertEquals tempoTrascorso")
-    public void CronometroTest_11() {
+    @DisplayName("10: Test assertEquals tempoTrascorso")
+    public void CronometroTest_10() {
         Cronometro cronometro = new Cronometro(20);
         int sec = 20;
         int min = 0;
@@ -110,8 +110,8 @@ public class CronometroTest {
     }
 
     @Test
-    @DisplayName("12: Test assertTrue setSecondi")
-    public void CronometroTest_12() {
+    @DisplayName("11: Test assertTrue setSecondi")
+    public void CronometroTest_11() {
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         cronometro.setSecondi(Integer.MAX_VALUE);
         assertEquals(cronometro.getSecondi(), Integer.MAX_VALUE);
