@@ -121,20 +121,20 @@ public final class Interfaccia {
     }
 
     public void stampaBenvenuto() {
-        System.out.println("\n       Benvenuto nel gioco della\n\n"
+        System.out.print("\n       Benvenuto nel gioco della\n\n"
                 + "         ___   _   __  __   _   \n"
                 + "        |   \\ /_\\ |  \\/  | /_\\  \n"
                 + "        | |) / _ \\| |\\/| |/ _ \\ \n"
                 + "        |___/_/ \\_\\_|  |_/_/ \\_\\\n"
-                + "                               \n      realizzato dal gruppo YOURDON®\n");
+                + "                               \n      realizzato dal gruppo YOURDON®\n\n");
     }
 
     public void helpPartita() {
-        System.out.println("\nLe mosse sono descritte in notazione algebrica\n"
+        System.out.print("\nLe mosse sono descritte in notazione algebrica\n"
                 + "Esempio: \n"
                 + "1-5\n"
-                + "1x10");
-        System.out.println(
+                + "1x10\n");
+        System.out.print(
                 "+---+----------------------------------+\n"
                         + "|   |              COMANDI             | \n"
                         + "+---+----------------------------------+\n"
@@ -145,12 +145,12 @@ public final class Interfaccia {
                         + "| - | tempo                            |\n"
                         + "| - | prese                            |\n"
                         + "| - | mosse                            |\n"
-                        + "+---+----------------------------------+\n");
+                        + "+---+----------------------------------+\n\n");
 
     }
 
     public void help() {
-        System.out.println("\n"
+        System.out.print("\n"
                 + "+---+----------------------------------+\n"
                 + "|   |              COMANDI             |\n"
                 + "+---+----------------------------------+\n"
@@ -160,7 +160,7 @@ public final class Interfaccia {
                 + "| - | numeri                           |\n"
                 + "| - | damiera                          |\n"
                 + "| - | tempo                            |\n"
-                + "+---+----------------------------------+\n");
+                + "+---+----------------------------------+\n\n");
     }
 
     public static void stampaMessaggio(final String messaggio) {
@@ -182,6 +182,7 @@ public final class Interfaccia {
         String comando = inputTastiera.nextLine();
         return comando;
     }
+
     //per risolvere il fatto che si accede ad un metodo statico da una istanza bisogna ricopiare
     //stampamessaggio e acquisirecomando e renderli non statici
 }
