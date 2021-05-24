@@ -112,7 +112,7 @@ public final class Partita {
         this.cronologiaMosse = nuovaCronologiaMosse;
     }
 
-    public void gioca() {
+    public void inizio() {
         bianco = new Giocatore("bianco");
         nero = new Giocatore("nero");
         tavolo = new Damiera();
@@ -120,107 +120,113 @@ public final class Partita {
         cronologiaMosse = new ArrayList<>();
         inCorso = true;
         turno = "bianco";
-
         bianco.getCronometro().start();
 
+        String comando;
         while (inCorso) {
-
             AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.INSERIRE_COMANDO);
-            String comando = AppMain.SINGLETON.acquisireComandoInterfaccia();
+            comando = AppMain.SINGLETON.acquisireComandoInterfaccia();
 
-            if (controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO)) {
-                try {
-                    boolean spostamentoEseguito;
-                    if (turno.equals("bianco")) {
-                        spostamentoEseguito = tavolo.spostamentoSemplice(bianco, comando);
-                    } else {
-                        spostamentoEseguito = tavolo.spostamentoSemplice(nero, comando);
-                    }
-                    if (spostamentoEseguito) {
-                        aggiungiMossa(comando);
-                        cambiaTurno();
-                    }
-                } catch (DamieraException e) {
-                    System.out.print(e.getMessage());
-                }
-            } else if (controlloSintassi(comando, Costanti.PATTERN_PRESA)) {
-                try {
-                    boolean spostamentoEseguito;
-                    if (turno.equals("bianco")) {
-                        spostamentoEseguito = tavolo.presaSemplice(bianco, comando);
-                    } else {
-                        spostamentoEseguito = tavolo.presaSemplice(nero, comando);
-                    }
-                    if (spostamentoEseguito) {
-                        aggiungiMossa(comando);
-                        cambiaTurno();
-                    }
-                } catch (DamieraException e) {
-                    System.out.print(e.getMessage());
-                }
-            } else if (controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA)) {
-                try {
-                    boolean spostamentoEseguito;
-                    if (turno.equals("bianco")) {
-                        spostamentoEseguito = tavolo.presaMultipla(bianco, comando);
-                    } else {
-                        spostamentoEseguito = tavolo.presaMultipla(nero, comando);
-                    }
-                    if (spostamentoEseguito) {
-                        aggiungiMossa(comando);
-                        cambiaTurno();
-                    }
-                } catch (DamieraException e) {
-                    System.out.print(e.getMessage());
-                }
+            if (comando.equals("esci")) {
+                Interfaccia.esci();
             } else {
-                switch (comando) {
-                    case "help":
-                        AppMain.SINGLETON.helpPartita();
-                        break;
-
-                    case "damiera":
-                        tavolo.stampaDamieraGioco();
-                        break;
-
-                    case "numeri":
-                        tavolo.stampaDamieraNumerata();
-                        break;
-
-                    case "abbandona":
-                        abbandona();
-                        break;
-
-                    case "esci":
-                        Interfaccia.esci();
-                        break;
-
-                    case "tempo":
-                        tempo();
-                        break;
-
-                    case "gioca":
-                        AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_PARTITA_GIA_INIZIATA);
-                        break;
-
-                    case "prese":
-                        prese();
-                        break;
-
-                    case "mosse":
-                        mosse();
-                        break;
-
-                    default:
-                        AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_COMANDO_INESISTENTE);
-                        break;
-                }
+                gioca(comando);
             }
         }
-
     }
 
-    private boolean controlloSintassi(final String comando, final String stringa) {
+    public void gioca(final String comando) {
+        if (controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO)) {
+            try {
+                boolean spostamentoEseguito;
+                if (turno.equals("bianco")) {
+                    spostamentoEseguito = tavolo.spostamentoSemplice(bianco, comando);
+                } else {
+                    spostamentoEseguito = tavolo.spostamentoSemplice(nero, comando);
+                }
+                if (spostamentoEseguito) {
+                    aggiungiMossa(comando);
+                    cambiaTurno();
+                }
+            } catch (DamieraException e) {
+                System.out.print(e.getMessage());
+            }
+        } else if (controlloSintassi(comando, Costanti.PATTERN_PRESA)) {
+            try {
+                boolean spostamentoEseguito;
+                if (turno.equals("bianco")) {
+                    spostamentoEseguito = tavolo.presaSemplice(bianco, comando);
+                } else {
+                    spostamentoEseguito = tavolo.presaSemplice(nero, comando);
+                }
+                if (spostamentoEseguito) {
+                    aggiungiMossa(comando);
+                    cambiaTurno();
+                }
+            } catch (DamieraException e) {
+                System.out.print(e.getMessage());
+            }
+        } else if (controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA)) {
+            try {
+                boolean spostamentoEseguito;
+                if (turno.equals("bianco")) {
+                    spostamentoEseguito = tavolo.presaMultipla(bianco, comando);
+                } else {
+                    spostamentoEseguito = tavolo.presaMultipla(nero, comando);
+                }
+                if (spostamentoEseguito) {
+                    aggiungiMossa(comando);
+                    cambiaTurno();
+                }
+            } catch (DamieraException e) {
+                System.out.print(e.getMessage());
+            }
+        } else {
+            switch (comando) {
+                case "help":
+                    AppMain.SINGLETON.helpPartita();
+                    break;
+
+                case "damiera":
+                    tavolo.stampaDamieraGioco();
+                    break;
+
+                case "numeri":
+                    tavolo.stampaDamieraNumerata();
+                    break;
+
+                case "abbandona":
+                    abbandona();
+                    break;
+
+                case "esci":
+                    Interfaccia.esci();
+                    break;
+
+                case "tempo":
+                    tempo();
+                    break;
+
+                case "gioca":
+                    AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_PARTITA_GIA_INIZIATA);
+                    break;
+
+                case "prese":
+                    prese();
+                    break;
+
+                case "mosse":
+                    mosse();
+                    break;
+
+                default:
+                    AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.ERR_COMANDO_INESISTENTE);
+                    break;
+            }
+        }
+    }
+
+     boolean controlloSintassi(final String comando, final String stringa) {
         boolean corretto = false;
         String comandoTrim = comando.replaceAll("\\s", "");
 
@@ -274,7 +280,7 @@ public final class Partita {
                 + "+----------------------------+\n\n");
     }
 
-    private void cambiaTurno() {
+    void cambiaTurno() {
         if (turno.equals("bianco")) {
             setTurno("nero");
             bianco.getCronometro().setContinua(false);

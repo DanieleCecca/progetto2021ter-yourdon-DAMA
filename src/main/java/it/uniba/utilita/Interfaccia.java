@@ -44,7 +44,7 @@ public final class Interfaccia {
             switch (comando) {
                 case "gioca":
                     stampaMessaggio(Costanti.PARTITA_INIZIATA);
-                    incontro.gioca();
+                    incontro.inizio();
                     break;
 
                 case "damiera":
