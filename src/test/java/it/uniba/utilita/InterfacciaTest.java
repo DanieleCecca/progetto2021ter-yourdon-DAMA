@@ -1,4 +1,4 @@
-package it.uniba.example.dama;
+package it.uniba.utilita;
 
 import it.uniba.dama.Dama;
 import it.uniba.dama.Giocatore;
