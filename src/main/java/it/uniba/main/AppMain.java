@@ -11,7 +11,7 @@ import it.uniba.utilita.Interfaccia;
 
 /**
  * Classe principale del progetto<br>
- * Tipo di classe: <b>Boundary</b> <br>
+ * Tipo di classe: <b>Control</b> <br>
  * Responsabilità:
  * 		<ul>Knows:
  * 	    </ul>

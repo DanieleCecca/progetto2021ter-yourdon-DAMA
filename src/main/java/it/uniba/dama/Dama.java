@@ -24,8 +24,8 @@ public class Dama extends Pedina {
      * Costruttore per la classe Dama.
      * Inizializza il colore e il simbolo della damiera.
      *
-     * @param nuovoColore il colore della pedina
-     * @param nuovoSimbolo il simbolo della pedina
+     * @param nuovoColore il colore della dama
+     * @param nuovoSimbolo il simbolo della dama
      */
     public Dama(final String nuovoColore, final String nuovoSimbolo) {
         super(nuovoColore, nuovoSimbolo);

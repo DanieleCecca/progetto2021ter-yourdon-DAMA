@@ -18,27 +18,56 @@ public class Pedina {
     private String colore;
     private String simbolo;
 
+    /**
+     * Costruttore di default della classe Pedina.
+     */
     public Pedina() {
 
     }
-
+    /**
+     * Costruttore per la classe Pedina.
+     * Inizializza il colore e il simbolo della pedina.
+     *
+     * @param nuovoColore il colore della pedina
+     * @param nuovoSimbolo il simbolo della pedina
+     */
     public Pedina(final String nuovoColore, final String nuovoSimbolo) {
         this.colore = nuovoColore;
         this.simbolo = nuovoSimbolo;
     }
 
+    /**
+     * Metodo get per Colore.
+     *
+     * @return il colore della pedina
+     */
     public final String getColore() {
         return colore;
     }
 
+    /**
+     * Metodo set per Colore.
+     *
+     * @param nuovoColore il nuovo colore della pedina
+     */
     public final void setColore(final String nuovoColore) {
         this.colore = nuovoColore;
     }
 
+    /**
+     * Metodo get per Simbolo.
+     *
+     * @return il simbolo della pedina
+     */
     public final String getSimbolo() {
         return simbolo;
     }
 
+    /**
+     * Metodo set per Simbolo.
+     *
+     * @param nuovoSimbolo il nuovo simbolo della pedina
+     */
     public final void setSimbolo(final String nuovoSimbolo) {
         this.simbolo = nuovoSimbolo;
     }

@@ -50,68 +50,147 @@ public final class Partita {
     private Cronometro tempoIniziale;
     private ArrayList<String> cronologiaMosse;
 
+    /**
+     * Costruttore di default della classe Partita.
+     * Inizializza il tavolo da gioco (cioè Damiera), il valore booleano inCorso e la lista cronologiaMosse.
+     */
     public Partita() {
         tavolo = new Damiera();
         inCorso = false;
         cronologiaMosse = new ArrayList<>();
     }
 
+    /**
+     * Metodo get per Bianco.
+     *
+     * @return il giocatore bianco
+     */
     public Giocatore getBianco() {
         return bianco;
     }
 
+    /**
+     * Metodo set per Bianco.
+     *
+     * @param coloreBianco il giocatore bianco
+     */
     public void setBianco(final Giocatore coloreBianco) {
         this.bianco = coloreBianco;
     }
 
+    /**
+     * Metodo get per Nero.
+     *
+     * @return il giocatore nero
+     */
     public Giocatore getNero() {
         return nero;
     }
 
+    /**
+     * Metodo set per Nero.
+     *
+     * @param coloreNero il giocatore Nero
+     */
     public void setNero(final Giocatore coloreNero) {
         this.nero = coloreNero;
     }
 
+    /**
+     * Metodo get per Tavolo.
+     *
+     * @return la damiera di gioco
+     */
     public Damiera getTavolo() {
         return tavolo;
     }
 
+    /**
+     * Metodo set per Tavolo.
+     *
+     * @param nuovoTavolo la nuova damiera di gioco
+     */
     public void setTavolo(final Damiera nuovoTavolo) {
         this.tavolo = nuovoTavolo;
     }
 
+    /**
+     * Metodo get per inCorso.
+     *
+     * @return lo stato della partita (in corso o non)
+     */
     public boolean getInCorso() {
         return inCorso;
     }
 
+    /**
+     * Metodo set per inCorso.
+     *
+     * @param nuovoStato nuovo stato della partita(in corso o non)
+     *
+     */
     public void setInCorso(final boolean nuovoStato) {
         this.inCorso = nuovoStato;
     }
 
+    /**
+     * Metodo get per Turno.
+     *
+     * @return il turno di appartenenza
+     */
     public String getTurno() {
         return turno;
     }
 
+    /**
+     * Metodo set per Turno.
+     *
+     * @param nuovoTurno il nuovo turno di appartenenza
+     */
     public void setTurno(final String nuovoTurno) {
         this.turno = nuovoTurno;
     }
 
+    /**
+     * Metodo get per tempoIniziale.
+     *
+     * @return il tempo di gioco iniziale
+     */
     public Cronometro getTempoIniziale() {
         return tempoIniziale;
     }
 
+    /**
+     * Metodo set per tempoIniziale.
+     *
+     * @param nuovoTempoIniziale nuovo tempo di gioco iniziale
+     */
     public void setTempoIniziale(final Cronometro nuovoTempoIniziale) {
         this.tempoIniziale = nuovoTempoIniziale;
     }
 
+    /**
+     * Metodo get per cronologiaMosse.
+     *
+     * @return la lista cronologiaMosse
+     */
     public ArrayList<String> getCronologiaMosse() {
         return cronologiaMosse;
     }
 
+    /**
+     * Metodo set per cronologiaMosse.
+     *
+     * @param nuovaCronologiaMosse nuova lista di cronologiaMosse
+     */
     public void setCronologiaMosse(final ArrayList<String> nuovaCronologiaMosse) {
         this.cronologiaMosse = nuovaCronologiaMosse;
     }
 
+    /**
+     * Inizializza tutti i valori allo stato iniziale
+     * e avvia la partita di dama classica.
+     */
     public void inizio() {
         bianco = new Giocatore("bianco");
         nero = new Giocatore("nero");
@@ -135,6 +214,10 @@ public final class Partita {
         }
     }
 
+    /**
+     * Effettua controlli sulla sintassi per i comandi di spostamenti e prese
+     * e rende disponibili i comandi per la partita in corso.
+     */
     public void gioca(final String comando) {
         if (controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO)) {
             try {
@@ -226,6 +309,13 @@ public final class Partita {
         }
     }
 
+    /**
+     * Controlla la corretta sintassi del comando dato in input.
+     *
+     * @param comando il comando esistente
+     * @param stringa il comando dato in input dall'utente
+     * @return la sintassi (corretta o non corretta)
+     */
      boolean controlloSintassi(final String comando, final String stringa) {
         boolean corretto = false;
         String comandoTrim = comando.replaceAll("\\s", "");
@@ -241,7 +331,12 @@ public final class Partita {
         return corretto;
     }
 
-
+    /**
+     * Permette al giocatore di abbandonare la partita.
+     *
+     * Viene assegnata la sconfitta al giocatore che ha
+     * abbandonato la partita.
+     */
     public void abbandona() {
         String conferma;
         do {
@@ -262,6 +357,9 @@ public final class Partita {
         }
     }
 
+    /**
+     * Stampa il tempo di gioco dei giocatori.
+     */
     public void tempo() {
         AppMain.SINGLETON.stampaMessaggioInterfaccia("+----------------------------+\n"
                 + "|   " + Costanti.TEMPO_GIOCATORE_BIANCO + "   |\n"
@@ -280,6 +378,12 @@ public final class Partita {
                 + "+----------------------------+\n\n");
     }
 
+    /**
+     * Cambia il turno di gioco.
+     *
+     * Se turno è bianco allora lo cambia in nero
+     * altrimenti lo cambia in bianco.
+     */
     void cambiaTurno() {
         if (turno.equals("bianco")) {
             setTurno("nero");
@@ -299,6 +403,9 @@ public final class Partita {
         AppMain.SINGLETON.stampaMessaggioInterfaccia("\nTurno del giocatore: " + turno + "\n");
     }
 
+    /**
+     * Stampa le prese (e quindi le pedine) dei giocatori.
+     */
     public void prese() {
         AppMain.SINGLETON.stampaMessaggioInterfaccia("+-------------------------------\n"
                 + "|   " + Costanti.BIANCO + " ");
@@ -314,6 +421,9 @@ public final class Partita {
         AppMain.SINGLETON.stampaMessaggioInterfaccia("\n+-------------------------------\n\n");
     }
 
+    /**
+     * Stampa le mosse effettuate dai giocatori.
+     */
     public void mosse() {
 
         AppMain.SINGLETON.stampaMessaggioInterfaccia("+--------------------------+\n"
@@ -326,6 +436,11 @@ public final class Partita {
         AppMain.SINGLETON.stampaMessaggioInterfaccia("\n+--------------------------+\n\n");
     }
 
+    /**
+     * Aggiunge una mossa alla lista delle mosse del giocatore.
+     *
+     * @param comando la mossa effettuata dal giocatore
+     */
     public void aggiungiMossa(final String comando) {
         if (this.turno.equals("bianco")) {
             cronologiaMosse.add("B | " + comando);
