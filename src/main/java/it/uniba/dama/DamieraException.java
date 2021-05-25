@@ -10,10 +10,21 @@ package it.uniba.dama;
  * </ul>
  */
 public final class DamieraException extends Exception {
+    /**
+     * Costruttore per la classe DamieraException.
+     * Inizializza il messaggio dell'eccezione.
+     *
+     * @param messaggio il messaggio d'errore dell'eccezione
+     */
     public DamieraException(final String messaggio) {
         super(messaggio);
     }
 
+    /**
+     * Metodo get per messaggio.
+     *
+     * @return il messaggio dell'eccezione DamieraException
+     */
     @Override
     public String getMessage() {
         return super.getMessage();
