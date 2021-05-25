@@ -1,25 +1,11 @@
 package it.uniba.utilita;
 
-import it.uniba.dama.Dama;
-import it.uniba.dama.Giocatore;
-import it.uniba.dama.Partita;
-import it.uniba.dama.Pedina;
-import it.uniba.utilita.Costanti;
-import it.uniba.utilita.Cronometro;
-import it.uniba.utilita.Interfaccia;
-import org.junit.jupiter.api.AfterAll;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class InterfacciaTest {
 
