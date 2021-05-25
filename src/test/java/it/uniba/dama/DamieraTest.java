@@ -80,10 +80,10 @@ public class DamieraTest {
 
     @Test
     @DisplayName("4: Test assertEquals stampaDamieraGioco")
-    public void DamieraTest_4() {
+    public void DamieraTest_4() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Damiera damiera = new Damiera();
         damiera.popolaDamiera();
@@ -110,16 +110,16 @@ public class DamieraTest {
                 "-----+----+----+----+----+----+----+-----\n" +
                 "\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
 
     @Test
     @DisplayName("5: Test assertEquals stampaDamieraNumerata")
-    public void DamieraTest_5() {
+    public void DamieraTest_5() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Damiera damiera = new Damiera();
         damiera.popolaDamiera();
@@ -145,7 +145,7 @@ public class DamieraTest {
                 "|    | 29 |    | 30 |    | 31 |    | 32 |\n" +
                 "-----+----+----+----+----+----+----+-----\n\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
