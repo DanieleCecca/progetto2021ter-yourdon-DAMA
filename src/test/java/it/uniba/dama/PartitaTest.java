@@ -4,10 +4,7 @@ import it.uniba.dama.Damiera;
 import it.uniba.dama.Giocatore;
 import it.uniba.dama.Partita;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
@@ -197,10 +194,10 @@ public class PartitaTest {
     //Test metodo mosse
     @Test
     @DisplayName("20: Test assertEquals mosse")
-    public void PartitaTest_20(){
+    public void PartitaTest_20() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Partita partita = new Partita();
         partita.mosse();
@@ -211,16 +208,16 @@ public class PartitaTest {
                 "+--------------------------+\n" +
                 "\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     //Test metodo prese
     @Test
     @DisplayName("21: Test assertEquals prese")
-    public void PartitaTest_21(){
+    public void PartitaTest_21() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Partita partita = new Partita();
 
@@ -238,7 +235,7 @@ public class PartitaTest {
                 "|   Nero:    \n" +
                 "+-------------------------------\n\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     //Test metodo aggiungiMossa
@@ -258,7 +255,7 @@ public class PartitaTest {
     //Test metodo tempo
     @Test
     @DisplayName("23: Test assertEquals tempo")
-    public void PartitaTest_23(){
+    public void PartitaTest_23() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
 
@@ -270,7 +267,7 @@ public class PartitaTest {
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         partita.tempo();
 
@@ -285,14 +282,14 @@ public class PartitaTest {
                 "|     0 h 0 min 0 sec        |\n" +
                 "+----------------------------+\n\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("24: Test assertEquals abbandona")
-    public void PartitaTest_24(){
+    public void PartitaTest_24() throws UnsupportedEncodingException {
         //input automatico
-        ByteArrayInputStream in = new ByteArrayInputStream("no".getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream("no".getBytes("UTF-8"));
         System.setIn(in);
 
         Partita partita = new Partita();
@@ -305,13 +302,13 @@ public class PartitaTest {
         //cattura stampe
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         partita.abbandona();
 
         String outputAspettato = "Sei sicuro di voler abbandonare? (si/no): ";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     //mettendo cambio turno pubblico
@@ -429,7 +426,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("32: Test assertEquals gioca")
-    public void PartitaTest_32(){
+    public void PartitaTest_32() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -439,18 +436,18 @@ public class PartitaTest {
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         String comando = "comando inesistente";
         partita.gioca(comando);
         String outputAspettato = "Comando inesistente.\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("33: Test assertEquals gioca")
-    public void PartitaTest_33(){
+    public void PartitaTest_33() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -461,7 +458,7 @@ public class PartitaTest {
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         String comando = "damiera";
         partita.gioca(comando);
@@ -486,12 +483,12 @@ public class PartitaTest {
                 "-----+----+----+----+----+----+----+-----\n" +
                 "\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("34: Test assertEquals gioca")
-    public void PartitaTest_34(){
+    public void PartitaTest_34() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -502,7 +499,7 @@ public class PartitaTest {
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
 
         String comando = "numeri";
@@ -528,13 +525,13 @@ public class PartitaTest {
                 "-----+----+----+----+----+----+----+-----\n" +
                 "\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     //mettere system.out.print in interfaccia.helppartita
     @Test
     @DisplayName("35: Test assertEquals gioca")
-    public void PartitaTest_35(){
+    public void PartitaTest_35() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -545,7 +542,7 @@ public class PartitaTest {
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
 
         String comando = "help";
@@ -567,12 +564,12 @@ public class PartitaTest {
                 "| - | mosse                            |\n" +
                 "+---+----------------------------------+\n\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("36: Test assertEquals gioca")
-    public void PartitaTest_36(){
+    public void PartitaTest_36() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -583,7 +580,7 @@ public class PartitaTest {
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
 
         String comando = "tempo";
@@ -599,12 +596,12 @@ public class PartitaTest {
                 "|     0 h 0 min 0 sec        |\n" +
                 "+----------------------------+\n" +
                 "\n";
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("37: Test assertEquals gioca")
-    public void PartitaTest_37(){
+    public void PartitaTest_37() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -615,7 +612,7 @@ public class PartitaTest {
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
 
         String comando = "mosse";
@@ -625,12 +622,12 @@ public class PartitaTest {
                 "+--------------------------+\n" +
                 "+--------------------------+\n" +
                 "\n";
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("38: Test assertEquals gioca")
-    public void PartitaTest_38(){
+    public void PartitaTest_38() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -641,7 +638,7 @@ public class PartitaTest {
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
 
         String comando = "prese";
@@ -652,12 +649,12 @@ public class PartitaTest {
                 "|   Nero:    \n" +
                 "+-------------------------------\n" +
                 "\n";
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("39: Test assertEquals gioca")
-    public void PartitaTest_39(){
+    public void PartitaTest_39() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -668,13 +665,13 @@ public class PartitaTest {
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
 
         String comando = "gioca";
         partita.gioca(comando);
         String outputAspettato = Costanti.ERR_PARTITA_GIA_INIZIATA;
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
