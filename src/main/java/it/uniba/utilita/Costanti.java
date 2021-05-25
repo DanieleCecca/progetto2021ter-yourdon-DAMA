@@ -13,6 +13,9 @@ import it.uniba.dama.Dama;
  */
 
 public final class Costanti {
+    /**
+     * Costruttore privato di default della classe Costanti.
+     */
     private Costanti() {
     }
 
@@ -28,6 +31,9 @@ public final class Costanti {
     public static final String UNICODE_DAMA_NERA = "\u26C3";
     public static final String SPAZIO_CORTO = "\u202F";
 
+    /**
+     * Stringhe costanti che indicano i Pattern validi per le mosse.
+     */
     public static final String PATTERN_SPOSTAMENTO = "(0?[1-9]|[1-2][0-9]|3[0-2])(-)(0?[1-9]|[1-2][0-9]|3[0-2])";
     public static final String PATTERN_PRESA = "(0?[1-9]|[1-2][0-9]|3[0-2])((x)(0?[1-9]|[1-2][0-9]|3[0-2]))";
     public static final String PATTERN_PRESA_MULTIPLA = "(0?[1-9]|[1-2][0-9]|3[0-2])((x)(0?[1-9]|[1-2][0-9]|3[0-2]))+";
@@ -46,7 +52,9 @@ public final class Costanti {
     public static final int NUM_29 = 29;
     public static final int NUM_32 = 32;
 
-    //messaggi
+    /**
+     * Messaggi di interfaccia con l'utente.
+     */
     public static final String INSERIRE_COMANDO = "Inserisci un comando: ";
     public static final String PARTITA_INIZIATA = "La partita è iniziata.\n";
     public static final String RICHIESTA_USCITA_APP = "Sei sicuro di voler uscire dall'applicazione? (si/no): ";
@@ -57,12 +65,13 @@ public final class Costanti {
     public static final String GIOCATORE_NERO_VINCE = "Partita abbandonata: il nero ha vinto.\n";
     public static final String TEMPO_GIOCATORE_BIANCO = "Tempo giocatore bianco";
     public static final String TEMPO_GIOCATORE_NERO = "Tempo giocatore nero";
-    public static final String CAMBIO_TURNO = "La partita è iniziata.\n";
     public static final String BIANCO = "Bianco: ";
     public static final String NERO = "Nero: ";
     public static final String MOSSE_GIOCATE = "MOSSE GIOCATE";
 
-    //messaggi di errore
+    /**
+     * Messaggi di errore.
+     */
     public static final String ERR_PARTITA_NON_INIZIATA = "La partita non è ancora iniziata. Inserisci il comando"
             + " 'gioca' per iniziare una nuova partita.\n";
     public static final String ERR_PARTITA_GIA_INIZIATA = "La partita e' gia iniziata.\n";

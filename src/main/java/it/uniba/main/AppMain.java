@@ -26,16 +26,16 @@ public final class AppMain {
     public static final Interfaccia SINGLETON = Interfaccia.getSingleton();
 
     /**
-     * Private constructor. Change if needed.
+     * Costruttore privato di default di AppMain.
      */
     private AppMain() {
 
     }
 
     /**
-     * * This is the main entry of the application.
+     * Quesato è l'avvio dell'applicazione.
      *
-     * @param args The command-line arguments.
+     * @param args gli argomenti della riga di comando
      */
     public static void main(final String[] args) {
 
@@ -64,9 +64,5 @@ public final class AppMain {
         SINGLETON.stampaBenvenuto();
         SINGLETON.controlloFlagHelp(args);
         SINGLETON.interfacciaIniziale();
-        /*
-        Interfaccia.stampaBenvenuto();
-        Interfaccia.controlloFlagHelp(args);
-        Interfaccia.interfacciaIniziale();*/
     }
 }
