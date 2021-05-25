@@ -11,8 +11,8 @@ import org.junit.jupiter.api.AfterEach;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.io.UnsupportedEncodingException;
 
 public class PartitaTest {
     //Test Partita
