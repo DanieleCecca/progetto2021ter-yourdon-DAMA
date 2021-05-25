@@ -39,10 +39,10 @@ public class InterfacciaTest {
 
     @Test
     @DisplayName("2: Test assertEquals stampaBenvenuto")
-    public void InterfacciaTest_2() {
+    public void InterfacciaTest_2() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Interfaccia interfaccia = Interfaccia.getSingleton();
         interfaccia.stampaBenvenuto();
@@ -53,15 +53,15 @@ public class InterfacciaTest {
                 + "        |___/_/ \\_\\_|  |_/_/ \\_\\\n"
                 + "                               \n      realizzato dal gruppo YOURDON®\n\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("3: Test assertEquals helpPartita")
-    public void InterfacciaTest_3() {
+    public void InterfacciaTest_3() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Interfaccia interfaccia = Interfaccia.getSingleton();
         interfaccia.helpPartita();
@@ -81,15 +81,15 @@ public class InterfacciaTest {
                 + "| - | mosse                            |\n"
                 + "+---+----------------------------------+\n\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("4: Test assertEquals help")
-    public void InterfacciaTest_4() {
+    public void InterfacciaTest_4() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Interfaccia interfaccia = Interfaccia.getSingleton();
         interfaccia.help();
@@ -105,42 +105,42 @@ public class InterfacciaTest {
                 + "| - | tempo                            |\n"
                 + "+---+----------------------------------+\n\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("6: Test assertEquals stampaMessaggio")
-    public void InterfacciaTest_6() {
+    public void InterfacciaTest_6() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Interfaccia interfaccia = Interfaccia.getSingleton();
         interfaccia.stampaMessaggio(Costanti.APPLICAZIONE_CHIUSA);
         String outputAspettato = Costanti.APPLICAZIONE_CHIUSA;
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("7: Test assertEquals stampaMessaggioInterfaccia")
-    public void InterfacciaTest_7() {
+    public void InterfacciaTest_7() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Interfaccia interfaccia = Interfaccia.getSingleton();
         interfaccia.stampaMessaggioInterfaccia(Costanti.TAVOLO_GIOCO);
         String outputAspettato = Costanti.TAVOLO_GIOCO;
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("8: Test assertNotNull acquisireComando")
-    public void InterfacciaTest_8() {
+    public void InterfacciaTest_8() throws UnsupportedEncodingException {
         InputStream sysInBackup = System.in;
-        ByteArrayInputStream gioca = new ByteArrayInputStream("gioca".getBytes());
+        ByteArrayInputStream gioca = new ByteArrayInputStream("gioca".getBytes("UTF-8"));
         System.setIn(gioca);
         Interfaccia interfaccia = Interfaccia.getSingleton();
         String comando = interfaccia.acquisireComando();
@@ -150,9 +150,9 @@ public class InterfacciaTest {
 
     @Test
     @DisplayName("9: Test assertNotNull acquisireComandoInterfaccia")
-    public void InterfacciaTest_9() {
+    public void InterfacciaTest_9() throws UnsupportedEncodingException {
         InputStream sysInBackup = System.in;
-        ByteArrayInputStream gioca = new ByteArrayInputStream("gioca".getBytes());
+        ByteArrayInputStream gioca = new ByteArrayInputStream("gioca".getBytes("UTF-8"));
         System.setIn(gioca);
         Interfaccia interfaccia = Interfaccia.getSingleton();
         String comando = interfaccia.acquisireComandoInterfaccia();
@@ -162,30 +162,30 @@ public class InterfacciaTest {
 
     @Test
     @DisplayName("10: Test assertEquals esci")
-    public void InterfacciaTest_10() {
+    public void InterfacciaTest_10() throws UnsupportedEncodingException {
         InputStream sysInBackup = System.in;
-        ByteArrayInputStream c = new ByteArrayInputStream("no".getBytes());
+        ByteArrayInputStream c = new ByteArrayInputStream("no".getBytes("UTF-8"));
         System.setIn(c);
 
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Interfaccia interfaccia = Interfaccia.getSingleton();
         interfaccia.esci();
         String outputAspettato = Costanti.RICHIESTA_USCITA_APP;
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
         System.setIn(sysInBackup);
     }
 
     @Test
     @DisplayName("11: Test assertEquals controlloFlagHelp")
-    public void InterfacciaTest_11() {
+    public void InterfacciaTest_11() throws UnsupportedEncodingException {
 
         //cattura stampe
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Interfaccia interfaccia = Interfaccia.getSingleton();
         String[] args = new String[1];
@@ -205,17 +205,17 @@ public class InterfacciaTest {
                 "+---+----------------------------------+\n" +
                 "\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("12: Test assertEquals controlloFlagHelp")
-    public void InterfacciaTest_12() {
+    public void InterfacciaTest_12() throws UnsupportedEncodingException {
 
         //cattura stampe
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Interfaccia interfaccia = Interfaccia.getSingleton();
         String[] args = new String[1];
@@ -235,17 +235,17 @@ public class InterfacciaTest {
                 "+---+----------------------------------+\n" +
                 "\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
     @Test
     @DisplayName("13: Test assertEquals controlloFlagHelp")
-    public void InterfacciaTest_13() {
+    public void InterfacciaTest_13() throws UnsupportedEncodingException {
 
         //cattura stampe
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
-        System.setOut(new PrintStream(outContent));
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
 
         Interfaccia interfaccia = Interfaccia.getSingleton();
         String[] args = new String[1];
@@ -265,7 +265,7 @@ public class InterfacciaTest {
                 "+---+----------------------------------+\n" +
                 "\n";
 
-        assertEquals(outputAspettato, outContent.toString());
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
     }
 
 }
