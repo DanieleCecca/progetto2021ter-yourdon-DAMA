@@ -1,31 +1,17 @@
 package it.uniba.dama;
 
-import it.uniba.dama.Damiera;
-import it.uniba.dama.Giocatore;
-import it.uniba.dama.Partita;
+import it.uniba.utilita.Costanti;
+import it.uniba.utilita.Cronometro;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Scanner;
-import static org.junit.jupiter.api.Assertions.*;
-
-import it.uniba.utilita.Costanti;
-import it.uniba.utilita.Cronometro;
-import it.uniba.utilita.Interfaccia;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class PartitaTest {
     //Test Partita
