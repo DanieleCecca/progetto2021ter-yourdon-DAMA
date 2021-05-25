@@ -23,9 +23,19 @@ public final class Interfaccia {
     private static boolean esci = false;
     private static Interfaccia singleton = null;
 
+    /**
+     * Costruttore di default privato necessario per
+     * realizzare la classe Singleton come suggerisce
+     * il design pattern.
+     */
     private Interfaccia() {
     }
 
+    /**
+     * Metodo get per ritornare l'unica istanza della classe Singleton.
+     *
+     * @return il singleton
+     */
     public static Interfaccia getSingleton() {
         if (singleton == null) {
             singleton = new Interfaccia();
@@ -33,8 +43,10 @@ public final class Interfaccia {
         return singleton;
     }
 
+    /**
+     * Metodo che permette l'inserimento di un comando valido da parte dell'utente.
+     */
     public void interfacciaIniziale() {
-        //Questa parte permette l'inserimento di un comando valido da parte dell'utente
         Partita incontro = new Partita();
 
         while (!esci) {
@@ -86,6 +98,12 @@ public final class Interfaccia {
         }
     }
 
+    /**
+     * Metodo che controlla i flag inseriti.
+     * Se i flag inseriti corrispondono a --help e -h viene richiamato il metodo help(), che stampa i possibili comandi.
+     *
+     * @param args i flag inseriti
+     */
     public void controlloFlagHelp(final String[] args) {
         int i = 0;
         boolean flagHelp = false;
@@ -101,6 +119,9 @@ public final class Interfaccia {
         }
     }
 
+    /**
+     * Metodo che permette di uscire dall'applicazione chiedendo conferma all'utente.
+     */
     public static void esci() {
         String conferma;
         do {
@@ -120,6 +141,9 @@ public final class Interfaccia {
         }
     }
 
+    /**
+     * Metodo che stampa una grafica di benvenuto all'avvio dell'applicazione.
+     */
     public void stampaBenvenuto() {
         System.out.print("\n       Benvenuto nel gioco della\n\n"
                 + "         ___   _   __  __   _   \n"
@@ -129,6 +153,9 @@ public final class Interfaccia {
                 + "                               \n      realizzato dal gruppo YOURDON®\n\n");
     }
 
+    /**
+     * Metodo che stampa una lista dei comandi eseguibili dall'applicazione durante una partita (quindi in corso).
+     */
     public void helpPartita() {
         System.out.print("\nLe mosse sono descritte in notazione algebrica\n"
                 + "Esempio: \n"
@@ -149,6 +176,9 @@ public final class Interfaccia {
 
     }
 
+    /**
+     * Metodo che stampa una lista di comandi eseguibili dall'applicazione a partita non iniziata (quindi non in corso).
+     */
     public void help() {
         System.out.print("\n"
                 + "+---+----------------------------------+\n"
@@ -163,20 +193,40 @@ public final class Interfaccia {
                 + "+---+----------------------------------+\n\n");
     }
 
+    /**
+     * Metodo che permette di stampare un messaggio nella classe interfaccia.
+     *
+     * @param messaggio stringa da stampare
+     */
     public static void stampaMessaggio(final String messaggio) {
         System.out.print(messaggio);
     }
 
+    /**
+     * Metodo che permette di acquisire il comando dato in input dall'utente nella classe interfaccia.
+     *
+     * @return il comando acquisito
+     */
     public static String acquisireComando() {
         Scanner inputTastiera = new Scanner(System.in, "UTF-8");
         String comando = inputTastiera.nextLine();
         return comando;
     }
 
+    /**
+     * Metodo che permette di stampare un messaggio.
+     *
+     * @param messaggio stringa da stampare
+     */
     public void stampaMessaggioInterfaccia(final String messaggio) {
         System.out.print(messaggio);
     }
 
+    /**
+     * Metodo che permette di acquisire il comando dato in input dall'utente.
+     *
+     * @return il comando acquisito
+     */
     public String acquisireComandoInterfaccia() {
         Scanner inputTastiera = new Scanner(System.in, "UTF-8");
         String comando = inputTastiera.nextLine();

@@ -14,10 +14,20 @@ package it.uniba.dama;
  */
 
 public class Dama extends Pedina {
+    /**
+     * Costruttore di default della classe damiera
+     */
     public Dama() {
     }
 
-    public Dama(final String colore, final String simbolo) {
-        super(colore, simbolo);
+    /**
+     * Costruttore per la classe Damiera.
+     * Inizializza il colore e il simbolo della damiera.
+     *
+     * @param nuovoColore il colore della pedina
+     * @param nuovoSimbolo il simbolo della pedina
+     */
+    public Dama(final String nuovoColore, final String nuovoSimbolo) {
+        super(nuovoColore, nuovoSimbolo);
     }
 }
