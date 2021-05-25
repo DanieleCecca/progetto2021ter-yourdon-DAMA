@@ -1,26 +1,14 @@
 package it.uniba.dama;
 
-import it.uniba.dama.*;
 import it.uniba.utilita.Costanti;
-import it.uniba.utilita.Cronometro;
-import it.uniba.utilita.Interfaccia;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-//import org.junit.jupiter.params.ParameterizedTest;
-//import org.junit.jupiter.params.provider.ValueSource;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class DamieraTest {
 
