@@ -1,18 +1,10 @@
 package it.uniba.dama;
 
-import it.uniba.dama.Giocatore;
-import it.uniba.dama.Pedina;
 import it.uniba.utilita.Costanti;
-import it.uniba.utilita.Cronometro;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class PedinaTest {
 
