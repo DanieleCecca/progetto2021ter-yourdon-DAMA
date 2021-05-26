@@ -142,7 +142,7 @@ public final class Interfaccia {
     }
 
     /**
-     * Metodo che stampa una grafica di benvenuto all'avvio dell'applicazione.
+     * Metodo che permette di stampare una grafica di benvenuto all'avvio dell'applicazione.
      */
     public void stampaBenvenuto() {
         System.out.print("\n       Benvenuto nel gioco della\n\n"
@@ -177,7 +177,8 @@ public final class Interfaccia {
     }
 
     /**
-     * Metodo che stampa una lista di comandi eseguibili dall'applicazione a partita non iniziata (quindi non in corso).
+     * Metodo che permette di stampare una lista di comandi eseguibili dall'applicazione
+     * a partita non iniziata (quindi non in corso).
      */
     public void help() {
         System.out.print("\n"

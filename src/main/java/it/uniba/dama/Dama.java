@@ -22,7 +22,7 @@ public class Dama extends Pedina {
 
     /**
      * Costruttore per la classe Dama.
-     * Inizializza il colore e il simbolo della damiera.
+     * Inizializza il colore e il simbolo della dama.
      *
      * @param nuovoColore il colore della dama
      * @param nuovoSimbolo il simbolo della dama

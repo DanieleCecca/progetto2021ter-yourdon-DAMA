@@ -141,41 +141,6 @@ public class PartitaTest {
         assertNotNull(partita.getTurno());
     }
 
-    //Test sul campo cronometro
-    @Test
-    @DisplayName("16: Test assertNull getTempoIniziale")
-    public void PartitaTest_16(){
-        Partita partita = new Partita();
-        assertNull(partita.getTempoIniziale());
-    }
-
-    @Test
-    @DisplayName("17: Test assertNotNull setTempoIniziale")
-    public void PartitaTest_17(){
-        Partita partita = new Partita();
-        Cronometro cronometro = new Cronometro(0);
-        partita.setTempoIniziale(cronometro);
-        assertNotNull(partita.getTempoIniziale());
-    }
-
-    @Test
-    @DisplayName("18: Test assertEquals setTempoIniziale")
-    public void PartitaTest_18(){
-        Partita partita = new Partita();
-        Cronometro cronometro = new Cronometro(0);
-        partita.setTempoIniziale(cronometro);
-        assertEquals(cronometro, partita.getTempoIniziale());
-    }
-
-    @Test
-    @DisplayName("19: Test assertEquals setTempoIniziale")
-    public void PartitaTest_19(){
-        Partita partita = new Partita();
-        Cronometro cronometro = new Cronometro(Integer.MAX_VALUE);
-        partita.setTempoIniziale(cronometro);
-        assertEquals(cronometro, partita.getTempoIniziale());
-    }
-
     @AfterEach
     public void tearDown() {
         System.setOut(System.out);
@@ -183,8 +148,8 @@ public class PartitaTest {
 
     //Test metodo mosse
     @Test
-    @DisplayName("20: Test assertEquals mosse")
-    public void PartitaTest_20() throws UnsupportedEncodingException {
+    @DisplayName("16: Test assertEquals mosse")
+    public void PartitaTest_16() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
         System.setOut(new PrintStream(outContent, true, "UTF-8"));
@@ -203,8 +168,8 @@ public class PartitaTest {
 
     //Test metodo prese
     @Test
-    @DisplayName("21: Test assertEquals prese")
-    public void PartitaTest_21() throws UnsupportedEncodingException {
+    @DisplayName("17: Test assertEquals prese")
+    public void PartitaTest_17() throws UnsupportedEncodingException {
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         outContent.reset();
         System.setOut(new PrintStream(outContent, true, "UTF-8"));
@@ -230,8 +195,8 @@ public class PartitaTest {
 
     //Test metodo aggiungiMossa
     @Test
-    @DisplayName("22: Test assertEquals aggiungiMossa")
-    public void PartitaTest_22(){
+    @DisplayName("18: Test assertEquals aggiungiMossa")
+    public void PartitaTest_18(){
         Partita partita = new Partita();
         partita.setTurno("bianco");
         partita.aggiungiMossa("1-1");
@@ -244,8 +209,8 @@ public class PartitaTest {
 
     //Test metodo tempo
     @Test
-    @DisplayName("23: Test assertEquals tempo")
-    public void PartitaTest_23() throws UnsupportedEncodingException {
+    @DisplayName("19: Test assertEquals tempo")
+    public void PartitaTest_19() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
 
@@ -276,8 +241,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("24: Test assertEquals abbandona")
-    public void PartitaTest_24() throws UnsupportedEncodingException {
+    @DisplayName("20: Test assertEquals abbandona")
+    public void PartitaTest_20() throws UnsupportedEncodingException {
         //input automatico
         ByteArrayInputStream in = new ByteArrayInputStream("no".getBytes("UTF-8"));
         System.setIn(in);
@@ -303,8 +268,8 @@ public class PartitaTest {
 
     //mettendo cambio turno pubblico
     @Test
-    @DisplayName("25: Test assertEquals cambioTurno")
-    public void PartitaTest_25(){
+    @DisplayName("21: Test assertEquals cambioTurno")
+    public void PartitaTest_21(){
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -320,8 +285,8 @@ public class PartitaTest {
 
     //mettendo controllo sintassi pubblico
     @Test
-    @DisplayName("26: Test assertTrue controlloSintassi")
-    public void PartitaTest_26(){
+    @DisplayName("22: Test assertTrue controlloSintassi")
+    public void PartitaTest_22(){
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -332,6 +297,70 @@ public class PartitaTest {
         String comando = "21-18";
 
         assertTrue(partita.controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO));
+    }
+
+    //mettendo controllo sintassi pubblico
+    @Test
+    @DisplayName("23: Test assertFalse controlloSintassi")
+    public void PartitaTest_23(){
+        Partita partita = new Partita();
+        partita.setTurno("bianco");
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+        String comando = "falso";
+
+        assertFalse(partita.controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO));
+    }
+
+    //mettendo controllo sintassi pubblico
+    @Test
+    @DisplayName("24: Test assertTrue controlloSintassi")
+    public void PartitaTest_24(){
+        Partita partita = new Partita();
+        partita.setTurno("bianco");
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+        String comando = "21x18";
+
+        assertTrue(partita.controlloSintassi(comando, Costanti.PATTERN_PRESA));
+    }
+
+    //mettendo controllo sintassi pubblico
+    @Test
+    @DisplayName("25: Test assertFalse controlloSintassi")
+    public void PartitaTest_25(){
+        Partita partita = new Partita();
+        partita.setTurno("bianco");
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+        String comando = "falso";
+
+        assertFalse(partita.controlloSintassi(comando, Costanti.PATTERN_PRESA));
+    }
+
+    //mettendo controllo sintassi pubblico
+    @Test
+    @DisplayName("26: Test assertTrue controlloSintassi")
+    public void PartitaTest_26(){
+        Partita partita = new Partita();
+        partita.setTurno("bianco");
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+        String comando = "21x18x16";
+
+        assertTrue(partita.controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA));
     }
 
     //mettendo controllo sintassi pubblico
@@ -347,76 +376,12 @@ public class PartitaTest {
 
         String comando = "falso";
 
-        assertFalse(partita.controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO));
-    }
-
-    //mettendo controllo sintassi pubblico
-    @Test
-    @DisplayName("28: Test assertTrue controlloSintassi")
-    public void PartitaTest_28(){
-        Partita partita = new Partita();
-        partita.setTurno("bianco");
-        Giocatore bianco = new Giocatore("bianco");
-        Giocatore nero = new Giocatore("nero");
-        partita.setBianco(bianco);
-        partita.setNero(nero);
-
-        String comando = "21x18";
-
-        assertTrue(partita.controlloSintassi(comando, Costanti.PATTERN_PRESA));
-    }
-
-    //mettendo controllo sintassi pubblico
-    @Test
-    @DisplayName("29: Test assertFalse controlloSintassi")
-    public void PartitaTest_29(){
-        Partita partita = new Partita();
-        partita.setTurno("bianco");
-        Giocatore bianco = new Giocatore("bianco");
-        Giocatore nero = new Giocatore("nero");
-        partita.setBianco(bianco);
-        partita.setNero(nero);
-
-        String comando = "falso";
-
-        assertFalse(partita.controlloSintassi(comando, Costanti.PATTERN_PRESA));
-    }
-
-    //mettendo controllo sintassi pubblico
-    @Test
-    @DisplayName("30: Test assertTrue controlloSintassi")
-    public void PartitaTest_30(){
-        Partita partita = new Partita();
-        partita.setTurno("bianco");
-        Giocatore bianco = new Giocatore("bianco");
-        Giocatore nero = new Giocatore("nero");
-        partita.setBianco(bianco);
-        partita.setNero(nero);
-
-        String comando = "21x18x16";
-
-        assertTrue(partita.controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA));
-    }
-
-    //mettendo controllo sintassi pubblico
-    @Test
-    @DisplayName("31: Test assertFalse controlloSintassi")
-    public void PartitaTest_31(){
-        Partita partita = new Partita();
-        partita.setTurno("bianco");
-        Giocatore bianco = new Giocatore("bianco");
-        Giocatore nero = new Giocatore("nero");
-        partita.setBianco(bianco);
-        partita.setNero(nero);
-
-        String comando = "falso";
-
         assertFalse(partita.controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA));
     }
 
     @Test
-    @DisplayName("32: Test assertEquals gioca")
-    public void PartitaTest_32() throws UnsupportedEncodingException {
+    @DisplayName("28: Test assertEquals gioca")
+    public void PartitaTest_28() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -436,8 +401,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("33: Test assertEquals gioca")
-    public void PartitaTest_33() throws UnsupportedEncodingException {
+    @DisplayName("29: Test assertEquals gioca")
+    public void PartitaTest_29() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -477,8 +442,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("34: Test assertEquals gioca")
-    public void PartitaTest_34() throws UnsupportedEncodingException {
+    @DisplayName("30: Test assertEquals gioca")
+    public void PartitaTest_30() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -520,8 +485,8 @@ public class PartitaTest {
 
     //mettere system.out.print in interfaccia.helppartita
     @Test
-    @DisplayName("35: Test assertEquals gioca")
-    public void PartitaTest_35() throws UnsupportedEncodingException {
+    @DisplayName("31: Test assertEquals gioca")
+    public void PartitaTest_31() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -558,8 +523,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("36: Test assertEquals gioca")
-    public void PartitaTest_36() throws UnsupportedEncodingException {
+    @DisplayName("32: Test assertEquals gioca")
+    public void PartitaTest_32() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -590,8 +555,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("37: Test assertEquals gioca")
-    public void PartitaTest_37() throws UnsupportedEncodingException {
+    @DisplayName("33: Test assertEquals gioca")
+    public void PartitaTest_33() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -616,8 +581,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("38: Test assertEquals gioca")
-    public void PartitaTest_38() throws UnsupportedEncodingException {
+    @DisplayName("34: Test assertEquals gioca")
+    public void PartitaTest_35() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -643,8 +608,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("39: Test assertEquals gioca")
-    public void PartitaTest_39() throws UnsupportedEncodingException {
+    @DisplayName("36: Test assertEquals gioca")
+    public void PartitaTest_36() throws UnsupportedEncodingException {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -665,8 +630,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("41: Test assertEquals setCronologiaMosse")
-    public void PartitaTest_41(){
+    @DisplayName("37: Test assertEquals setCronologiaMosse")
+    public void PartitaTest_37(){
         Partita partita = new Partita();
 
         ArrayList<String> cronologia = new ArrayList<String>();
@@ -677,8 +642,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("42: Test assertNotNull gioca")
-    public void PartitaTest_42(){
+    @DisplayName("38: Test assertNotNull gioca")
+    public void PartitaTest_38(){
         Partita partita = new Partita();
         partita.setTurno("bianco");
 
@@ -692,8 +657,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("43: Test assertNotNull gioca")
-    public void PartitaTest_43(){
+    @DisplayName("39: Test assertNotNull gioca")
+    public void PartitaTest_39(){
         Partita partita = new Partita();
         partita.setTurno("nero");
 
@@ -710,8 +675,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("44: Test assertNotNull gioca")
-    public void PartitaTest_44(){
+    @DisplayName("40: Test assertNotNull gioca")
+    public void PartitaTest_40(){
         Partita partita = new Partita();
         partita.setTurno("bianco");
 
@@ -735,8 +700,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("45: Test assertNotNull gioca")
-    public void PartitaTest_45(){
+    @DisplayName("41: Test assertNotNull gioca")
+    public void PartitaTest_41(){
         Partita partita = new Partita();
         partita.setTurno("nero");
 
@@ -762,8 +727,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("46: Test assertNotNull gioca")
-    public void PartitaTest_46(){
+    @DisplayName("42: Test assertNotNull gioca")
+    public void PartitaTest_42(){
         Partita partita = new Partita();
         partita.setTurno("bianco");
 
@@ -793,8 +758,8 @@ public class PartitaTest {
     }
 
     @Test
-    @DisplayName("47: Test assertNotNull gioca")
-    public void PartitaTest_47(){
+    @DisplayName("43: Test assertNotNull gioca")
+    public void PartitaTest_43(){
         Partita partita = new Partita();
         partita.setTurno("bianco");
 
