@@ -22,6 +22,7 @@ import java.util.Scanner;
 public final class Interfaccia {
     private static boolean esci = false;
     private static Interfaccia singleton = null;
+    private final Partita incontro = new Partita();
 
     /**
      * Costruttore di default privato necessario per
@@ -29,6 +30,15 @@ public final class Interfaccia {
      * il design pattern.
      */
     private Interfaccia() {
+    }
+
+    /**
+     * Metodo get per incontro.
+     *
+     * @return la variabile incontro
+     */
+    public Partita getPartita() {
+        return incontro;
     }
 
     /**
@@ -47,55 +57,63 @@ public final class Interfaccia {
      * Metodo che permette l'inserimento di un comando valido da parte dell'utente.
      */
     public void interfacciaIniziale() {
-        Partita incontro = new Partita();
-
         while (!esci) {
             stampaMessaggio(Costanti.INSERIRE_COMANDO);
             String comando = acquisireComando();
 
-            switch (comando) {
-                case "gioca":
-                    stampaMessaggio(Costanti.PARTITA_INIZIATA);
-                    incontro.inizio();
-                    break;
-
-                case "damiera":
-                    if (incontro.getInCorso()) {
-                        incontro.getTavolo().stampaDamieraGioco();
-                    } else {
-                        stampaMessaggio(Costanti.ERR_PARTITA_NON_INIZIATA);
-                    }
-                    break;
-
-                case "numeri":
-                    incontro.getTavolo().stampaDamieraNumerata();
-                    break;
-
-                case "tempo":
-                    if (!incontro.getInCorso()) {
-                        stampaMessaggio(Costanti.ERR_PARTITA_NON_INIZIATA);
-                    }
-                    break;
-
-                case "esci":
-                    esci();
-                    break;
-
-                case "help":
-                    help();
-                    break;
-
-                case "abbandona":
-                    if (!incontro.getInCorso()) {
-                        stampaMessaggio(Costanti.ERR_PARTITA_NON_INIZIATA);
-                    }
-                    break;
-
-                default:
-                    stampaMessaggio(Costanti.ERR_COMANDO_INESISTENTE);
-                    break;
-            }
+            interfacciaComando(comando);
         }
+    }
+
+    /**
+     * Metodo che controlla il comando e richiama la funzionalità associata
+     *
+     * @param comando il comando inserito dall'utente.
+     */
+    public void interfacciaComando(final String comando) {
+        switch (comando) {
+            case "gioca":
+                stampaMessaggio(Costanti.PARTITA_INIZIATA);
+                incontro.inizio();
+                break;
+
+            case "damiera":
+                if (incontro.getInCorso()) {
+                    incontro.getTavolo().stampaDamieraGioco();
+                } else {
+                    stampaMessaggio(Costanti.ERR_PARTITA_NON_INIZIATA);
+                }
+                break;
+
+            case "numeri":
+                incontro.getTavolo().stampaDamieraNumerata();
+                break;
+
+            case "tempo":
+                if (!incontro.getInCorso()) {
+                    stampaMessaggio(Costanti.ERR_PARTITA_NON_INIZIATA);
+                }
+                break;
+
+            case "esci":
+                esci();
+                break;
+
+            case "help":
+                help();
+                break;
+
+            case "abbandona":
+                if (!incontro.getInCorso()) {
+                    stampaMessaggio(Costanti.ERR_PARTITA_NON_INIZIATA);
+                }
+                break;
+
+            default:
+                stampaMessaggio(Costanti.ERR_COMANDO_INESISTENTE);
+                break;
+        }
+
     }
 
     /**
@@ -142,7 +160,7 @@ public final class Interfaccia {
     }
 
     /**
-     * Metodo che permette di stampare una grafica di benvenuto all'avvio dell'applicazione.
+     * Metodo che stampa una grafica di benvenuto all'avvio dell'applicazione.
      */
     public void stampaBenvenuto() {
         System.out.print("\n       Benvenuto nel gioco della\n\n"
@@ -177,8 +195,7 @@ public final class Interfaccia {
     }
 
     /**
-     * Metodo che permette di stampare una lista di comandi eseguibili dall'applicazione
-     * a partita non iniziata (quindi non in corso).
+     * Metodo che stampa una lista di comandi eseguibili dall'applicazione a partita non iniziata (quindi non in corso).
      */
     public void help() {
         System.out.print("\n"
@@ -234,6 +251,4 @@ public final class Interfaccia {
         return comando;
     }
 
-    //per risolvere il fatto che si accede ad un metodo statico da una istanza bisogna ricopiare
-    //stampamessaggio e acquisirecomando e renderli non statici
 }

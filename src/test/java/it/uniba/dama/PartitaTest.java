@@ -4,6 +4,7 @@ import it.uniba.utilita.Costanti;
 import it.uniba.utilita.Cronometro;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
@@ -18,7 +19,7 @@ public class PartitaTest {
     //Test Partita
     @Test
     @DisplayName("1: Test assertNotNull partita")
-    public void PartitaTest_1(){
+    public void PartitaTest_1() {
         Partita partita = new Partita();
         assertNotNull(partita);
     }
@@ -26,14 +27,14 @@ public class PartitaTest {
     //Test sul campo bianco
     @Test
     @DisplayName("2: Test assertNull getBianco")
-    public void PartitaTest_2(){
+    public void PartitaTest_2() {
         Partita partita = new Partita();
         assertNull(partita.getBianco());
     }
 
     @Test
     @DisplayName("3: Test assertNotNull setBianco")
-    public void PartitaTest_3(){
+    public void PartitaTest_3() {
         Partita partita = new Partita();
         Giocatore bianco = new Giocatore("bianco");
         partita.setBianco(bianco);
@@ -42,7 +43,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("4: Test assertEquals setBianco")
-    public void PartitaTest_4(){
+    public void PartitaTest_4() {
         Partita partita = new Partita();
         Giocatore bianco = new Giocatore("bianco");
         partita.setBianco(bianco);
@@ -52,14 +53,14 @@ public class PartitaTest {
     //Test sul campo nero
     @Test
     @DisplayName("5: Test assertNull getNero")
-    public void PartitaTest_5(){
+    public void PartitaTest_5() {
         Partita partita = new Partita();
         assertNull(partita.getNero());
     }
 
     @Test
     @DisplayName("6: Test assertNotNull setNero")
-    public void PartitaTest_6(){
+    public void PartitaTest_6() {
         Partita partita = new Partita();
         Giocatore nero = new Giocatore("nero");
         partita.setNero(nero);
@@ -68,7 +69,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("7: Test assertEquals setNero")
-    public void PartitaTest_7(){
+    public void PartitaTest_7() {
         Partita partita = new Partita();
         Giocatore nero = new Giocatore("nero");
         partita.setNero(nero);
@@ -78,14 +79,14 @@ public class PartitaTest {
     //Test sul campo tavolo
     @Test
     @DisplayName("8: Test assertNotNull getTavolo")
-    public void PartitaTest_8(){
+    public void PartitaTest_8() {
         Partita partita = new Partita();
         assertNotNull(partita.getTavolo());
     }
 
     @Test
     @DisplayName("9: Test assertNotNull setTavolo")
-    public void PartitaTest_9(){
+    public void PartitaTest_9() {
         Partita partita = new Partita();
         Damiera tavolo = new Damiera();
         partita.setTavolo(tavolo);
@@ -94,7 +95,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("10: Test assertEquals setTavolo")
-    public void PartitaTest_10(){
+    public void PartitaTest_10() {
         Partita partita = new Partita();
         Damiera tavolo = new Damiera();
         partita.setTavolo(tavolo);
@@ -104,14 +105,14 @@ public class PartitaTest {
     //Test sul campo inCorso
     @Test
     @DisplayName("11: Test assertFalse getInCorso")
-    public void PartitaTest_11(){
+    public void PartitaTest_11() {
         Partita partita = new Partita();
         assertFalse(partita.getInCorso());
     }
 
     @Test
     @DisplayName("12: Test assertTrue setInCorso")
-    public void PartitaTest_12(){
+    public void PartitaTest_12() {
         Partita partita = new Partita();
         partita.setInCorso(true);
         assertTrue(partita.getInCorso());
@@ -120,14 +121,14 @@ public class PartitaTest {
     //Test sul campo turno
     @Test
     @DisplayName("13: Test assertNull getTurno")
-    public void PartitaTest_13(){
+    public void PartitaTest_13() {
         Partita partita = new Partita();
         assertNull(partita.getTurno());
     }
 
     @Test
     @DisplayName("14: Test assertEquals setTurno")
-    public void PartitaTest_14(){
+    public void PartitaTest_14() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         assertEquals("bianco", partita.getTurno());
@@ -135,7 +136,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("15: Test assertNotNull setTurno")
-    public void PartitaTest_15(){
+    public void PartitaTest_15() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         assertNotNull(partita.getTurno());
@@ -196,7 +197,7 @@ public class PartitaTest {
     //Test metodo aggiungiMossa
     @Test
     @DisplayName("18: Test assertEquals aggiungiMossa")
-    public void PartitaTest_18(){
+    public void PartitaTest_18() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         partita.aggiungiMossa("1-1");
@@ -269,7 +270,7 @@ public class PartitaTest {
     //mettendo cambio turno pubblico
     @Test
     @DisplayName("21: Test assertEquals cambioTurno")
-    public void PartitaTest_21(){
+    public void PartitaTest_21() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -286,7 +287,7 @@ public class PartitaTest {
     //mettendo controllo sintassi pubblico
     @Test
     @DisplayName("22: Test assertTrue controlloSintassi")
-    public void PartitaTest_22(){
+    public void PartitaTest_22() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -302,7 +303,7 @@ public class PartitaTest {
     //mettendo controllo sintassi pubblico
     @Test
     @DisplayName("23: Test assertFalse controlloSintassi")
-    public void PartitaTest_23(){
+    public void PartitaTest_23() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -318,7 +319,7 @@ public class PartitaTest {
     //mettendo controllo sintassi pubblico
     @Test
     @DisplayName("24: Test assertTrue controlloSintassi")
-    public void PartitaTest_24(){
+    public void PartitaTest_24() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -334,7 +335,7 @@ public class PartitaTest {
     //mettendo controllo sintassi pubblico
     @Test
     @DisplayName("25: Test assertFalse controlloSintassi")
-    public void PartitaTest_25(){
+    public void PartitaTest_25() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -350,7 +351,7 @@ public class PartitaTest {
     //mettendo controllo sintassi pubblico
     @Test
     @DisplayName("26: Test assertTrue controlloSintassi")
-    public void PartitaTest_26(){
+    public void PartitaTest_26() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -366,7 +367,7 @@ public class PartitaTest {
     //mettendo controllo sintassi pubblico
     @Test
     @DisplayName("27: Test assertFalse controlloSintassi")
-    public void PartitaTest_27(){
+    public void PartitaTest_27() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
         Giocatore bianco = new Giocatore("bianco");
@@ -631,7 +632,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("37: Test assertEquals setCronologiaMosse")
-    public void PartitaTest_37(){
+    public void PartitaTest_37() {
         Partita partita = new Partita();
 
         ArrayList<String> cronologia = new ArrayList<String>();
@@ -643,7 +644,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("38: Test assertNotNull gioca")
-    public void PartitaTest_38(){
+    public void PartitaTest_38() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
 
@@ -658,7 +659,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("39: Test assertNotNull gioca")
-    public void PartitaTest_39(){
+    public void PartitaTest_39() {
         Partita partita = new Partita();
         partita.setTurno("nero");
 
@@ -676,7 +677,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("40: Test assertNotNull gioca")
-    public void PartitaTest_40(){
+    public void PartitaTest_40() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
 
@@ -692,7 +693,7 @@ public class PartitaTest {
                 "11-14",
                 "18x11"
         };
-        for(int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++) {
             partita.gioca(mosse[i]);
         }
 
@@ -701,7 +702,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("41: Test assertNotNull gioca")
-    public void PartitaTest_41(){
+    public void PartitaTest_41() {
         Partita partita = new Partita();
         partita.setTurno("nero");
 
@@ -718,7 +719,7 @@ public class PartitaTest {
                 "14x21"
         };
 
-        for(int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++) {
             System.out.println(mosse[i]);
             partita.gioca(mosse[i]);
         }
@@ -728,7 +729,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("42: Test assertNotNull gioca")
-    public void PartitaTest_42(){
+    public void PartitaTest_42() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
 
@@ -749,7 +750,7 @@ public class PartitaTest {
                 "30-27",
                 "14x21x30"
         };
-        for(int i = 0; i < 8; i++){
+        for (int i = 0; i < 8; i++) {
             partita.gioca(mosse[i]);
         }
 
@@ -759,7 +760,7 @@ public class PartitaTest {
 
     @Test
     @DisplayName("43: Test assertNotNull gioca")
-    public void PartitaTest_43(){
+    public void PartitaTest_43() {
         Partita partita = new Partita();
         partita.setTurno("bianco");
 
@@ -785,14 +786,122 @@ public class PartitaTest {
                 "3-7",
                 "19x12x3"
         };
-        for(int i = 0; i < 13; i++){
+        for (int i = 0; i < 13; i++) {
             partita.gioca(mosse[i]);
         }
 
         assertNotNull(partita.getTavolo());
     }
 
+    //Test metodo prese
+    @Test
+    @DisplayName("44: Test assertEquals prese")
+    public void PartitaTest_44() throws UnsupportedEncodingException {
+        Partita partita = new Partita();
+        partita.setTurno("bianco");
 
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+
+        partita.getTavolo().popolaDamiera();
+
+        String[] mosse = new String[]{
+                "23-19",
+                "10-14",
+                "28-23",
+                "9-13",
+                "23-20",
+                "13-17",
+                "32-28",
+                "14x23x32",
+                "20-15",
+                "14x23x32",
+                "20-15",
+                "11x20",
+                "24x15"
+        };
+        for (int i = 0; i < 13; i++) {
+            partita.gioca(mosse[i]);
+        }
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        outContent.reset();
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
+
+        partita.prese();
+
+        String outputAspettato = "+-------------------------------\n" +
+                "|   Bianco:  ⛀\n" +
+                "+-------------------------------\n" +
+                "|   Nero:    ⛂⛂⛂\n" +
+                "+-------------------------------\n\n";
+
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
+    }
+
+    //Test metodo mosse
+    @Test
+    @DisplayName("45: Test assertEquals prese")
+    public void PartitaTest_45() throws UnsupportedEncodingException {
+
+
+        Partita partita = new Partita();
+        partita.setTurno("bianco");
+
+        Giocatore bianco = new Giocatore("bianco");
+        Giocatore nero = new Giocatore("nero");
+        partita.setBianco(bianco);
+        partita.setNero(nero);
+
+
+        partita.getTavolo().popolaDamiera();
+
+        String[] mosse = new String[]{
+                "23-19",
+                "10-14",
+                "28-23",
+                "9-13",
+                "23-20",
+                "13-17",
+                "32-28",
+                "14x23x32",
+                "20-15",
+                "14x23x32",
+                "20-15",
+                "11x20",
+                "24x15"
+        };
+        for (int i = 0; i < 13; i++) {
+            partita.gioca(mosse[i]);
+        }
+
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        outContent.reset();
+        System.setOut(new PrintStream(outContent, true, "UTF-8"));
+
+        partita.mosse();
+
+        String outputAspettato = "+--------------------------+\n" +
+                "|   |     MOSSE GIOCATE    \n" +
+                "+--------------------------+\n" +
+                "| B | 23-19                 \n" +
+                "| N | 10-14                 \n" +
+                "| B | 28-23                 \n" +
+                "| N | 9-13                 \n" +
+                "| B | 23-20                 \n" +
+                "| N | 13-17                 \n" +
+                "| B | 32-28                 \n" +
+                "| N | 14x23x32                 \n" +
+                "| B | 20-15                 \n" +
+                "| N | 11x20                 \n" +
+                "| B | 24x15                 \n" +
+                "+--------------------------+\n\n";
+
+        assertEquals(outputAspettato, outContent.toString("UTF-8"));
+    }
 
 
 }
