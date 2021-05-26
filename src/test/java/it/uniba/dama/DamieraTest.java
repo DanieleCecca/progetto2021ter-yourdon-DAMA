@@ -178,8 +178,9 @@ public class DamieraTest {
 
     @ParameterizedTest
     @DisplayName("9: Test assertTrue PresaSemplice")
-    @ValueSource(strings = {"10x30", "23x1", "25-21", "10x30", "21-22", "21-18", "10-19", "9-13", "18-13", "18x9", "10-14", "25-21",
-            "5-10", "4x11", "11-14", "22-19", "12-16", "19x10", "19x14", "23-20", "14x23"})
+    @ValueSource(strings = {"30x21","26x17","10x30", "23x1", "25-21", "10x30", "21-22", "21-18", "10-19", "9-13",
+            "18-13", "18x9", "10-14", "25-21", "5-10", "4x11", "11-14", "22-19", "12-16", "19x10", "19x14", "23-20",
+            "14x23"})
     public void DamieraTest_9(String comando) {
         Partita partita = new Partita();
         Giocatore bianco = new Giocatore("bianco");
@@ -238,7 +239,7 @@ public class DamieraTest {
     }
 
     @ParameterizedTest
-    @DisplayName("11: Test assertTrue DamaturaNera")
+    @DisplayName("11: Test assertTrue PresaMultipla")
     @ValueSource(strings = {"23-19", "10-14", "28-23", "9-13", "23-20", "13-17", "32-28", "14x23x32"})
     public void DamieraTest_11(String comando) {
         Partita partita = new Partita();
@@ -246,32 +247,28 @@ public class DamieraTest {
         Giocatore nero = new Giocatore("nero");
         Damiera damiera = new Damiera();
         damiera.popolaDamiera();
-        assertAll(
-                () -> {
-                    ;
-                    if (partita.controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO))
-                        try {
-                            assertTrue(damiera.spostamentoSemplice(bianco, comando));
-                            assertTrue(damiera.spostamentoSemplice(nero, comando));
-                        } catch (DamieraException e) {
-                            System.out.print(e.getMessage());
-                        }
-                    else if (partita.controlloSintassi(comando, Costanti.PATTERN_PRESA)) {
-                        try {
-                            assertTrue(damiera.presaSemplice(bianco, comando));
-                            assertTrue(damiera.presaSemplice(nero, comando));
-                        } catch (DamieraException e) {
-                            System.out.print(e.getMessage());
-                        }
-                    } else if (partita.controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA)) {
-                        try {
-                            assertTrue(damiera.presaMultipla(bianco, comando));
-                            assertTrue(damiera.presaMultipla(nero, comando));
-                        } catch (DamieraException e) {
-                            System.out.print(e.getMessage());
-                        }
-                    }
-                });
+        if (partita.controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO))
+            try {
+                damiera.spostamentoSemplice(bianco, comando);
+                damiera.spostamentoSemplice(nero, comando);
+            } catch (DamieraException e) {
+                System.out.print(e.getMessage());
+            }
+        else if (partita.controlloSintassi(comando, Costanti.PATTERN_PRESA)) {
+            try {
+                damiera.presaSemplice(bianco, comando);
+                damiera.presaSemplice(nero, comando);
+            } catch (DamieraException e) {
+                System.out.print(e.getMessage());
+            }
+        } else if (partita.controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA)) {
+            try {
+                assertTrue(damiera.presaMultipla(bianco, comando));
+                assertTrue(damiera.presaMultipla(nero, comando));
+            } catch (DamieraException e) {
+                System.out.print(e.getMessage());
+            }
+        }
     }
 
 }
