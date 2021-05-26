@@ -15,7 +15,13 @@ package it.uniba.dama;
  */
 public class Pedina {
 
+    /**
+     * Rappresenta il colore della pedina.
+     */
     private String colore;
+    /**
+     * Rappresenta il simbolo della pedina.
+     */
     private String simbolo;
 
     /**
@@ -37,7 +43,7 @@ public class Pedina {
     }
 
     /**
-     * Metodo get per Colore.
+     * Metodo get per colore.
      *
      * @return il colore della pedina
      */
@@ -46,7 +52,7 @@ public class Pedina {
     }
 
     /**
-     * Metodo set per Colore.
+     * Metodo set per colore.
      *
      * @param nuovoColore il nuovo colore della pedina
      */
@@ -55,7 +61,7 @@ public class Pedina {
     }
 
     /**
-     * Metodo get per Simbolo.
+     * Metodo get per simbolo.
      *
      * @return il simbolo della pedina
      */
@@ -64,7 +70,7 @@ public class Pedina {
     }
 
     /**
-     * Metodo set per Simbolo.
+     * Metodo set per simbolo.
      *
      * @param nuovoSimbolo il nuovo simbolo della pedina
      */

@@ -29,9 +29,15 @@ import it.uniba.main.AppMain;
  *       <li>Trasforma la pedina in Dama se arriva nella base avversaria</li></ul>
  */
 public final class Damiera {
-
+    /**
+     * Rappresenta la damiera ossia il tavolo da gioco.
+     */
     private Casella[][] damiera = new Casella[Costanti.DIM][Costanti.DIM];
 
+    /**
+     * Costruttore della classe Damiera.
+     * Inizializza la damira inizializzando ogni casella della matrice ossia della damiera.
+     */
     public Damiera() {
         int numeroCasella = 1;
         for (int i = 0; i < Costanti.DIM; i++) {
@@ -47,6 +53,12 @@ public final class Damiera {
         }
     }
 
+    /**
+     * Costruttore di copia della classe Damiera.
+     * Inizializza la damiera a partire dalla damiera passata in input
+     *
+     * @param copia damiera da copiare
+     */
     public Damiera(final Damiera copia) {
         for (int i = 0; i < Costanti.DIM; i++) {
             for (int j = 0; j < Costanti.DIM; j++) {
@@ -61,10 +73,20 @@ public final class Damiera {
         }
     }
 
+    /**
+     * Metodo get per Damiera
+     * @return la damiera di gioco
+     */
     protected Casella[][] getDamiera() {
         return damiera;
     }
 
+    /**
+     * Metodo che permette di inserire le pedine nelle caselle della damiera.
+     *
+     * Scorre nella matrice della damiera e inserisce opportunamente le pedine dei giocatori
+     * e setta lo stato ad occupato nelle caselle in cui è stata inserita la pedina.
+     */
     public void popolaDamiera() {
         //inserisce pedine giocatore 1
         for (int i = 0; i < Costanti.ULTIMA_RIGA_INIZIALE_BIANCO; i++) {
@@ -92,6 +114,9 @@ public final class Damiera {
         }
     }
 
+    /**
+     * Metodo che permette di stampare a video lo stato della damiera della partita in corso.
+     */
     public void stampaDamieraGioco() {
         AppMain.SINGLETON.stampaMessaggioInterfaccia(Costanti.TAVOLO_GIOCO);
         for (int i = 0; i < Costanti.DIM; i++) {
@@ -121,6 +146,11 @@ public final class Damiera {
         AppMain.SINGLETON.stampaMessaggioInterfaccia("\n-----+----+----+----+----+----+----+-----\n");
         AppMain.SINGLETON.stampaMessaggioInterfaccia("\n");
     }
+
+    /**
+     * Metodo che permette di stampare a video una rappresentazione della damiera nella quale sono
+     * rappresentati i numeri corrispondenti alle posizioni delle caselle.
+     */
 
     public void stampaDamieraNumerata() {
         int numero = 1;
@@ -161,6 +191,12 @@ public final class Damiera {
         AppMain.SINGLETON.stampaMessaggioInterfaccia("\n");
     }
 
+    /**
+     * Metodo che permette di cercare una determinata casella nella damiera.
+     *
+     * @param posizione indica la posizione della casella da cercare
+     * @return la casella cercata o nel caso non venga trovata restituisce null
+     */
     public Casella ricercaCasella(final int posizione) {
         for (int i = 0; i < Costanti.DIM; i++) {
             for (int j = 0; j < Costanti.DIM; j++) {
@@ -172,7 +208,13 @@ public final class Damiera {
         return null;
     }
 
-
+    /**
+     * Metodo che permette di effettuare uno spostamento semplice di una pedina.
+     *
+     * @param giocatore   il giocatore che effettua la mossa
+     * @param spostamento il comando che indica la mossa da compiere
+     * @return un boolenao che indica lo stato della mossa(se è andata a buon fino o meno)
+     */
     public boolean spostamentoSemplice(final Giocatore giocatore, final String spostamento) throws DamieraException {
         boolean spostamentoEseguito = false;
 
@@ -213,6 +255,13 @@ public final class Damiera {
         return spostamentoEseguito;
     }
 
+    /**
+     * Metodo che permette di effettuare una presa semplice di una pedina.
+     *
+     * @param giocatore   il giocatore che effettua la presa
+     * @param spostamento il comando che indica la mossa da compiere
+     * @return  un boolenao che indica lo stato della mossa(se è andata a buon fino o meno)
+     */
     public boolean presaSemplice(final Giocatore giocatore, final String spostamento) throws DamieraException {
         boolean spostamentoEseguito = false;
 
@@ -287,6 +336,13 @@ public final class Damiera {
         return spostamentoEseguito;
     }
 
+    /**
+     * Metodo che permette di effettuare una presa multipla.
+     *
+     * @param giocatore   il giocatore che effettua la presa
+     * @param spostamento il comando che indica la mossa da compiere
+     * @return  un boolenao che indica lo stato della mossa(se è andata a buon fino o meno)
+     */
     public boolean presaMultipla(final Giocatore giocatore, final String spostamento) throws DamieraException {
         Damiera provaDamiera = new Damiera(this);
         Giocatore provaGiocatore = new Giocatore(giocatore.getColore());
@@ -334,6 +390,13 @@ public final class Damiera {
         return esito;
     }
 
+    /**
+     * Metodo che permette di controllare le condizioni necessarie per trasformare la pedina in dama e
+     * in caso di esito positivo effettua le modifiche sulla pedina trasformandola in dama.
+     *
+     * @param giocatore giocatore che effettua un qualsiasi tipo di mossa
+     * @param casella   casella da controllare, che è indicata dal termine a destra della mossa.
+     */
     private void controlloDamatura(final Giocatore giocatore, final Casella casella) {
         if (giocatore.getColore().equals("bianco")) {
             if (casella.getNumeroCasella() >= 1 && casella.getNumeroCasella() <= Costanti.NUM_4

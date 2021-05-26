@@ -1,6 +1,5 @@
 package it.uniba.dama;
 
-import it.uniba.utilita.Cronometro;
 import it.uniba.utilita.Costanti;
 import it.uniba.main.AppMain;
 import it.uniba.utilita.Interfaccia;
@@ -42,16 +41,33 @@ import java.util.regex.Pattern;
  */
 
 public final class Partita {
+    /**
+     * Rappresenta il giocatore bianco della partita.
+     */
     private Giocatore bianco;
+    /**
+     * Rappresenta il giocatore nero della partita.
+     */
     private Giocatore nero;
+    /**
+     * Rappresenta la damiera della partita.
+     */
     private Damiera tavolo;
+    /**
+     * Rappresenta lo stato della partita.
+     */
     private boolean inCorso;
+    /**
+     * Rappresenta il turno della partita(bianco/nero).
+     */
     private String turno;
-    private Cronometro tempoIniziale;
+    /**
+     * Rappresenta la cronologia delle mosse giocate dai giocatori durante la partita.
+     */
     private ArrayList<String> cronologiaMosse;
 
     /**
-     * Costruttore di default della classe Partita.
+     * Costruttore della classe Partita.
      * Inizializza il tavolo da gioco (cioè Damiera), il valore booleano inCorso e la lista cronologiaMosse.
      */
     public Partita() {
@@ -61,7 +77,7 @@ public final class Partita {
     }
 
     /**
-     * Metodo get per Bianco.
+     * Metodo get per bianco.
      *
      * @return il giocatore bianco
      */
@@ -70,7 +86,7 @@ public final class Partita {
     }
 
     /**
-     * Metodo set per Bianco.
+     * Metodo set per bianco.
      *
      * @param coloreBianco il giocatore bianco
      */
@@ -79,7 +95,7 @@ public final class Partita {
     }
 
     /**
-     * Metodo get per Nero.
+     * Metodo get per bero.
      *
      * @return il giocatore nero
      */
@@ -88,7 +104,7 @@ public final class Partita {
     }
 
     /**
-     * Metodo set per Nero.
+     * Metodo set per bero.
      *
      * @param coloreNero il giocatore Nero
      */
@@ -97,7 +113,7 @@ public final class Partita {
     }
 
     /**
-     * Metodo get per Tavolo.
+     * Metodo get per tavolo.
      *
      * @return la damiera di gioco
      */
@@ -106,7 +122,7 @@ public final class Partita {
     }
 
     /**
-     * Metodo set per Tavolo.
+     * Metodo set per tavolo.
      *
      * @param nuovoTavolo la nuova damiera di gioco
      */
@@ -134,7 +150,7 @@ public final class Partita {
     }
 
     /**
-     * Metodo get per Turno.
+     * Metodo get per turno.
      *
      * @return il turno di appartenenza
      */
@@ -143,7 +159,7 @@ public final class Partita {
     }
 
     /**
-     * Metodo set per Turno.
+     * Metodo set per turno.
      *
      * @param nuovoTurno il nuovo turno di appartenenza
      */
@@ -152,27 +168,9 @@ public final class Partita {
     }
 
     /**
-     * Metodo get per tempoIniziale.
-     *
-     * @return il tempo di gioco iniziale
-     */
-    public Cronometro getTempoIniziale() {
-        return tempoIniziale;
-    }
-
-    /**
-     * Metodo set per tempoIniziale.
-     *
-     * @param nuovoTempoIniziale nuovo tempo di gioco iniziale
-     */
-    public void setTempoIniziale(final Cronometro nuovoTempoIniziale) {
-        this.tempoIniziale = nuovoTempoIniziale;
-    }
-
-    /**
      * Metodo get per cronologiaMosse.
      *
-     * @return la lista cronologiaMosse
+     * @return la lista delle mosse giocate
      */
     public ArrayList<String> getCronologiaMosse() {
         return cronologiaMosse;
@@ -181,15 +179,15 @@ public final class Partita {
     /**
      * Metodo set per cronologiaMosse.
      *
-     * @param nuovaCronologiaMosse nuova lista di cronologiaMosse
+     * @param nuovaCronologiaMosse nuova lista contenente le mosse giocate
      */
     public void setCronologiaMosse(final ArrayList<String> nuovaCronologiaMosse) {
         this.cronologiaMosse = nuovaCronologiaMosse;
     }
 
     /**
-     * Inizializza tutti i valori allo stato iniziale
-     * e avvia la partita di dama classica.
+     * Metodo che permette di inizializzare tutti i valori allo stato iniziale.
+     * e permette l'input dell'utente.
      */
     public void inizio() {
         bianco = new Giocatore("bianco");
@@ -215,8 +213,9 @@ public final class Partita {
     }
 
     /**
-     * Effettua controlli sulla sintassi per i comandi di spostamenti e prese
-     * e rende disponibili i comandi per la partita in corso.
+     * Metodo che permette di elaborare l'input ricevuto e assiociare il comando(l'azione) corretta.
+     *
+     * @param comando comando che indica la successiva azione
      */
     public void gioca(final String comando) {
         if (controlloSintassi(comando, Costanti.PATTERN_SPOSTAMENTO)) {
@@ -310,11 +309,11 @@ public final class Partita {
     }
 
     /**
-     * Controlla la corretta sintassi del comando dato in input.
+     * Metodo che permette di controllate la corretta sintassi delle mosse date in input.
      *
-     * @param comando il comando esistente
-     * @param stringa il comando dato in input dall'utente
-     * @return la sintassi (corretta o non corretta)
+     * @param comando la mossa giocata
+     * @param stringa il pattern con cui confrontare il comando
+     * @return un booleano che indica se la sintassi del comando è corretta o non corretta
      */
      boolean controlloSintassi(final String comando, final String stringa) {
         boolean corretto = false;
@@ -332,7 +331,7 @@ public final class Partita {
     }
 
     /**
-     * Permette al giocatore di abbandonare la partita.
+     * Metodo che permette al giocatore di abbandonare la partita.
      *
      * Viene assegnata la sconfitta al giocatore che ha
      * abbandonato la partita.
@@ -358,7 +357,7 @@ public final class Partita {
     }
 
     /**
-     * Stampa il tempo di gioco dei giocatori.
+     * Metodo che permette di stampare il tempo di gioco dei giocatori.
      */
     public void tempo() {
         AppMain.SINGLETON.stampaMessaggioInterfaccia("+----------------------------+\n"
@@ -379,9 +378,9 @@ public final class Partita {
     }
 
     /**
-     * Cambia il turno di gioco.
+     * Metodo che permette di cambiare il turno del giocatore.
      *
-     * Se turno è bianco allora lo cambia in nero
+     * Se il turno è bianco allora lo cambia in nero
      * altrimenti lo cambia in bianco.
      */
     void cambiaTurno() {
@@ -404,7 +403,7 @@ public final class Partita {
     }
 
     /**
-     * Stampa le prese (e quindi le pedine) dei giocatori.
+     * Metodo che permette di stampare  le prese (e quindi le pedine) dei giocatori.
      */
     public void prese() {
         AppMain.SINGLETON.stampaMessaggioInterfaccia("+-------------------------------\n"
@@ -422,7 +421,7 @@ public final class Partita {
     }
 
     /**
-     * Stampa le mosse effettuate dai giocatori.
+     *  Metodo che permette di stampare le mosse effettuate dai giocatori.
      */
     public void mosse() {
 
@@ -437,7 +436,7 @@ public final class Partita {
     }
 
     /**
-     * Aggiunge una mossa alla lista delle mosse del giocatore.
+     *  Metodo che permette di aggiungere una mossa alla lista delle mosse del giocatore.
      *
      * @param comando la mossa effettuata dal giocatore
      */
