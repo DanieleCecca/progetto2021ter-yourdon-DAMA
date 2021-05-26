@@ -11,7 +11,7 @@ package it.uniba.dama;
  */
 public final class DamieraException extends Exception {
     /**
-     * Costruttore per la classe DamieraException.
+     * Costruttore della classe DamieraException.
      * Inizializza il messaggio dell'eccezione.
      *
      * @param messaggio il messaggio d'errore dell'eccezione
