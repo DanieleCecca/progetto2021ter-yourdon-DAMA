@@ -231,7 +231,7 @@ public final class Partita {
                     cambiaTurno();
                 }
             } catch (DamieraException e) {
-                System.out.print(e.getMessage());
+                AppMain.SINGLETON.stampaMessaggioInterfaccia(e.getMessage());
             }
         } else if (controlloSintassi(comando, Costanti.PATTERN_PRESA)) {
             try {
@@ -246,7 +246,7 @@ public final class Partita {
                     cambiaTurno();
                 }
             } catch (DamieraException e) {
-                System.out.print(e.getMessage());
+                AppMain.SINGLETON.stampaMessaggioInterfaccia(e.getMessage());
             }
         } else if (controlloSintassi(comando, Costanti.PATTERN_PRESA_MULTIPLA)) {
             try {
@@ -261,7 +261,7 @@ public final class Partita {
                     cambiaTurno();
                 }
             } catch (DamieraException e) {
-                System.out.print(e.getMessage());
+                AppMain.SINGLETON.stampaMessaggioInterfaccia(e.getMessage());
             }
         } else {
             switch (comando) {
