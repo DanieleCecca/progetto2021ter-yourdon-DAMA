@@ -312,17 +312,17 @@ public final class Partita {
      * Metodo che permette di controllate la corretta sintassi delle mosse date in input.
      *
      * @param comando la mossa giocata
-     * @param stringa il pattern con cui confrontare il comando
+     * @param pattern il pattern con cui confrontare il comando
      * @return un booleano che indica se la sintassi del comando è corretta o non corretta
      */
-     boolean controlloSintassi(final String comando, final String stringa) {
+     boolean controlloSintassi(final String comando, final String pattern) {
         boolean corretto = false;
         String comandoTrim = comando.replaceAll("\\s", "");
 
         try {
-            Pattern pattern = Pattern.compile(stringa);
+            Pattern pat = Pattern.compile(pattern);
 
-            if (comandoTrim.matches(pattern.pattern())) {
+            if (comandoTrim.matches(pat.pattern())) {
                 corretto = true;
             }
         } catch (Exception eccezioneSpostamento) {
@@ -438,13 +438,13 @@ public final class Partita {
     /**
      *  Metodo che permette di aggiungere una mossa alla lista delle mosse del giocatore.
      *
-     * @param comando la mossa effettuata dal giocatore
+     * @param mossa la mossa effettuata dal giocatore
      */
-    public void aggiungiMossa(final String comando) {
+    public void aggiungiMossa(final String mossa) {
         if (this.turno.equals("bianco")) {
-            cronologiaMosse.add("B | " + comando);
+            cronologiaMosse.add("B | " + mossa);
         } else {
-            cronologiaMosse.add("N | " + comando);
+            cronologiaMosse.add("N | " + mossa);
         }
     }
 
