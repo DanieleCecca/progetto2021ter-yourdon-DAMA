@@ -7,9 +7,9 @@ import java.util.Scanner;
 /**
  * Classe che rappresenta l'Interfaccia Utente<br>
  * Tipo di classe: <b>Boundary</b><br>
- * Responsabilità:
+ * Responsabilita:
  * Knows:
- *  git push orifi<ul>
+ *  <ul>
  *     <li>Un valore che indica se l'utente vuole uscire dall'applicazione</li></ul>
  * Does:
  * <ul>
