@@ -27,7 +27,7 @@ import it.uniba.main.AppMain;
  *         della damiera, modificandone lo stato</li>
  *     <li>Permette di effettuare una presa semplice di una pedina all'interno
  *         della damiera, modificandone lo stato</li>
- *     <li>Permette di effettuare una presa multipla di più pedine all'interno
+ *     <li>Permette di effettuare una presa multipla di piu' pedine all'interno
  *         della damiera, modificandone lo stato</li>
  *     <li>Trasforma la pedina in Dama se arriva nella base avversaria</li></ul>
  */

@@ -12,7 +12,7 @@ import it.uniba.utilita.Interfaccia;
 /**
  * Classe principale del progetto<br>
  * Tipo di classe: <b>Control</b> <br>
- * Responsabilits:
+ * Responsabilita:
  * Knows:
  * Does:
  * <ul>
@@ -33,7 +33,7 @@ public final class AppMain {
     }
 
     /**
-     * Quesato è l'avvio dell'applicazione.
+     * Quesato e' l'avvio dell'applicazione.
      *
      * @param args gli argomenti della riga di comando
      */
