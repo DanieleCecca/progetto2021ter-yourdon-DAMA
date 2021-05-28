@@ -10,34 +10,36 @@ import java.util.regex.Pattern;
 /**
  * Classe che rappresenta la partita corrente <br>
  * Tipo di classe: <b>Control</b> <br>
- * Responsabilità:
- * <ul>Knows:
- *      <li>Giocatore nero</li>
- *      <li>Giocatore bianco</li>
- *      <li>La damiera di gioco</li>
- *      <li>Valore che indica se la partita è in corso</li>
- *      <li>Valore che indica il turno di appartenenza(bianco o nero)</li>
- *      <li>Il tempo di gioco iniziale</li>
- *      <li>Una lista di mosse giocate in ordine cronologico</li></ul>
- * <ul>Does:
- *      <li>Istanzia la damiera da gioco, il valore della partita in corso
- *      a falso e la lista di mosse giocate</li>
- *      <li>Ottiene e setta il giocatore bianco</li>
- *      <li>Ottiene e setta il giocatore nero</li>
- *      <li>Ottiene e setta la damiera da gioco</li>
- *      <li>Ottiene e setta il valore della partita in corso</li>
- *      <li>Ottiene e setta il turno di appartenenza</li>
- *      <li>Ottiene e setta il tempo di gioco iniziale</li>
- *      <li>Permette di avviare la partita (settando come giocatore iniziale il bianco)
- *      e di ricevere i comandi relativi alle mosse di gioco</li>
- *      <li>Verifica che la sintassi del comando inserito, quando
- *      viene effettuata una mossa, sia valido</li>
- *      <li>Permette di abbandonare la partita e dichiarare come vincitore il giocatore avversario</li>
- *      <li>Permette di visualizzare il tempo trascorso per entrambi i giocatori</li>
- *      <li>Permette di cambiare il turno del giocatore</li>
- *      <li>Permette di visualizzare le prese effettuate durante la partita</li>
- *      <li>Permette di visualizzare le mosse effettuate durante la partita</li>
- *      <li>Aggiunge una mossa nella lista di mosse giocate</li></ul>
+ * Responsabilita:
+ * Knows:
+ * <ul>
+ *     <li>Giocatore nero</li>
+ *     <li>Giocatore bianco</li>
+ *     <li>La damiera di gioco</li>
+ *     <li>Valore che indica se la partita e' in corso</li>
+ *     <li>Valore che indica il turno di appartenenza(bianco o nero)</li>
+ *     <li>Il tempo di gioco iniziale</li>
+ *     <li>Una lista di mosse giocate in ordine cronologico</li></ul>
+ * Does:
+ * <ul>
+ *     <li>Istanzia la damiera da gioco, il valore della partita in corso
+ *         a falso e la lista di mosse giocate</li>
+ *     <li>Ottiene e setta il giocatore bianco</li>
+ *     <li>Ottiene e setta il giocatore nero</li>
+ *     <li>Ottiene e setta la damiera da gioco</li>
+ *     <li>Ottiene e setta il valore della partita in corso</li>
+ *     <li>Ottiene e setta il turno di appartenenza</li>
+ *     <li>Ottiene e setta il tempo di gioco iniziale</li>
+ *     <li>Permette di avviare la partita (settando come giocatore iniziale il bianco)
+ *         e di ricevere i comandi relativi alle mosse di gioco</li>
+ *     <li>Verifica che la sintassi del comando inserito, quando
+ *         viene effettuata una mossa, sia valido</li>
+ *     <li>Permette di abbandonare la partita e dichiarare come vincitore il giocatore avversario</li>
+ *     <li>Permette di visualizzare il tempo trascorso per entrambi i giocatori</li>
+ *     <li>Permette di cambiare il turno del giocatore</li>
+ *     <li>Permette di visualizzare le prese effettuate durante la partita</li>
+ *     <li>Permette di visualizzare le mosse effettuate durante la partita</li>
+ *     <li>Aggiunge una mossa nella lista di mosse giocate</li></ul>
  */
 
 public final class Partita {
@@ -68,7 +70,7 @@ public final class Partita {
 
     /**
      * Costruttore della classe Partita.
-     * Inizializza il tavolo da gioco (cioè Damiera), il valore booleano inCorso e la lista cronologiaMosse.
+     * Inizializza il tavolo da gioco (cioe' Damiera), il valore booleano inCorso e la lista cronologiaMosse.
      */
     public Partita() {
         tavolo = new Damiera();
@@ -143,7 +145,6 @@ public final class Partita {
      * Metodo set per inCorso.
      *
      * @param nuovoStato nuovo stato della partita(in corso o non)
-     *
      */
     public void setInCorso(final boolean nuovoStato) {
         this.inCorso = nuovoStato;
@@ -313,9 +314,9 @@ public final class Partita {
      *
      * @param comando la mossa giocata
      * @param pattern il pattern con cui confrontare il comando
-     * @return un booleano che indica se la sintassi del comando è corretta o non corretta
+     * @return un booleano che indica se la sintassi del comando e' corretta o non corretta
      */
-     boolean controlloSintassi(final String comando, final String pattern) {
+    boolean controlloSintassi(final String comando, final String pattern) {
         boolean corretto = false;
         String comandoTrim = comando.replaceAll("\\s", "");
 
@@ -332,7 +333,7 @@ public final class Partita {
 
     /**
      * Metodo che permette al giocatore di abbandonare la partita.
-     *
+     * <p>
      * Viene assegnata la sconfitta al giocatore che ha
      * abbandonato la partita.
      */
@@ -379,8 +380,8 @@ public final class Partita {
 
     /**
      * Metodo che permette di cambiare il turno del giocatore.
-     *
-     * Se il turno è bianco allora lo cambia in nero
+     * <p>
+     * Se il turno e' bianco allora lo cambia in nero
      * altrimenti lo cambia in bianco.
      */
     void cambiaTurno() {
@@ -421,7 +422,7 @@ public final class Partita {
     }
 
     /**
-     *  Metodo che permette di stampare le mosse effettuate dai giocatori.
+     * Metodo che permette di stampare le mosse effettuate dai giocatori.
      */
     public void mosse() {
 
@@ -436,7 +437,7 @@ public final class Partita {
     }
 
     /**
-     *  Metodo che permette di aggiungere una mossa alla lista delle mosse del giocatore.
+     * Metodo che permette di aggiungere una mossa alla lista delle mosse del giocatore.
      *
      * @param mossa la mossa effettuata dal giocatore
      */

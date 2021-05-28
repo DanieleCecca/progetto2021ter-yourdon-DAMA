@@ -6,10 +6,11 @@ import it.uniba.dama.Dama;
 /**
  * Classe che contiene le costante usate in questa applicazione
  * Tipo di classe: <b>noECB</b><br>;
- * Responsabilità:
- * <ul>Knows:
- *      <li>I valori delle variabili costanti usate in questa applicazione</li>
- * </ul>
+ * Responsabilita:
+ *Knows:
+ *      <ul>
+ *          <li>I valori delle variabili costanti usate in questa applicazione</li>
+ *      </ul>
  */
 
 public final class Costanti {

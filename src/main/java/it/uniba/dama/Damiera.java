@@ -6,27 +6,30 @@ import it.uniba.main.AppMain;
 /**
  * Classe che rappresenta la Damiera di gioco come una matrice di Caselle <br>
  * Tipo di classe: <b>Entity</b><br>
- * Responsabilità:
- * <ul>Knows:
- *       <li>Matrice di Caselle</li></ul>
- *  <ul>Does:
- *       <li>Istanzia la matrice di caselle con le coppie di coordinate inserendo
- *       il relativo numero di casella</li>
- *       <li> Ottiene e setta la matrice di caselle</li>
- *       <li>Istanzia la matrice di caselle utilizzando una damiera passata come
- *       parametro(costruttore di copia)</li>
- *       <li>Inserisce nella damiera le pedine del giocatore 1 e del giocatore 2</li>
- *       <li>Stampa la damiera con le pedine di ogni giocatore</li>
- *       <li>Stampa la damiera con i numeri delle caselle</li>
- *       <li>Ricerca la casella all'interno della damiera tramite una posizione passata
- *       come parametro</li>
- *       <li>Permette di effettuare lo spostamento semplice di una pedina all'interno
- *       della damiera, modificandone lo stato</li>
- *       <li>Permette di effettuare una presa semplice di una pedina all'interno
- *       della damiera, modificandone lo stato</li>
- *       <li>Permette di effettuare una presa multipla di più pedine all'interno
- *       della damiera, modificandone lo stato</li>
- *       <li>Trasforma la pedina in Dama se arriva nella base avversaria</li></ul>
+ * Responsabilita:
+ * Knows:
+ * <ul>
+ *     <li>Matrice di Caselle</li>
+ * </ul>
+ * Does:
+ * <ul>
+ *     <li>Istanzia la matrice di caselle con le coppie di coordinate inserendo
+ *         il relativo numero di casella</li>
+ *     <li> Ottiene e setta la matrice di caselle</li>
+ *     <li>Istanzia la matrice di caselle utilizzando una damiera passata come
+ *         parametro(costruttore di copia)</li>
+ *     <li>Inserisce nella damiera le pedine del giocatore 1 e del giocatore 2</li>
+ *     <li>Stampa la damiera con le pedine di ogni giocatore</li>
+ *     <li>Stampa la damiera con i numeri delle caselle</li>
+ *     <li>Ricerca la casella all'interno della damiera tramite una posizione passata
+ *         come parametro</li>
+ *     <li>Permette di effettuare lo spostamento semplice di una pedina all'interno
+ *         della damiera, modificandone lo stato</li>
+ *     <li>Permette di effettuare una presa semplice di una pedina all'interno
+ *         della damiera, modificandone lo stato</li>
+ *     <li>Permette di effettuare una presa multipla di piu' pedine all'interno
+ *         della damiera, modificandone lo stato</li>
+ *     <li>Trasforma la pedina in Dama se arriva nella base avversaria</li></ul>
  */
 public final class Damiera {
     /**
@@ -75,6 +78,7 @@ public final class Damiera {
 
     /**
      * Metodo get per Damiera
+     *
      * @return la damiera di gioco
      */
     protected Casella[][] getDamiera() {
@@ -83,9 +87,9 @@ public final class Damiera {
 
     /**
      * Metodo che permette di inserire le pedine nelle caselle della damiera.
-     *
+     * <p>
      * Scorre nella matrice della damiera e inserisce opportunamente le pedine dei giocatori
-     * e setta lo stato ad occupato nelle caselle in cui è stata inserita la pedina.
+     * e setta lo stato ad occupato nelle caselle in cui e' stata inserita la pedina.
      */
     public void popolaDamiera() {
         //inserisce pedine giocatore 1
@@ -213,7 +217,8 @@ public final class Damiera {
      *
      * @param giocatore   il giocatore che effettua la mossa
      * @param spostamento il comando che indica la mossa da compiere
-     * @return un boolenao che indica lo stato della mossa(se è andata a buon fino o meno)
+     * @throws DamieraException la mossa che si sta cercando di fare non e' valida
+     * @return un boolenao che indica lo stato della mossa(se e' andata a buon fino o meno)
      */
     public boolean spostamentoSemplice(final Giocatore giocatore, final String spostamento) throws DamieraException {
         boolean spostamentoEseguito = false;
@@ -260,7 +265,8 @@ public final class Damiera {
      *
      * @param giocatore   il giocatore che effettua la presa
      * @param spostamento il comando che indica la mossa da compiere
-     * @return  un boolenao che indica lo stato della mossa(se è andata a buon fino o meno)
+     * @throws DamieraException la mossa che si sta cercando di fare non e' valida
+     * @return un boolenao che indica lo stato della mossa(se e' andata a buon fino o meno)
      */
     public boolean presaSemplice(final Giocatore giocatore, final String spostamento) throws DamieraException {
         boolean spostamentoEseguito = false;
@@ -341,7 +347,8 @@ public final class Damiera {
      *
      * @param giocatore   il giocatore che effettua la presa
      * @param spostamento il comando che indica la mossa da compiere
-     * @return  un boolenao che indica lo stato della mossa(se è andata a buon fino o meno)
+     * @throws DamieraException la mossa che si sta cercando di fare non e' valida
+     * @return un boolenao che indica lo stato della mossa(se e' andata a buon fino o meno)
      */
     public boolean presaMultipla(final Giocatore giocatore, final String spostamento) throws DamieraException {
         Damiera provaDamiera = new Damiera(this);
@@ -395,7 +402,7 @@ public final class Damiera {
      * in caso di esito positivo effettua le modifiche sulla pedina trasformandola in dama.
      *
      * @param giocatore giocatore che effettua un qualsiasi tipo di mossa
-     * @param casella   casella da controllare, che è indicata dal termine a destra della mossa.
+     * @param casella   casella da controllare, che e' indicata dal termine a destra della mossa.
      */
     private void controlloDamatura(final Giocatore giocatore, final Casella casella) {
         if (giocatore.getColore().equals("bianco")) {

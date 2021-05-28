@@ -12,10 +12,10 @@ import it.uniba.utilita.Interfaccia;
 /**
  * Classe principale del progetto<br>
  * Tipo di classe: <b>Control</b> <br>
- * Responsabilità:
- * <ul>Knows:
- *    </ul>
- * <ul>Does:
+ * Responsabilita:
+ * Knows:
+ * Does:
+ * <ul>
  *     <li>Richiama il metodo dell'Interfaccia Iniziale</li>
  *     <li>Effettua il controllo del comando passato in input come flag -h o --help</li>
  * </ul>
@@ -33,7 +33,7 @@ public final class AppMain {
     }
 
     /**
-     * Quesato è l'avvio dell'applicazione.
+     * Questo e' l'avvio dell'applicazione.
      *
      * @param args gli argomenti della riga di comando
      */

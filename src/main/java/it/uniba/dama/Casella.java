@@ -3,16 +3,18 @@ package it.uniba.dama;
 /**
  * Classe che rappresenta una Casella della damiera<br>
  * Tipo di classe: <b>Entity</b><br>
- * Responsabilità:
- * <ul>Knows:
- *      <li>La pedina, se presente, posizionata all'interno della casella corrente</li>
- *      <li>Un valore che indica se la Casella è occupata o meno</li>
- *      <li>Il numero della casella</li>
- *      <li>Delle coordinate (x,y) che indicano la posizione della Casella nella Damiera</li></ul>
- * <ul>Does:
- *      <li>Istanzia la casella con al suo interno una coppia di coordinate (x,y) e una pedina vuota</li>
- *      <li>Ottiene e setta il numero della casella</li>
- *      <li>Ottiene e setta il valore occupato della Casella</li></ul>
+ * Responsabilita:
+ * Knows:
+ * <ul>
+ *     <li>La pedina, se presente, posizionata all'interno della casella corrente</li>
+ *     <li>Un valore che indica se la Casella e' occupata o meno</li>
+ *     <li>Il numero della casella</li>
+ *     <li>Delle coordinate (x,y) che indicano la posizione della Casella nella Damiera</li></ul>
+ * Does:
+ * <ul>
+ *     <li>Istanzia la casella con al suo interno una coppia di coordinate (x,y) e una pedina vuota</li>
+ *     <li>Ottiene e setta il numero della casella</li>
+ *     <li>Ottiene e setta il valore occupato della Casella</li></ul>
  */
 public final class Casella {
     /**
@@ -20,7 +22,7 @@ public final class Casella {
      */
     private Pedina pedina;
     /**
-     * Booleano che è vero se la casella è occupata da un pezzo, falso altrimenti.
+     * Booleano che e' vero se la casella e' occupata da un pezzo, falso altrimenti.
      */
     private boolean occupato;
     /**
@@ -117,12 +119,14 @@ public final class Casella {
 /**
  * Classe che rappresenta una coppia di coordinate<br>
  * Tipo di classe: <b>Entity</b><br>
- * Responsabilità:
- * <ul>Knows:
- *      <li>Valori (x,y) che indicano le coordinate di una matrice</li></ul>
- * <ul>Does:
- *      <li>Ottiene e setta la coordinata X</li>
- *      <li>Ottiene e setta la coordinata Y</li></ul>
+ * Responsabilita:
+ * Knows:
+ * <ul>
+ *     <li>Valori (x,y) che indicano le coordinate di una matrice</li></ul>
+ * Does:
+ * <ul>
+ *     <li>Ottiene e setta la coordinata X</li>
+ *     <li>Ottiene e setta la coordinata Y</li></ul>
  */
 class Coordinata {
     /**
