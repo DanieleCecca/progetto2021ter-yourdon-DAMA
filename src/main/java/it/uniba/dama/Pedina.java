@@ -4,12 +4,13 @@ package it.uniba.dama;
  * Classe che rappresenta la Pedina del gioco della dama con il relativo simbolo e colore<br>
  * Tipo di classe: <b>Entity</b><br>
  * Responsabilità:
- * <ul>Knows:
+ * Knows:
+ * <ul>
  *     <li>Il colore relativo alla pedina</li>
  *     <li>Il simbolo relativo alla pedina(in UNICODE)</li></ul>
- *
- * <ul>Does:
- *        <li>Istanzia il colore e simbolo della pedina</li>
+ * Does:
+ *  <ul>
+ *     <li>Istanzia il colore e simbolo della pedina</li>
  *     <li>Ottiene il colore della pedina</li>
  *     <li>Ottiene il simbolo della pedina</li></ul>
  */
@@ -30,11 +31,12 @@ public class Pedina {
     public Pedina() {
 
     }
+
     /**
      * Costruttore per la classe Pedina.
      * Inizializza il colore e il simbolo della pedina.
      *
-     * @param nuovoColore il colore della pedina
+     * @param nuovoColore  il colore della pedina
      * @param nuovoSimbolo il simbolo della pedina
      */
     public Pedina(final String nuovoColore, final String nuovoSimbolo) {

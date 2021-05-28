@@ -1,18 +1,20 @@
 package it.uniba.utilita;
 
 /**
- *  Classe che permette di calcolare il tempo in run-time <br>
- *  Tipo di classe: <b>Entity</b><br>
- *  Responsabilità:
- * 		<ul>Knows:
- * 		     <li>Il tempo calcolato in secondi</li>
- * 		     <li>Un valore che permette di fermare il tempo</li></ul>
- * 		<ul>Does:
- * 		    <li>Istanzia il tempo in secondi</li>
- * 		    <li>Ottiene i secondi</li>
- * 		    <li>Setta il valore che permette di fermare il tempo</li>
- * 		    <li>Calcola il tempo in run-time</li>
- * 		    <li>Stampa il tempo trascorso</li></ul>
+ * Classe che permette di calcolare il tempo in run-time <br>
+ * Tipo di classe: <b>Entity</b><br>
+ * Responsabilita:
+ * Knows:
+ *    <ul>
+ *      <li>Il tempo calcolato in secondi</li>
+ *      <li>Un valore che permette di fermare il tempo</li></ul>
+ * Does:
+ *    <ul>
+ *     <li>Istanzia il tempo in secondi</li>
+ *     <li>Ottiene i secondi</li>
+ *     <li>Setta il valore che permette di fermare il tempo</li>
+ *     <li>Calcola il tempo in run-time</li>
+ *     <li>Stampa il tempo trascorso</li></ul>
  */
 public final class Cronometro extends Thread {
 
@@ -73,7 +75,6 @@ public final class Cronometro extends Thread {
 
     /**
      * Metodo che permette di iniziare a calcolare il tempo trascorso.
-     *
      */
     public void run() {
         try {
@@ -89,7 +90,7 @@ public final class Cronometro extends Thread {
     /**
      * Metodo che permette di ottenere il tempo trascorso in h min sec
      *
-     * @return  la stringa che indica il tempo trascorso nel formato : h min sec
+     * @return la stringa che indica il tempo trascorso nel formato : h min sec
      */
     public String tempoTrascorso() {
         int sec, minuti, ore;

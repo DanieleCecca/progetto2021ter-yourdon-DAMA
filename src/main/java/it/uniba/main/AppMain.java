@@ -12,10 +12,10 @@ import it.uniba.utilita.Interfaccia;
 /**
  * Classe principale del progetto<br>
  * Tipo di classe: <b>Control</b> <br>
- * Responsabilità:
- * <ul>Knows:
- *    </ul>
- * <ul>Does:
+ * Responsabilits:
+ * Knows:
+ * Does:
+ * <ul>
  *     <li>Richiama il metodo dell'Interfaccia Iniziale</li>
  *     <li>Effettua il controllo del comando passato in input come flag -h o --help</li>
  * </ul>

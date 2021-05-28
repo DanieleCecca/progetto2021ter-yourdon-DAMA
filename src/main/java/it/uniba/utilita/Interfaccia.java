@@ -8,9 +8,11 @@ import java.util.Scanner;
  * Classe che rappresenta l'Interfaccia Utente<br>
  * Tipo di classe: <b>Boundary</b><br>
  * Responsabilità:
- * <ul>Knows:
+ * Knows:
+ *  git push orifi<ul>
  *     <li>Un valore che indica se l'utente vuole uscire dall'applicazione</li></ul>
- * <ul>Does:
+ * Does:
+ * <ul>
  *     <li>Stampa l'interfaccia iniziale l'applicazione si predispone a ricevere i comandi iniziali</li>
  *     <li>Stampa i comandi validi all'avvio dell'applicazione se viene passato un flag -h o --help</li>
  *     <li>Stampa i comandi validi durante il corso della partita</li>
