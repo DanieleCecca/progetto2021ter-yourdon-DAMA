@@ -3,7 +3,7 @@ package it.uniba.dama;
 /**
  * Classe che rappresenta la Pedina del gioco della dama con il relativo simbolo e colore<br>
  * Tipo di classe: <b>Entity</b><br>
- * Responsabilità:
+ * Responsabilita:
  * Knows:
  * <ul>
  *     <li>Il colore relativo alla pedina</li>
