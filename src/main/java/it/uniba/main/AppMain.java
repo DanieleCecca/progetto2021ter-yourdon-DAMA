@@ -33,7 +33,7 @@ public final class AppMain {
     }
 
     /**
-     * Quesato e' l'avvio dell'applicazione.
+     * Questo e' l'avvio dell'applicazione.
      *
      * @param args gli argomenti della riga di comando
      */
