@@ -19,9 +19,9 @@
     - [Design pattern utilizzati](##Design-pattern-utilizzati)
     - [Commenti OO Design](##Commenti-OO-Design)
 6. [Riepilogo dei Test](#Riepilogo-dei-Test)
-    - [Tabelle riassuntive](##Tabella-riassuntive)
+    - [Tabelle riassuntive](##Tabelle-riassuntive)
 7. [Manuale utente](#Manuale-Utente)
-8. Processo di sviluppo e organizzazione del lavoro
+8. [Processo di sviluppo e organizzazione del lavoro](#Processo-di-sviluppo-e-organizzazione-del-lavoro)
 9. Analisi retrospettiva
     - Soddisfazioni 
     - Insoddisfazioni
@@ -328,8 +328,8 @@ Avremmo quindi dovuto ristrutturare l'architettura dell'applicazione avendo riso
 [Torna all'indice](##Indice)
 <br><br>
 
-#Riepilogo dei Test
-##Tabelle riassuntive
+# Riepilogo dei Test
+## Tabelle riassuntive
 - Tabella riassuntiva del coverage generata da JaCoCo:
 <center><img src = "../res/img/relazione-tecnica-finale/Jacoco.PNG" alt = "Jacoco"></center>
 <br>
@@ -342,7 +342,7 @@ Avremmo quindi dovuto ristrutturare l'architettura dell'applicazione avendo riso
 <center><img src = "../res/img/relazione-tecnica-finale/List.PNG" alt = "List"></center>
 <br>
 
-Non è stato possibile raggiungere il 100% di coverage in qaunto le righe di codice non coperte richiedevano 
+Non è stato possibile raggiungere il 100% di coverage in quanto le righe di codice non coperte richiedevano 
 input multipli da parte dell'utente.
 
 [Torna all'indice](##Indice)
@@ -406,6 +406,56 @@ Per poter eseguire una mossa bisogna inserire i comandi in notazione algebrica:
 - Presa multipla: es. `19x10x1`
 
 Nel momento in cui si cerca di eseguire una mossa non valida vengono mostrati dei messaggi di errore con una descrizione diversa a seconda dell'errore commesso.
+
+[Torna all'indice](##Indice)
+<br><br>
+
+# Processo di sviluppo e organizzazione del lavoro
+
+## Processo di sviluppo
+
+Il processo di sviluppo di questa applicazione è avvenuto in modo iterativo ed incrementale, secondo il modello Scrum che prevede un product owner il cui ruolo è stato ricoperto dal docente. Il tutto si è sviluppato in quattro Sprint separati, ciascuno dei quali avente uno Sprint Goal. 
+
+Durante tutto il processo di sviluppo abbiamo cercato di simulare al più un reale ambiente lavorativo stabilendo degli orari di lavoro più o meno flessibili : 
+- Lun e Mar dalle 17.30 alle 20.00
+- Mer - Sab dalle 15.30 alle 20.00 
+
+All'inizio di ogni giornata lavorativa è stato svolto uno scrum meeting nel quale sono stati ripartiti i vari compiti da portare a termine cercando di essere più equi possibili nella suddivisione e, inoltre, ogni componete era libero di esprimere le proprie perplessità e pensieri sul progetto.
+
+## Piattaforma di comunicazione adottata
+Per gestire la comunicazione all'interno del team abbiamo adottato la piattaforma Discord che permette di creare dei server privati all'interno dei quali è possibile gestire canili testuali e vocali differenti a seconda delle esigenze. Nel nostro caso abbiamo realizzato quattro canali testuali :
+- Generale
+- Note-risorse 
+- Warnings
+- Off-topic
+
+e tre canali vocali che hanno facilitato il pair-programming.
+<center><img src = "../res/img/relazione-tecnica-finale/Discord.PNG" alt = "discord"></center>
+
+## WorkFlow utilizzato
+
+Le varie attività sono state gestite seguendo il GitHub Flow:
+ogni issue è stato assegnato ad uno o più membri del team, a seconda della complessità dell'issue, che hanno lavorato su un branch per implementare cambiamenti nel software. Una volta completata la fase di sviluppo, il branch è stato pushato in remoto per permettere ad uno o più componenti del team di effettuare la fase di review ed in caso di review positiva è stato effettuato il merge sul master e il conseguente delete del branch.
+
+
+## Pair programming e revisione
+
+Come anticipato nel paragrafo precedente per task abbastanza complesse abbiamo adotato il pair programming. Nel caso in cui uno dei componenti del gruppo terminava le proprie tasks cercava di aiutare chi non avesse ancora completato il proprio compito. Il tutto è stato facilitato dai canili vocali separati che hanno permesso di lavorare insieme senza creare confusione. 
+
+Per quanto riguarda le revisioni, queste sono state discusse tramite la condivisione dello schermo nel momento in cui veniva creata la pull request.
+
+## Uso delle boards
+
+All'interno della board, in stile _kamban_ fornita da GitHub sono stati inseriti i vari issue sulle 5 colonne:
+
+- TO DO dove si posizionano automaticamente gli issue appena aperti
+- IN PROGRESS dove si trovavano gli issue aperti sui quali qualcuno sta lavorando
+- REVIEW dove si collocano gli issues da revisionare
+- READY dove si posizionano gli issues che verranno revisionati dai docenti a fine sprint
+- DONE dove si aggiungono gli issues portati a termine e ufficialmente chiusi
+
+E' stata creata la board product roadmap il cui scopo è quello di mostrare il rilascio del prodotto dal backlog ai vari sprint.
+
 
 [Torna all'indice](##Indice)
 <br><br>
