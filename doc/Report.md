@@ -28,7 +28,8 @@
     - Cosa ci ha fatto impazzire
 
 # Introduzione
-Dama-Yourdon è un'applicazione,con interfaccia a linea di comando, che permette a due giocatori di sfidarsi localmente al gioco della dama. L'applicazione è stata realizzata per il corso di Ingegneria del Software dell'A.A 2020/2021 dal gruppo **_Yourdon_** i cui membri sono:
+Dama-Yourdon è un'applicazione,con interfaccia a linea di comando, che permette a due giocatori di sfidarsi localmente 
+al gioco della dama. L'applicazione è stata realizzata per il corso di Ingegneria del Software dell'A.A 2020/2021 dal gruppo **_Yourdon_** i cui membri sono:
 
 - [Francesco Ferrulli](https://github.com/Ferru2000)
 - [Daniele Cecca](https://github.com/DanieleCecca)
@@ -39,3 +40,13 @@ Dama-Yourdon è un'applicazione,con interfaccia a linea di comando, che permette
  L'esecuzione dell'applicazione avviene a linea di comando via **Docker**.
 
 [Torna all'indice](##Indice)
+
+# Modello di dominio
+Abbiamo realizzato il seguente modello di dominio per esplicitare i concetti fondamentali della nostra applicazione 
+tramite un diagramma delle classi con prospettiva software.
+
+<center><img src = "./drawings/modello di dominio.png" alt = "modello di dominio"></center>
+
+
+ <br><br>
+
