@@ -226,6 +226,32 @@ Di seguito sono riportati i requisiti funzionali:
 
     [Torna all'indice](##Indice)
 
+## Requisiti non funzionali
+#
+
+- ### **Portabilità**
+    Questa applicazione utilizza alcuni simboli in codifica di unicode ed è necessario utilizzare uno dei seguenti terminali che supportano la codifica UTF-8:
+    - terminale di Linux
+    - teminale di MacOS
+    - Windows Terminal
+    - Git Bash (in questo caso il comando Docker ha come prefisso winpty: `winpty docker -it ...`)
+
+- ### **Manutenibilità**
+    Questo requisito non funzionale è garantito dalla _tassonomia **ECB**_ , che permette di avere un software modulare, su cui sarà più facile effettuare eventuali modifiche.
+
+    Inoltre, un futuro intervento all'interno del codice sarà facilitato dalla presenza della documentazione generata da _Javadoc_.
+
+- ### **Affidabilità**
+    Questo requisito non funzionale è garantito dalla presenza di eccezioni che vengono lanciate e gestite all'interno dell'applicazioni. Inoltre, ogni qualvolta si verifica una situazione non valida viene stampato a video un messaggio con una descrizione significativa.
+
+- ### **Usabilità**
+    Questo requisito non funzionale è garantito dalla presenza di due interfacce che contengono i comandi validi nel caso in cui la partita sia iniziata o meno.
+
+- ### **Scalabiltà**
+    Questo requisito non funzionale è garantito dalla possibilità di aggiungere nuove funzionalità (come ad esempio lo spostamento della dama) senza intervenire sui metodi già realizzati.
+
+- ### **Efficienza**
+    Questo requisito non funzionale è garantito dalla capacità del sistema di rispondere alla richiesta dell'utente in un tempo inferiore ai 3 secondi.
 # System Design
 
 ## Stile architetturale adottato
