@@ -46,7 +46,7 @@ al gioco della dama. L'applicazione è stata realizzata per il corso di Ingegner
 Abbiamo realizzato il seguente modello di dominio per esplicitare i concetti fondamentali della nostra applicazione 
 tramite un diagramma delle classi con prospettiva software.
 
-<center><img src = "./drawings/modello di dominio.png" alt = "modello di dominio"></center>
+<center><img src = "./drawings/ModelloDiDominio.PNG" alt = "modello di dominio"></center>
 
 [Torna all'indice](##Indice)
  <br><br>
@@ -63,7 +63,7 @@ Abbiamo deciso di adottare lo stile architetturale **Model-View-Controller**, se
 ## Diagramma dei package
 Abbiamo realizzato il seguente diagramma dei package per esplicitare le dipendenze all'interno della nostra applicazione.
 
-<center><img src = "./drawings/Diagramma dei package.png" alt = "modello di dominio"></center>
+<center><img src = "./drawings/DiagrammaDeiPackage.PNG" alt = "modello di dominio"></center>
 
 [Torna all'indice](##Indice)
  <br><br>
