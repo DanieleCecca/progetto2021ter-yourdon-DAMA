@@ -51,7 +51,207 @@ tramite un diagramma delle classi con prospettiva software.
 [Torna all'indice](##Indice)
  <br><br>
 
+# Requisiti specifici
+Di seguito sono riportati i requisiti funzionali (in ordine cronologico rispetto alla creazione degli issue) seguiti dai requisiti non funzionali.
 
+## Requisiti funzionali
+
+Di seguito sono riportati i requisiti funzionali:
+- ### [Help](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/20)
+
+    L'utente può visualizzare l'elenco dei comandi disponibili tramite il comando `help`.
+    
+    **Criteri di accettazione**
+
+    Eseguendo il comando `help` o invocando l'app con flag `--help` o `-h`
+    il risultato è una descrizione concisa, che normalmente appare all'avvio del programma, seguita dalla lista di comandi disponibili, uno per riga, come da esempio successivo:
+
+    - `gioca`
+    - `esci`
+    - `...`
+
+- ### [Iniziare nuova partita](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/23)
+
+    L'utente può iniziare una partita tramite il comando `gioca`. Subito dopo sarà possibile inserire la prima mossa di gioco (in notazione algebrica) o inserire altri comandi, ad esempio il comando `damiera` (per mostrare la damiera).
+
+    **Criteri di accettazione**
+
+    Al comando `gioca` se nessuna partita è in corso l'app si predispone a ricevere la prima mossa di gioco o altri comandi.
+
+
+- ### [Abbandonare partita](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/37)
+
+    L'utente può abbandonare la partita tramite il comando `abbandona`.
+    
+    **Criteri di accettazione:**
+    
+    Al comando `abbandona` l'app chiede conferma: 
+    - se la conferma è positiva, l'app comunica che il Bianco (o Nero) ha vinto per abbandono 
+    - se la conferma è negativa, l'app si predispone a ricevere nuovi comandi
+
+- ### [Chiudere il gioco](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/41)
+
+    L'utente può terminare l'applicazione tramite il comando `esci`.
+
+    **Criteri di accettazione:**
+    
+    Al comando `esci` l'applicazione chiede conferma:
+    - se la conferma è positiva, l'app si chiude restituendo un zero exit code
+    - se la conferma è negativa, l'app si predispone a ricevere nuovi comandi
+
+- ### [Mostrare damiera con numerazione](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/21)
+
+    L'utente può visualizzare a schermo la damiera con la numerazione in modo da ricordare come sono numerate le caselle della damiera (tramite il comando `numeri`).
+
+    **Criteri di accettazione**
+
+    Al comando `numeri` l'app mostra la damiera con i numeri sulle caselle nere.
+    Il formato della damiera è presente in [`Assegnazione progetto.md`](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/blob/master/Assegnazione%20progetto.md)
+
+- ### [Mostrare damiera con i pezzi](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/22)
+
+    L'utente può visualizzare a schermo la damiera con i pezzi in modo da visualizzare lo stato del gioco (tramite il comando `damiera`).
+
+    **Criteri di accettazione**
+
+    Al comando `damiera`
+    - se il gioco è iniziato l'app mostra la posizione di tutti pezzi sulla damiera
+        - i pezzi sono mostrati [in formato Unicode](https://en.wikipedia.org/wiki/English_draughts#Unicode)
+    - se il gioco non è iniziato l'app suggerisce il comando gioca
+
+- ### [Mostrare tempo di gioco](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/42)
+
+    L'utente può visualizzare a schermo il tempo di gioco trascorso tramite il comando `tempo`.
+
+    **Criteri di accettazione**
+
+    Al comando `tempo`
+    - se il gioco è in corso 
+        - l'app mostra il tempo trascorso per il Bianco dall'inizio del gioco
+        - l'app mostra il tempo trascorso per il Nero dall'inizio del gioco
+    - se il gioco non è in corso l'app suggerisce il comando `gioca` e si predispone a ricevere nuovi comandi
+
+- ### [Spostare una pedina con spostamento semplice](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/28)
+
+    L'utente può spostare una pedina mediante spostamento semplice inserendo il comando in notazione algebrica.
+
+    **Criteri di accettazione**
+
+    A partita in corso di gioco, l'app deve accettare mosse di spostamento semplice di pedina in notazione algebrica.
+    
+    Lo spostamento semplice della pedina deve rispettare le [regole del gioco](http://www.fid.it/regolamenti/capo1.htm) della dama italiana, escludendo damature e prese. In particolare (_Art. 4 - Gli spostamenti semplici_).
+
+    La pedina può essere mossa solo in avanti e in diagonale e portata dalla casella di partenza in una casella libera contigua.
+
+    All'immissione di una mossa valida come:
+    
+        Es. 1-5
+
+    viene aggiornato lo stato della damiera, altrimenti viene visualizzato un messaggio di errore e l'app si predispone a ricevere un nuovo comando.
+
+- ### [Spostare una pedina con presa semplice](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/27)
+
+    L'utente può spostare una pedina mediante presa semplice inserendo il comando in notazione algebrica.
+
+    **Criteri di accettazione**
+    
+    A partita in corso di gioco, l'app deve accettare mosse di spostamento di pedina con presa semplice in notazione algebrica.
+
+    Lo spostamento della pedina con presa semplice deve rispettare le [regole del gioco](http://www.fid.it/regolamenti/capo1.htm) della dama italiana. In particolare (_Art. 5 e 6_).
+    
+    All'immissione di una mossa valida come:
+    
+        Es. 18x11 (se è il bianco a muovere)
+
+    viene aggiornato lo stato della damiera, altrimenti viene visualizzato un messaggio di errore e l'app si predispone a ricevere un nuovo comando.
+    
+- ### [Spostare una pedina con presa multipla](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/29)
+
+    L'utente può spostare una pedina mediante presa multipla inserendo il comando in notazione algebrica.
+
+    **Criteri di accettazione**
+
+    A partita in corso di gioco, l'app deve accettare mosse di spostamento di pedina con presa multipla in notazione algebrica.
+
+    Lo spostamento della pedina con presa multipla deve rispettare le [regole del gioco](http://www.fid.it/regolamenti/capo1.htm) della dama italiana. In particolare (_Art. 5 e 6_).
+
+    All'immissione di una mossa valida come:
+    
+        Es. 22x15x6 (se è il bianco a muovere)
+
+    viene aggiornato lo stato della damiera, altrimenti viene visualizzato un messaggio di errore e l'app si predispone a ricevere un nuovo comando.
+
+- ### [Spostare una pedina con damatura](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/30)
+
+    L'utente può spostare una pedina con damatura inserendo il comando in notazione algebrica.
+
+    **Criteri di accettazione**
+
+    A partita in corso di gioco, l'app deve accettare mosse di spostamento semplice di pedina in notazione algebrica che terminano con la damatura.
+        
+    Lo spostamento con damatura deve rispettare le [regole del gioco](http://www.fid.it/regolamenti/capo1.htm) della dama italiana. 
+
+    All'immissione di una mossa valida come:
+    
+        Es. 6-3 oppure se c'è una presa 10x3
+
+    viene aggiornato lo stato della damiera, altrimenti viene visualizzato un messaggio di errore e l'app si predispone a ricevere un nuovo comando.
+
+- ### [Mostrare le prese](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/34)
+
+    L'utente può visualizzare le prese effettuate durante la partita tramite il comando `prese`.
+
+    **Criteri di accettazione**
+    
+    Al comando `prese` l'app mostra le prese del Bianco e del Nero con caratteri Unicode
+             
+        Es.
+            Bianco: ⛂ ⛂
+            Nero: ⛀ ⛀ ⛀ ⛀
+
+- ### [Mostrare le mosse giocate](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/36)
+
+    L'utente può visualizzare le mosse giocate (quindi riconosciute ed attuate dal programma), in modo da poter ripercorrere mentalmente la storia della partita giocata, tramite il comando `mosse`.
+
+    **Criteri di accettazione**
+
+    Al comando `mosse` l'app mostra la storia delle mosse con notazione algebrica
+    
+        Esempio:
+            B 21-18
+            N 10-14
+            B 24-20
+            N 14x21
+            ...
+
+    [Torna all'indice](##Indice)
+
+## Requisiti non funzionali
+#
+
+- ### **Portabilità**
+    Questa applicazione utilizza alcuni simboli in codifica di unicode ed è necessario utilizzare uno dei seguenti terminali che supportano la codifica UTF-8:
+    - terminale di Linux
+    - teminale di MacOS
+    - Windows Terminal
+    - Git Bash (in questo caso il comando Docker ha come prefisso winpty: `winpty docker -it ...`)
+
+- ### **Manutenibilità**
+    Questo requisito non funzionale è garantito dalla _tassonomia **ECB**_ , che permette di avere un software modulare, su cui sarà più facile effettuare eventuali modifiche.
+
+    Inoltre, un futuro intervento all'interno del codice sarà facilitato dalla presenza della documentazione generata da _Javadoc_.
+
+- ### **Affidabilità**
+    Questo requisito non funzionale è garantito dalla presenza di eccezioni che vengono lanciate e gestite all'interno dell'applicazioni. Inoltre, ogni qualvolta si verifica una situazione non valida viene stampato a video un messaggio con una descrizione significativa.
+
+- ### **Usabilità**
+    Questo requisito non funzionale è garantito dalla presenza di due interfacce che contengono i comandi validi nel caso in cui la partita sia iniziata o meno.
+
+- ### **Scalabiltà**
+    Questo requisito non funzionale è garantito dalla possibilità di aggiungere nuove funzionalità (come ad esempio lo spostamento della dama) senza intervenire sui metodi già realizzati.
+
+- ### **Efficienza**
+    Questo requisito non funzionale è garantito dalla capacità del sistema di rispondere alla richiesta dell'utente in un tempo inferiore ai 3 secondi.
 # System Design
 
 ## Stile architetturale adottato
