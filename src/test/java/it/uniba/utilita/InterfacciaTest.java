@@ -58,6 +58,7 @@ public class InterfacciaTest {
                 + "+---+----------------------------------+\n"
                 + "|   |              COMANDI             | \n"
                 + "+---+----------------------------------+\n"
+                + "| - | help                             |\n"
                 + "| - | abbandona                        |\n"
                 + "| - | esci                             |\n"
                 + "| - | numeri                           |\n"
@@ -83,6 +84,7 @@ public class InterfacciaTest {
                 + "+---+----------------------------------+\n"
                 + "|   |              COMANDI             |\n"
                 + "+---+----------------------------------+\n"
+                + "| - | help                             |\n"
                 + "| - | gioca                            |\n"
                 + "| - | abbandona                        |\n"
                 + "| - | esci                             |\n"
@@ -182,6 +184,7 @@ public class InterfacciaTest {
                 "+---+----------------------------------+\n" +
                 "|   |              COMANDI             |\n" +
                 "+---+----------------------------------+\n" +
+                "| - | help                             |\n" +
                 "| - | gioca                            |\n" +
                 "| - | abbandona                        |\n" +
                 "| - | esci                             |\n" +
@@ -214,6 +217,7 @@ public class InterfacciaTest {
                 "+---+----------------------------------+\n" +
                 "|   |              COMANDI             |\n" +
                 "+---+----------------------------------+\n" +
+                "| - | help                             |\n" +
                 "| - | gioca                            |\n" +
                 "| - | abbandona                        |\n" +
                 "| - | esci                             |\n" +
@@ -244,6 +248,7 @@ public class InterfacciaTest {
                 "+---+----------------------------------+\n" +
                 "|   |              COMANDI             |\n" +
                 "+---+----------------------------------+\n" +
+                "| - | help                             |\n" +
                 "| - | gioca                            |\n" +
                 "| - | abbandona                        |\n" +
                 "| - | esci                             |\n" +
@@ -342,6 +347,7 @@ public class InterfacciaTest {
                 "+---+----------------------------------+\n" +
                 "|   |              COMANDI             |\n" +
                 "+---+----------------------------------+\n" +
+                "| - | help                             |\n" +
                 "| - | gioca                            |\n" +
                 "| - | abbandona                        |\n" +
                 "| - | esci                             |\n" +
