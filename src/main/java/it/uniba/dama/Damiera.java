@@ -280,7 +280,7 @@ public final class Damiera {
         Casella casellaDue = new Casella();
         Casella casellaTre = ricercaCasella(terzaPosizione);
 
-        //Il giocatore nero effettua la presa verso destra o sinistra
+        //Verifica che la pedina del giocatore nero effettui la presa verso destra o sinistra
         if (giocatore.getColore().equals("nero")
                 && casellaUno.getPedina().getColore().equals(giocatore.getColore())) {
             if (casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() + 2)) {
@@ -289,7 +289,7 @@ public final class Damiera {
                 casellaDue = damiera[casellaUno.getCoordinata().getX() + 1][casellaUno.getCoordinata().getY() - 1];
             }
         }
-        //Il giocatore bianco effettua la presa verso sinistra o destra
+        //Verifica che la pedina del giocatore bianco effettui la presa verso sinistra o destra
         if (giocatore.getColore().equals("bianco")
                 && casellaUno.getPedina().getColore().equals(giocatore.getColore())) {
             if (casellaTre.getCoordinata().getY() == (casellaUno.getCoordinata().getY() - 2)) {
@@ -311,8 +311,6 @@ public final class Damiera {
                         if (casellaDue.getOccupato()) {
                             if (!casellaDue.getPedina().getColore().equals(giocatore.getColore())) {
                                 casellaDue.setOccupato(false);
-                                //Cancellare anche simbolo e colore?
-                                //Da inserire funzione che aggiorna il numero di pedine prese
                                 casellaUno.setOccupato(false);
                                 casellaTre.setPedina(casellaUno.getPedina());
                                 casellaTre.setOccupato(true);
