@@ -234,7 +234,8 @@ public final class Interfaccia {
         String comando = inputTastiera.nextLine();
         return comando;
     }
-
+    //acquisire comando e stampaMessaggio vengono utilizzati in "esci", perchè è un metodo statico,
+    //e non può utilizzare metodi di istanza
     /**
      * Metodo che permette di stampare un messaggio.
      *
@@ -254,5 +255,4 @@ public final class Interfaccia {
         String comando = inputTastiera.nextLine();
         return comando;
     }
-
 }
