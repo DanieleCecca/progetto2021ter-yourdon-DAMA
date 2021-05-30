@@ -18,8 +18,8 @@
     - [Diagrammi delle classi e diagrammi di sequenza](##Diagrammi-delle-classi-e-diagrammi-di-sequenza)
     - [Design pattern utilizzati](##Design-pattern-utilizzati)
     - [Commenti OO Design](##Commenti-OO-Design)
-6. Riepilogo dei Test
-    - Tabella riassuntiva di Coveralls
+6. [Riepilogo dei Test](#Riepilogo-dei-Test)
+    - [Tabelle riassuntive](##Tabella-riassuntive)
 7. [Manuale utente](#Manuale-Utente)
 8. Processo di sviluppo e organizzazione del lavoro
 9. Analisi retrospettiva
@@ -275,6 +275,79 @@ Abbiamo deciso di adottare lo stile architetturale **Model-View-Controller** cos
 - Le classi Control possono comunicare con tutte le classi eccetto gli attori.
 <br><br>
 
+# OO Design
+
+## Diagrammi delle classi e diagrammi di sequenza
+Diagramma delle classi con prospettiva software
+
+<center><img src = "./drawings/DiagrammaDelleClassi.PNG" alt = "schermata iniziale"></center>
+<br><br>
+
+Diagramma di sequenza della user story `gioca`
+
+<center><img src = "./drawings/DiagrammaDiSequenzaGioca.PNG" alt = "schermata iniziale"></center>
+<br><br>
+
+Diagramma di sequenza della user story `damiera`
+
+<center><img src = "./drawings/DiagrammaDiSequenzaDamiera.PNG" alt = "schermata iniziale"></center>
+<br><br>
+
+Diagramma di sequenza della user story `numeri`
+
+<center><img src = "./drawings/DiagrammaDiSequenzaNumeri.PNG" alt = "schermata iniziale"></center>
+<br><br>
+
+Diagramma di sequenza della user story `spostamento semplice`
+
+<center><img src = "./drawings/DiagrammaDiSequenzaSpostamentoSemplice.PNG" alt = "schermata iniziale"></center>
+<br><br>
+
+Diagramma di sequenza della user story `presa semplice`
+
+<center><img src = "./drawings/DiagrammaDiSequenzaPresaSemplice.PNG" alt = "schermata iniziale"></center>
+<br><br>
+
+## Design Pattern Utilizzati
+Per quanto riguarda i design pattern, abbiamo deciso di implementare il design pattern **Singleton** per la classe Interfaccia, in quanto non è necessario avere più di una istanza delle classe Interfaccia.
+
+
+## Commenti OO Design
+Il diagramma delle classi con prospettiva software e i diagrammi di sequenza sono stati creati in modalità *Reverse engineering*.
+<br>
+Abbiamo anche pensato di implementare il design pattern **Prototype** per la classe Casella, in quanto il Prototype Pattern si utilizza solitamente quando si ha necessità di istanziare numerosi oggetti di una classe che differiscono leggermente tra loro. Nel nostro caso gli oggetti della classe Casella sarebbero potuti essere istanziati in uno dei seguenti modi:
+- Casella vuota
+- Casella con pedina bianca
+- Casella con pedina nera
+- Casella con dama bianca
+- Casella con dama nera
+
+Abbiamo deciso tuttavia di non utilizzare il design pattern Prototype perchè avremmo aumentato notevolmente la complessità dell'applicazione dando luogo all'over-engineering.
+Avremmo quindi dovuto ristrutturare l'architettura dell'applicazione avendo risorse temporali limitate.
+
+[Torna all'indice](##Indice)
+<br><br>
+
+#Riepilogo dei Test
+##Tabelle riassuntive
+- Tabella riassuntiva del coverage generata da JaCoCo:
+<center><img src = "../res/img/relazione-tecnica-finale/Jacoco.PNG" alt = "Jacoco"></center>
+<br>
+- Il report sul numero di test eseguiti in totale:
+<center><img src = "../res/img/relazione-tecnica-finale/TestSummary.PNG" alt = "Summary Test"></center>
+<br>
+- Report Coveralls
+<center><img src = "../res/img/relazione-tecnica-finale/CoverAlls.PNG" alt = "CoverAlls"></center>
+<br>
+<center><img src = "../res/img/relazione-tecnica-finale/List.PNG" alt = "List"></center>
+<br>
+
+Non è stato possibile raggiungere il 100% di coverage in qaunto le righe di codice non coperte richiedevano 
+input multipli da parte dell'utente.
+
+[Torna all'indice](##Indice)
+<br><br>
+
 # Manuale Utente
 
 Per avviare l'applicazione, dopo aver avviato Docker desktop è necessario eseguire i seguenti comandi:
@@ -334,53 +407,5 @@ Per poter eseguire una mossa bisogna inserire i comandi in notazione algebrica:
 
 Nel momento in cui si cerca di eseguire una mossa non valida vengono mostrati dei messaggi di errore con una descrizione diversa a seconda dell'errore commesso.
 
-# OO Design
-
-## Diagrammi delle classi e diagrammi di sequenza
-Diagramma delle classi con prospettiva software
-
-<center><img src = "./drawings/DiagrammaDelleClassi.PNG" alt = "schermata iniziale"></center>
+[Torna all'indice](##Indice)
 <br><br>
-
-Diagramma di sequenza della user story `gioca` 
-
-<center><img src = "./drawings/DiagrammaDiSequenzaGioca.PNG" alt = "schermata iniziale"></center>
-<br><br>
-
-Diagramma di sequenza della user story `damiera` 
-
-<center><img src = "./drawings/DiagrammaDiSequenzaDamiera.PNG" alt = "schermata iniziale"></center>
-<br><br>
-
-Diagramma di sequenza della user story `numeri` 
-
-<center><img src = "./drawings/DiagrammaDiSequenzaNumeri.PNG" alt = "schermata iniziale"></center>
-<br><br>
-
-Diagramma di sequenza della user story `spostamento semplice` 
-
-<center><img src = "./drawings/DiagrammaDiSequenzaSpostamentoSemplice.PNG" alt = "schermata iniziale"></center>
-<br><br>
-
-Diagramma di sequenza della user story `presa semplice` 
-
-<center><img src = "./drawings/DiagrammaDiSequenzaPresaSemplice.PNG" alt = "schermata iniziale"></center>
-<br><br>
-
-## Design Pattern Utilizzati
-Per quanto riguarda i design pattern, abbiamo deciso di implementare il design pattern **Singleton** per la classe Interfaccia, in quanto non è necessario avere più di una istanza delle classe Interfaccia.
-
-
-## Commenti OO Design
-Il diagramma delle classi con prospettiva software e i diagrammi di sequenza sono stati creati in modalità *Reverse engineering*.
-<br>
-Abbiamo anche pensato di implementare il design pattern **Prototype** per la classe Casella, in quanto il Prototype Pattern si utilizza solitamente quando si ha necessità di istanziare numerosi oggetti di una classe che differiscono leggermente tra loro. Nel nostro caso gli oggetti della classe Casella sarebbero potuti essere istanziati in uno dei seguenti modi:
-- Casella vuota
-- Casella con pedina bianca
-- Casella con pedina nera
-- Casella con dama bianca
-- Casella con dama nera
-
-Abbiamo deciso tuttavia di non utilizzare il design pattern Prototype perchè avremmo aumentato notevolmente la complessità dell'applicazione dando luogo all'over-engineering.
-Avremmo quindi dovuto ristrutturare l'architettura dell'applicazione avendo risorse temporali limitate.
- 
