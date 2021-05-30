@@ -22,10 +22,10 @@
     - [Tabelle riassuntive](##Tabelle-riassuntive)
 7. [Manuale utente](#Manuale-Utente)
 8. [Processo di sviluppo e organizzazione del lavoro](#Processo-di-sviluppo-e-organizzazione-del-lavoro)
-9. Analisi retrospettiva
-    - Soddisfazioni 
-    - Insoddisfazioni
-    - Cosa ci ha fatto impazzire
+9. [Analisi retrospettiva](#Analisi-retrospettiva)
+    - [Soddisfazioni](##Soddisfazioni)
+    - [Insoddisfazioni](##Insoddisfazioni)
+    - [Cosa ci ha fatto impazzire](##Cosa-ci-ha-fatto-impazzire)
 
 # Introduzione
 Dama-Yourdon è un'applicazione, con interfaccia a linea di comando, che permette a due giocatori di sfidarsi localmente 
@@ -280,32 +280,32 @@ Abbiamo deciso di adottare lo stile architetturale **Model-View-Controller** cos
 ## Diagrammi delle classi e diagrammi di sequenza
 Diagramma delle classi con prospettiva software
 
-<center><img src = "./drawings/DiagrammaDelleClassi.PNG" alt = "schermata iniziale"></center>
+<center><img src = "./drawings/DiagrammaDelleClassi.PNG" alt = "Diagramma delle classi"></center>
 <br><br>
 
 Diagramma di sequenza della user story `gioca`
 
-<center><img src = "./drawings/DiagrammaDiSequenzaGioca.PNG" alt = "schermata iniziale"></center>
+<center><img src = "./drawings/DiagrammaDiSequenzaGioca.PNG" alt = "Diagramma Di Sequenza Gioca"></center>
 <br><br>
 
 Diagramma di sequenza della user story `damiera`
 
-<center><img src = "./drawings/DiagrammaDiSequenzaDamiera.PNG" alt = "schermata iniziale"></center>
+<center><img src = "./drawings/DiagrammaDiSequenzaDamiera.PNG" alt = "Diagramma Di Sequenza Damiera"></center>
 <br><br>
 
 Diagramma di sequenza della user story `numeri`
 
-<center><img src = "./drawings/DiagrammaDiSequenzaNumeri.PNG" alt = "schermata iniziale"></center>
+<center><img src = "./drawings/DiagrammaDiSequenzaNumeri.PNG" alt = "Diagramma Di Sequenza Numeri"></center>
 <br><br>
 
 Diagramma di sequenza della user story `spostamento semplice`
 
-<center><img src = "./drawings/DiagrammaDiSequenzaSpostamentoSemplice.PNG" alt = "schermata iniziale"></center>
+<center><img src = "./drawings/DiagrammaDiSequenzaSpostamentoSemplice.PNG" alt = "Diagramma Di Sequenza Spostamento Semplice"></center>
 <br><br>
 
 Diagramma di sequenza della user story `presa semplice`
 
-<center><img src = "./drawings/DiagrammaDiSequenzaPresaSemplice.PNG" alt = "schermata iniziale"></center>
+<center><img src = "./drawings/DiagrammaDiSequenzaPresaSemplice.PNG" alt = "Diagramma Di Sequenza Presa Semplice"></center>
 <br><br>
 
 ## Design Pattern Utilizzati
@@ -333,12 +333,15 @@ Avremmo quindi dovuto ristrutturare l'architettura dell'applicazione avendo riso
 - Tabella riassuntiva del coverage generata da JaCoCo:
 <center><img src = "../res/img/relazione-tecnica-finale/Jacoco.PNG" alt = "Jacoco"></center>
 <br>
+
 - Il report sul numero di test eseguiti in totale:
 <center><img src = "../res/img/relazione-tecnica-finale/TestSummary.PNG" alt = "Summary Test"></center>
 <br>
+
 - Report Coveralls
 <center><img src = "../res/img/relazione-tecnica-finale/CoverAlls.PNG" alt = "CoverAlls"></center>
 <br>
+
 <center><img src = "../res/img/relazione-tecnica-finale/List.PNG" alt = "List"></center>
 <br>
 
@@ -440,7 +443,7 @@ ogni issue è stato assegnato ad uno o più membri del team, a seconda della com
 
 ## Pair programming e revisione
 
-Come anticipato nel paragrafo precedente per task abbastanza complesse abbiamo adotato il pair programming. Nel caso in cui uno dei componenti del gruppo terminava le proprie tasks cercava di aiutare chi non avesse ancora completato il proprio compito. Il tutto è stato facilitato dai canili vocali separati che hanno permesso di lavorare insieme senza creare confusione. 
+Come anticipato nel paragrafo precedente per task abbastanza complesse abbiamo adottato il pair programming, usufruendo anche del servizio "Code With Me" messo a dispozione dall'ambiente di sviluppo IntelliJ. Nel caso in cui uno dei componenti del gruppo terminava le proprie tasks cercava di aiutare chi non avesse ancora completato il proprio compito. Il tutto è stato facilitato dai canili vocali separati che hanno permesso di lavorare insieme senza creare confusione. 
 
 Per quanto riguarda le revisioni, queste sono state discusse tramite la condivisione dello schermo nel momento in cui veniva creata la pull request.
 
@@ -459,3 +462,26 @@ E' stata creata la board product roadmap il cui scopo è quello di mostrare il r
 
 [Torna all'indice](##Indice)
 <br><br>
+
+# Analisi Retrospettiva
+## **Soddisfazioni**
+
+Sicuramente è stato stimolante realizzare, per la prima volta, un progetto simulando quello che sarà un ipotetico futuro lavorativo. Per poter simulare al meglio un ambiente lavorativo abbiamo deciso di stabilire delle regole. Ogni qualvolta un membro del team non avesse rispettato una regola, nel canale "warnings" del server Discord è stato aggiunto un warning. Al termine del progetto il membro del team con il maggior numero di warnings dovrà offrire una birra a tutti.
+
+L'utilizzo di Git e GitHub ha facilitato l'intero processo di sviluppo, rendendo più leggero il lavoro da svolgere. 
+
+Abbiamo terminato il lavoro sempre con abbastanza anticipo, avendo così più tempo per poter revisionare il lavoro svolto.
+
+## **Insoddisfazioni**
+
+L'aver perso un punto di valutazione allo Sprint 1 per non aver inserito, per una svista del team, l'`if` che permettesse di richiamare il comando `help` in partita.
+
+Pur essendo il gioco della Dama uno dei primi progetti per il team, è risultato abbastanza limitante come progetto, in quanto il gioco della Dama ha di per sè una complessità non molto elevata. Inoltre, il team si sarebbe aspettato di completare le user story per poter portare a termine la partita.
+
+## **Cosa ci ha fatto impazzire**
+
+Raggiungere la copertura del 90% non è certo risultato un compito facile, essendo il gioco della Dama un gioco che richiede numerosi input da parte dell'utente. Nonostante questo ci sentiamo soddisfatti del risultato raggiunto.
+
+Sebbene StarUML sia un software più avanzato rispetto agli altri tool presentati a lezione, proprio per la sua complessità è stato ostico sia trovare i modelli corretti (per es: l'attore) all'interno del software sia realizzare in genere i diagrammi di sequenza. Unica pecca di StarUML è l'impossibilità di ridimensionare più di un modello, all'interno di un diagramma, contemporaneamente.
+
+[Torna all'indice](##Indice)
