@@ -1,16 +1,22 @@
 package it.uniba.utilita;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Classe che rappresenta i casi di test della classe Cronometro
+ */
 public class CronometroTest {
     private int tempoPrecedente = 0;
 
     //Test Cronometro
     @Test
     @DisplayName("1: Test assertTrue cronometro")
-    public void CronometroTest_1() {
+    public void cronometroTest1() {
         tempoPrecedente = 2;
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         assertTrue(cronometro.getSecondi() >= 0);
@@ -19,7 +25,7 @@ public class CronometroTest {
     //Test sul campo secondi
     @Test
     @DisplayName("2: Test assertNotNull getSecondi")
-    public void CronometroTest_2() {
+    public void cronometroTest2() {
         tempoPrecedente = 1;
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         assertEquals(1, cronometro.getSecondi());
@@ -27,23 +33,24 @@ public class CronometroTest {
 
     @Test
     @DisplayName("3: Test assertEquals getSecondi")
-    public void CronometroTest_3() {
+    public void cronometroTest3() {
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         assertEquals(cronometro.getSecondi(), tempoPrecedente);
     }
 
     @Test
     @DisplayName("4: Test assertEquals setSecondi")
-    public void CronometroTest_4() {
+    public void cronometroTest4() {
         tempoPrecedente = 1;
         Cronometro cronometro = new Cronometro(tempoPrecedente);
-        cronometro.setSecondi(5);
-        assertEquals(5, cronometro.getSecondi());
+        final int numero = 5;
+        cronometro.setSecondi(numero);
+        assertEquals(numero, cronometro.getSecondi());
     }
 
     @Test
     @DisplayName("5: Test assertTrue setSecondi")
-    public void CronometroTest_5() {
+    public void cronometroTest5() {
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         cronometro.setSecondi(tempoPrecedente);
         assertTrue(cronometro.getSecondi() >= 0);
@@ -51,7 +58,7 @@ public class CronometroTest {
 
     @Test
     @DisplayName("6: Test assertTrue setSecondi")
-    public void CronometroTest_6() {
+    public void cronometroTest6() {
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         cronometro.setSecondi(tempoPrecedente);
         assertTrue(cronometro.getSecondi() < Integer.MAX_VALUE);
@@ -59,14 +66,14 @@ public class CronometroTest {
 
     @Test
     @DisplayName("7: Test assertTrue getContinua")
-    public void CronometroTest_7() {
+    public void cronometroTest7() {
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         assertTrue(cronometro.getContinua());
     }
 
     @Test
     @DisplayName("8: Test assertFalse setContinua")
-    public void CronometroTest_8() {
+    public void cronometroTest8() {
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         cronometro.setContinua(false);
         assertFalse(cronometro.getContinua());
@@ -74,7 +81,7 @@ public class CronometroTest {
 
     @Test
     @DisplayName("9: Test assertTrue run")
-    public void CronometroTest_9() {
+    public void cronometroTest9() {
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         cronometro.setContinua(true);
         cronometro.start();
@@ -90,9 +97,10 @@ public class CronometroTest {
 
     @Test
     @DisplayName("10: Test assertEquals tempoTrascorso")
-    public void CronometroTest_10() {
-        Cronometro cronometro = new Cronometro(20);
-        int sec = 20;
+    public void cronometroTest10() {
+        final int numero = 20;
+        Cronometro cronometro = new Cronometro(numero);
+        int sec = numero;
         int min = 0;
         int h = 0;
         sec = (sec % Costanti.ORA_IN_SECONDI) % Costanti.MINUTO_IN_SECONDI;
@@ -102,7 +110,7 @@ public class CronometroTest {
 
     @Test
     @DisplayName("11: Test assertTrue setSecondi")
-    public void CronometroTest_11() {
+    public void cronometroTest11() {
         Cronometro cronometro = new Cronometro(tempoPrecedente);
         cronometro.setSecondi(Integer.MAX_VALUE);
         assertEquals(cronometro.getSecondi(), Integer.MAX_VALUE);
