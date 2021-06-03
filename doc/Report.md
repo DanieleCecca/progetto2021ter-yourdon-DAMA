@@ -295,7 +295,7 @@ Diagramma di sequenza della user story `damiera`
 
 Diagramma di sequenza della user story `numeri`
 
-<center><img src = "./drawings/DiagrammaDiSequenzaNumeri.PNG" alt = "Diagramma Di Sequenza Numeri"></center>
+<center><img src = "./drawings/DiagrammaDiSequenzaNumeri.png" alt = "Diagramma Di Sequenza Numeri"></center>
 <br><br>
 
 Diagramma di sequenza della user story `spostamento semplice`
