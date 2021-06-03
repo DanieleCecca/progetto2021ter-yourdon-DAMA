@@ -6,26 +6,26 @@
 2. [Modello di dominio](#Modello-di-dominio)
 3. [Requisiti specifici](#Requisiti-specifici)
     
-    3.1[Requisiti funzionali](##Requisiti-funzionali)
+    3.1[Requisiti funzionali](#Requisiti-funzionali)
     
-    3.2[Requisiti non funzionali](##Requisiti-non-funzionali)
+    3.2[Requisiti non funzionali](#Requisiti-non-funzionali)
     
 4. [System Design](#System-Design)
-    - [Stile architetturale adottato](##Stile-architetturale-adottato)
-    - [Diagramma dei package](##Diagramma-dei-package)
-    - [Commenti](##Commenti)
+    - [Stile architetturale adottato](#Stile-architetturale-adottato)
+    - [Diagramma dei package](#Diagramma-dei-package)
+    - [Commenti](#Commenti)
 5. [OO Design](#OO-Design)
-    - [Diagrammi delle classi e diagrammi di sequenza](##Diagrammi-delle-classi-e-diagrammi-di-sequenza)
-    - [Design pattern utilizzati](##Design-pattern-utilizzati)
-    - [Commenti OO Design](##Commenti-OO-Design)
+    - [Diagrammi delle classi e diagrammi di sequenza](#Diagrammi-delle-classi-e-diagrammi-di-sequenza)
+    - [Design pattern utilizzati](#Design-pattern-utilizzati)
+    - [Commenti OO Design](#Commenti-OO-Design)
 6. [Riepilogo dei Test](#Riepilogo-dei-Test)
-    - [Tabelle riassuntive](##Tabelle-riassuntive)
+    - [Tabelle riassuntive](#Tabelle-riassuntive)
 7. [Manuale utente](#Manuale-Utente)
 8. [Processo di sviluppo e organizzazione del lavoro](#Processo-di-sviluppo-e-organizzazione-del-lavoro)
 9. [Analisi retrospettiva](#Analisi-retrospettiva)
-    - [Soddisfazioni](##Soddisfazioni)
-    - [Insoddisfazioni](##Insoddisfazioni)
-    - [Cosa ci ha fatto impazzire](##Cosa-ci-ha-fatto-impazzire)
+    - [Soddisfazioni](#Soddisfazioni)
+    - [Insoddisfazioni](#Insoddisfazioni)
+    - [Cosa ci ha fatto impazzire](#Cosa-ci-ha-fatto-impazzire)
 
 # Introduzione
 Dama-Yourdon è un'applicazione, con interfaccia a linea di comando, che permette a due giocatori di sfidarsi localmente 
@@ -39,7 +39,7 @@ al gioco della dama. L'applicazione è stata realizzata per il corso di Ingegner
 
  L'esecuzione dell'applicazione avviene a linea di comando via **Docker**.
 
-[Torna all'indice](##Indice)
+[Torna all'indice](#Indice)
 <br><br>
 
 # Modello di dominio
@@ -48,15 +48,15 @@ tramite un diagramma delle classi con prospettiva software.
 
 <center><img src = "./drawings/ModelloDiDominio.PNG" alt = "modello di dominio"></center>
 
-[Torna all'indice](##Indice)
+[Torna all'indice](#Indice)
  <br><br>
 
 # Requisiti specifici
-Di seguito sono riportati i requisiti funzionali (in ordine cronologico rispetto alla creazione degli issue) seguiti dai requisiti non funzionali.
+Di seguito sono riportati i requisiti funzionali disposti in ordine cronologico rispetto alla creazione degli issue, seguiti dai requisiti non funzionali.
 
 ## Requisiti funzionali
 
-Di seguito sono riportati i requisiti funzionali:
+I requisiti funzionali sono i seguenti:
 - ### [Help](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/20)
 
     L'utente può visualizzare l'elenco dei comandi disponibili tramite il comando `help`.
@@ -64,7 +64,7 @@ Di seguito sono riportati i requisiti funzionali:
     **Criteri di accettazione**
 
     Eseguendo il comando `help` o invocando l'app con flag `--help` o `-h`
-    il risultato è una descrizione concisa, che normalmente appare all'avvio del programma, seguita dalla lista di comandi disponibili, uno per riga, come da esempio successivo:
+    il risultato è una descrizione concisa, che normalmente appare all'avvio del programma, seguita dalla lista di comandi disponibili, uno per riga, come dal successivo esempio:
 
     - `gioca`
     - `esci`
@@ -72,7 +72,7 @@ Di seguito sono riportati i requisiti funzionali:
 
 - ### [Iniziare nuova partita](https://github.com/softeng2021-inf-uniba/progetto2021ter-yourdon/issues/23)
 
-    L'utente può iniziare una partita tramite il comando `gioca`. Subito dopo sarà possibile inserire la prima mossa di gioco (in notazione algebrica) o inserire altri comandi, ad esempio il comando `damiera` (per mostrare la damiera).
+    L'utente può iniziare una partita tramite il comando `gioca`. Subito dopo sarà possibile inserire la prima mossa di gioco (in notazione algebrica) o inserire altri comandi; ad esempio il comando `damiera` (per mostrare la damiera).
 
     **Criteri di accettazione**
 
@@ -224,16 +224,16 @@ Di seguito sono riportati i requisiti funzionali:
             N 14x21
             ...
 
-    [Torna all'indice](##Indice)
+[Torna all'indice](#Indice)
 
 ## Requisiti non funzionali
 #
 
 - ### **Portabilità**
-    Questa applicazione utilizza alcuni simboli in codifica di unicode ed è necessario utilizzare uno dei seguenti terminali che supportano la codifica UTF-8:
+    Questa applicazione è supportata da qualsiasi terminale. Tuttavia, bisogna prestare attenzione che il terminale utilizzato supporti la codifica UTF-8, per poter visualizzare correttamente le pedine e le dame:
     - terminale di Linux
     - teminale di MacOS
-    - Windows Terminal
+    - Windows Terminal/Windows Powershell
     - Git Bash (in questo caso il comando Docker ha come prefisso winpty: `winpty docker -it ...`)
 
 - ### **Manutenibilità**
@@ -242,7 +242,7 @@ Di seguito sono riportati i requisiti funzionali:
     Inoltre, un futuro intervento all'interno del codice sarà facilitato dalla presenza della documentazione generata da _Javadoc_.
 
 - ### **Affidabilità**
-    Questo requisito non funzionale è garantito dalla presenza di eccezioni che vengono lanciate e gestite all'interno dell'applicazioni. Inoltre, ogni qualvolta si verifica una situazione non valida viene stampato a video un messaggio con una descrizione significativa.
+    Questo requisito non funzionale è garantito dalla presenza di eccezioni che vengono lanciate e gestite all'interno dell'applicazione. Inoltre, ogni qualvolta si verifica una situazione non valida viene stampato a video un messaggio con una descrizione significativa.
 
 - ### **Usabilità**
     Questo requisito non funzionale è garantito dalla presenza di due interfacce che contengono i comandi validi nel caso in cui la partita sia iniziata o meno.
@@ -265,7 +265,7 @@ Abbiamo realizzato il seguente diagramma dei package per esplicitare le dipenden
 
 <center><img src = "./drawings/DiagrammaDeiPackage.PNG" alt = "modello di dominio"></center>
 
-[Torna all'indice](##Indice)
+[Torna all'indice](#Indice)
  <br><br>
 
 ## Commenti
@@ -314,7 +314,8 @@ Per quanto riguarda i design pattern, abbiamo deciso di implementare il design p
 
 ## Commenti OO Design
 Il diagramma delle classi con prospettiva software e i diagrammi di sequenza sono stati creati in modalità *Reverse engineering*.
-<br>
+
+
 Abbiamo anche pensato di implementare il design pattern **Prototype** per la classe Casella, in quanto il Prototype Pattern si utilizza solitamente quando si ha necessità di istanziare numerosi oggetti di una classe che differiscono leggermente tra loro. Nel nostro caso gli oggetti della classe Casella sarebbero potuti essere istanziati in uno dei seguenti modi:
 - Casella vuota
 - Casella con pedina bianca
@@ -325,7 +326,7 @@ Abbiamo anche pensato di implementare il design pattern **Prototype** per la cla
 Abbiamo deciso tuttavia di non utilizzare il design pattern Prototype perchè avremmo aumentato notevolmente la complessità dell'applicazione dando luogo all'over-engineering.
 Avremmo quindi dovuto ristrutturare l'architettura dell'applicazione avendo risorse temporali limitate.
 
-[Torna all'indice](##Indice)
+[Torna all'indice](#Indice)
 <br><br>
 
 # Riepilogo dei Test
@@ -348,7 +349,7 @@ Avremmo quindi dovuto ristrutturare l'architettura dell'applicazione avendo riso
 Non è stato possibile raggiungere il 100% di coverage in quanto le righe di codice non coperte richiedevano 
 input multipli da parte dell'utente.
 
-[Torna all'indice](##Indice)
+[Torna all'indice](#Indice)
 <br><br>
 
 # Manuale Utente
@@ -360,9 +361,17 @@ Per avviare l'applicazione, dopo aver avviato Docker desktop è necessario esegu
 Questa applicazione utilizza alcuni simboli in codifica di unicode ed è necessario utilizzare uno dei seguenti terminali che supportano la codifica UTF-8:
 - terminale di Linux
 - teminale di MacOS
-- Windows Terminal
+- Windows Terminal/Windows Powershell
 - Git Bash (in questo caso il comando Docker ha come prefisso winpty:
 `winpty docker -it ...`)
+
+Per poter visualizzare in maniera corretta i caratteri unicode su Windows bisogna:
+    
+- impostare il terminale con la tabella codici scrivendo il comando " `chcp 65001` "
+- utilizzare uno dei seguenti Font:
+    - _"Ms Gothic"_
+    - _"NSimSun"_
+    - _"SimSun-ExtB"_
 
 Avviata l'applicazione si presenterà la seguente schermata:
 <center><img src = "../res/img/relazione-tecnica-finale/SchermataIniziale.PNG" alt = "schermata iniziale"></center>
@@ -410,7 +419,7 @@ Per poter eseguire una mossa bisogna inserire i comandi in notazione algebrica:
 
 Nel momento in cui si cerca di eseguire una mossa non valida vengono mostrati dei messaggi di errore con una descrizione diversa a seconda dell'errore commesso.
 
-[Torna all'indice](##Indice)
+[Torna all'indice](#Indice)
 <br><br>
 
 # Processo di sviluppo e organizzazione del lavoro
@@ -426,7 +435,8 @@ Durante tutto il processo di sviluppo abbiamo cercato di simulare al più un rea
 All'inizio di ogni giornata lavorativa è stato svolto uno scrum meeting nel quale sono stati ripartiti i vari compiti da portare a termine cercando di essere più equi possibili nella suddivisione e, inoltre, ogni componete era libero di esprimere le proprie perplessità e pensieri sul progetto.
 
 ## Piattaforma di comunicazione adottata
-Per gestire la comunicazione all'interno del team abbiamo adottato la piattaforma Discord che permette di creare dei server privati all'interno dei quali è possibile gestire canili testuali e vocali differenti a seconda delle esigenze. Nel nostro caso abbiamo realizzato quattro canali testuali :
+
+Per gestire la comunicazione all'interno del team abbiamo adottato la piattaforma Discord che permette di creare dei server privati all'interno dei quali è possibile gestire canali testuali e vocali differenti a seconda delle esigenze. Nel nostro caso abbiamo realizzato quattro canali testuali :
 - Generale
 - Note-risorse 
 - Warnings
@@ -441,9 +451,9 @@ Le varie attività sono state gestite seguendo il GitHub Flow:
 ogni issue è stato assegnato ad uno o più membri del team, a seconda della complessità dell'issue, che hanno lavorato su un branch per implementare cambiamenti nel software. Una volta completata la fase di sviluppo, il branch è stato pushato in remoto per permettere ad uno o più componenti del team di effettuare la fase di review ed in caso di review positiva è stato effettuato il merge sul master e il conseguente delete del branch.
 
 
-## Pair programming e revisione
+## Suddivisione e revisione
 
-Come anticipato nel paragrafo precedente per task abbastanza complesse abbiamo adottato il pair programming, usufruendo anche del servizio "Code With Me" messo a dispozione dall'ambiente di sviluppo IntelliJ. Nel caso in cui uno dei componenti del gruppo terminava le proprie tasks cercava di aiutare chi non avesse ancora completato il proprio compito. Il tutto è stato facilitato dai canili vocali separati che hanno permesso di lavorare insieme senza creare confusione. 
+Come anticipato nel paragrafo precedente per task abbastanza complesse abbiamo adottato il pair programming, usufruendo anche del servizio "Code With Me" messo a dispozione dall'ambiente di sviluppo IntelliJ. Nel caso in cui uno dei componenti del gruppo terminava le proprie tasks cercava di aiutare chi non avesse ancora completato il proprio compito. Il tutto è stato facilitato dai canali vocali separati che hanno permesso di lavorare insieme senza creare confusione. 
 
 Per quanto riguarda le revisioni, queste sono state discusse tramite la condivisione dello schermo nel momento in cui veniva creata la pull request.
 
@@ -460,7 +470,7 @@ All'interno della board, in stile _kamban_ fornita da GitHub sono stati inseriti
 E' stata creata la board product roadmap il cui scopo è quello di mostrare il rilascio del prodotto dal backlog ai vari sprint.
 
 
-[Torna all'indice](##Indice)
+[Torna all'indice](#Indice)
 <br><br>
 
 # Analisi Retrospettiva
@@ -474,7 +484,7 @@ Abbiamo terminato il lavoro sempre con abbastanza anticipo, avendo così più te
 
 ## **Insoddisfazioni**
 
-L'aver perso un punto di valutazione allo Sprint 1 per non aver inserito, per una svista del team, l'`if` che permettesse di richiamare il comando `help` in partita.
+Ci siamo rammaricati per aver perso un punto di valutazione allo Sprint 1 per non aver inserito, per una svista del team, l'`if` che permettesse di richiamare il comando `help` in partita.
 
 Pur essendo il gioco della Dama uno dei primi progetti per il team, è risultato abbastanza limitante come progetto, in quanto il gioco della Dama ha di per sè una complessità non molto elevata. Inoltre, il team si sarebbe aspettato di completare le user story per poter portare a termine la partita.
 
@@ -484,4 +494,4 @@ Raggiungere la copertura del 90% non è certo risultato un compito facile, essen
 
 Sebbene StarUML sia un software più avanzato rispetto agli altri tool presentati a lezione, proprio per la sua complessità è stato ostico sia trovare i modelli corretti (per es: l'attore) all'interno del software sia realizzare in genere i diagrammi di sequenza. Unica pecca di StarUML è l'impossibilità di ridimensionare più di un modello, all'interno di un diagramma, contemporaneamente.
 
-[Torna all'indice](##Indice)
+[Torna all'indice](#Indice)
