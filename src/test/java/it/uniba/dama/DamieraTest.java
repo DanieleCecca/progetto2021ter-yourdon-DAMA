@@ -40,7 +40,7 @@ public final class DamieraTest {
 
 
     @Test
-    @DisplayName("3: Test assertNotNull PopolaDamieraDamiera")
+    @DisplayName("3: Test assertNotNull popolaDamiera")
     public void damieraTest3() {
         Damiera damiera = new Damiera();
         damiera.popolaDamiera();
@@ -147,7 +147,7 @@ public final class DamieraTest {
     }
 
     @Test
-    @DisplayName("6: Test assertEquals RicercaCasella")
+    @DisplayName("6: Test assertEquals ricercaCasella")
     public void damieraTest6() {
         Damiera damiera = new Damiera();
 
@@ -160,7 +160,7 @@ public final class DamieraTest {
     }
 
     @Test
-    @DisplayName("7: Test assertEquals RicercaCasella")
+    @DisplayName("7: Test assertEquals ricercaCasella")
     public void damieraTest7() {
         Damiera damiera = new Damiera();
         final int numero = 200;
@@ -168,8 +168,7 @@ public final class DamieraTest {
 
     }
 
-    @ParameterizedTest
-    @DisplayName("8: Test assertTrue SpostamentoSemplice")
+    @ParameterizedTest(name = "{index}: {0} assertTrue spostamentoSemplice")
     @ValueSource(strings = {"25-21", "21-22", "21-18", "10-19", "9-13", "18-13"})
     public void damieraTest8(final String comando) {
         Giocatore bianco = new Giocatore("bianco");
@@ -185,8 +184,7 @@ public final class DamieraTest {
 
     }
 
-    @ParameterizedTest
-    @DisplayName("9: Test assertTrue PresaSemplice")
+    @ParameterizedTest(name = "{index}: {0} assertTrue presaSemplice")
     @ValueSource(strings = {"30x21", "26x17", "10x30", "23x1", "25-21", "10x30", "21-22", "21-18", "10-19", "9-13",
             "18-13", "18x9", "10-14", "25-21", "5-10", "4x11", "11-14", "22-19", "12-16", "19x10", "19x14", "23-20",
             "14x23"})
@@ -213,8 +211,7 @@ public final class DamieraTest {
         }
     }
 
-    @ParameterizedTest
-    @DisplayName("10: Test assertTrue PresaMultipla")
+    @ParameterizedTest(name = "{index}: {0} assertTrue presaMultipla")
     @ValueSource(strings = {"21-22", "21-18", "10-19", "9-13", "18-13", "18x9", "10-14", "25-21",
             "5-10", "21-17", "14-19", "23x14x7", "23x14x5"})
     public void damieraTest10(final String comando) {
@@ -247,8 +244,7 @@ public final class DamieraTest {
         }
     }
 
-    @ParameterizedTest
-    @DisplayName("11: Test assertTrue PresaMultipla")
+    @ParameterizedTest(name = "{index}: {0} assertTrue presaMultipla con damatura")
     @ValueSource(strings = {"23-19", "10-14", "28-23", "9-13", "23-20", "13-17", "32-28", "14x23x32"})
     public void damieraTest11(final String comando) {
         Partita partita = new Partita();
