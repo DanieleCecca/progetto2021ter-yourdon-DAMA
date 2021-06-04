@@ -44,7 +44,7 @@ al gioco della dama. L'applicazione è stata realizzata per il corso di Ingegner
 
 # Modello di dominio
 Abbiamo realizzato il seguente modello di dominio per esplicitare i concetti fondamentali della nostra applicazione 
-tramite un diagramma delle classi con prospettiva software.
+tramite un diagramma delle classi con prospettiva concettuale.
 
 <center><img src = "./drawings/ModelloDiDominio.PNG" alt = "modello di dominio"></center>
 
@@ -278,7 +278,7 @@ Abbiamo deciso di adottare lo stile architetturale **Model-View-Controller** cos
 # OO Design
 
 ## Diagrammi delle classi e diagrammi di sequenza
-Diagramma delle classi con prospettiva software
+Diagramma delle classi completo con prospettiva software
 
 <center><img src = "./drawings/DiagrammaDelleClassi.PNG" alt = "Diagramma delle classi"></center>
 <br><br>
